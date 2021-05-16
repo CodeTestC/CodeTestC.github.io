@@ -1,64 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Java基础之数组</title>
-    <url>/2021/05/16/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%95%B0%E7%BB%84/</url>
-    <content><![CDATA[<h1 id="6、数组"><a href="#6、数组" class="headerlink" title="6、数组"></a>6、数组</h1><h2 id="6-1、数组的概述"><a href="#6-1、数组的概述" class="headerlink" title="6.1、数组的概述"></a>6.1、数组的概述</h2><p>数组(Array)：</p>
-<ul>
-<li><p>是多个<strong>相同类型数据</strong>按<strong>一定顺序排列</strong>的集合，并使用<strong>一个名字命名</strong>，并通过<strong>编号</strong>的方式对这些数据进行统一管理。<br>数组的常见概念：</p>
-</li>
-<li><p>数组名</p>
-</li>
-<li><p>下标(或索引)</p>
-</li>
-<li><p>元素</p>
-</li>
-<li><p>数组的长度：元素的个数</p>
-</li>
-</ul>
-<p>数组的特点：</p>
-<ul>
-<li>数组是有序排列的</li>
-<li>数组本身是<strong>引用数据类型</strong>，而数组中的元素可以是<strong>任何数据类型</strong>，包括基本数据类型和引用数据类型。</li>
-<li>创建数组对象会在内存中开辟一整块<strong>连续的空间</strong>，而数组名中引用的是这块连续空间的首地址</li>
-<li>数组的<strong>长度一旦确定，就不能修改。</strong></li>
-</ul>
-<p>我们可以直接通过下标（或索引）的方式调用指定位置的元素，速度很快。</p>
-<p>数组的分类：</p>
-<ul>
-<li><p>按照维度：一维数组、二维数组、三维数组、……</p>
-</li>
-<li><p>按照元素的数据类型分：</p>
-<ul>
-<li>基本数据类型元素的数组</li>
-<li>引用数据类型元素的数据（即对象数组）<h2 id="6-2、一维数组的使用"><a href="#6-2、一维数组的使用" class="headerlink" title="6.2、一维数组的使用"></a>6.2、一维数组的使用</h2></li>
-</ul>
-</li>
-<li><p>一维数组的声明和初始化</p>
-</li>
-<li><p>如何调用数组的指定位置的元素</p>
-</li>
-<li><p>如何获取数组的长度</p>
-</li>
-<li><p>如何遍历数组</p>
-</li>
-<li><p>数组元素的默认初始化值</p>
-</li>
-<li><p>数组的内存解析</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<span class="hljs-comment">//一维数组的声明和初始化</span><br>		<span class="hljs-keyword">int</span> num;<span class="hljs-comment">//声明</span><br>		num = <span class="hljs-number">10</span>;<span class="hljs-comment">//初始化</span><br>		<br>		<span class="hljs-keyword">int</span> id = <span class="hljs-number">1001</span>;<span class="hljs-comment">//声明和初始化</span><br>		<br>		<br>		<span class="hljs-keyword">int</span>[] ids;<span class="hljs-comment">//声明	</span><br>		<span class="hljs-comment">//静态初始化:</span><br>		<span class="hljs-comment">//数组的初始化和数组元素的赋值操作同时进行</span><br>		ids = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[] &#123;<span class="hljs-number">1001</span>,<span class="hljs-number">1002</span>,<span class="hljs-number">1003</span>&#125;;<br>		<span class="hljs-comment">//动态初始化:</span><br>		<span class="hljs-comment">//数组的初始化和数组元素的赋值操作分开进行</span><br>		String[] names = <span class="hljs-keyword">new</span> String[<span class="hljs-number">6</span>];<br>	<br>	&#125;<br></code></pre></td></tr></table></figure>
-
-<p>总结：</p>
-]]></content>
-      <categories>
-        <category>Java基础</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue</title>
     <url>/2021/05/14/Vue/</url>
     <content><![CDATA[<h1 id="Vue学习篇"><a href="#Vue学习篇" class="headerlink" title="Vue学习篇"></a>Vue学习篇</h1><h2 id="1、前端梳理"><a href="#1、前端梳理" class="headerlink" title="1、前端梳理"></a>1、前端梳理</h2><p>什么是Vue?</p>
@@ -257,6 +199,64 @@
       </categories>
       <tags>
         <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java基础之数组</title>
+    <url>/2021/05/16/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<h1 id="6、数组"><a href="#6、数组" class="headerlink" title="6、数组"></a>6、数组</h1><h2 id="6-1、数组的概述"><a href="#6-1、数组的概述" class="headerlink" title="6.1、数组的概述"></a>6.1、数组的概述</h2><p>数组(Array)：</p>
+<ul>
+<li><p>是多个<strong>相同类型数据</strong>按<strong>一定顺序排列</strong>的集合，并使用<strong>一个名字命名</strong>，并通过<strong>编号</strong>的方式对这些数据进行统一管理。<br>数组的常见概念：</p>
+</li>
+<li><p>数组名</p>
+</li>
+<li><p>下标(或索引)</p>
+</li>
+<li><p>元素</p>
+</li>
+<li><p>数组的长度：元素的个数</p>
+</li>
+</ul>
+<p>数组的特点：</p>
+<ul>
+<li>数组是有序排列的</li>
+<li>数组本身是<strong>引用数据类型</strong>，而数组中的元素可以是<strong>任何数据类型</strong>，包括基本数据类型和引用数据类型。</li>
+<li>创建数组对象会在内存中开辟一整块<strong>连续的空间</strong>，而数组名中引用的是这块连续空间的首地址</li>
+<li>数组的<strong>长度一旦确定，就不能修改。</strong></li>
+</ul>
+<p>我们可以直接通过下标（或索引）的方式调用指定位置的元素，速度很快。</p>
+<p>数组的分类：</p>
+<ul>
+<li><p>按照维度：一维数组、二维数组、三维数组、……</p>
+</li>
+<li><p>按照元素的数据类型分：</p>
+<ul>
+<li>基本数据类型元素的数组</li>
+<li>引用数据类型元素的数据（即对象数组）<h2 id="6-2、一维数组的使用"><a href="#6-2、一维数组的使用" class="headerlink" title="6.2、一维数组的使用"></a>6.2、一维数组的使用</h2></li>
+</ul>
+</li>
+<li><p>一维数组的声明和初始化</p>
+</li>
+<li><p>如何调用数组的指定位置的元素</p>
+</li>
+<li><p>如何获取数组的长度</p>
+</li>
+<li><p>如何遍历数组</p>
+</li>
+<li><p>数组元素的默认初始化值</p>
+</li>
+<li><p>数组的内存解析</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<span class="hljs-comment">//一维数组的声明和初始化</span><br>		<span class="hljs-keyword">int</span> num;<span class="hljs-comment">//声明</span><br>		num = <span class="hljs-number">10</span>;<span class="hljs-comment">//初始化</span><br>		<br>		<span class="hljs-keyword">int</span> id = <span class="hljs-number">1001</span>;<span class="hljs-comment">//声明和初始化</span><br>		<br>		<br>		<span class="hljs-keyword">int</span>[] ids;<span class="hljs-comment">//声明	</span><br>		<span class="hljs-comment">//静态初始化:</span><br>		<span class="hljs-comment">//数组的初始化和数组元素的赋值操作同时进行</span><br>		ids = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[] &#123;<span class="hljs-number">1001</span>,<span class="hljs-number">1002</span>,<span class="hljs-number">1003</span>&#125;;<br>		<span class="hljs-comment">//动态初始化:</span><br>		<span class="hljs-comment">//数组的初始化和数组元素的赋值操作分开进行</span><br>		String[] names = <span class="hljs-keyword">new</span> String[<span class="hljs-number">6</span>];<br>	<br>	&#125;<br></code></pre></td></tr></table></figure>
+
+<p>总结：</p>
+]]></content>
+      <categories>
+        <category>Java基础</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
