@@ -1,0 +1,472 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue - 我的小时光</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="Vue学习篇1、前端梳理什么是Vue?
+
+Vue.js...">
+  <meta name="author" content="chen">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  
+  
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_r673sha78lq.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '[object Object]'
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://www.picbed.cn/images/2021/04/30/1a97c92362332d74f.png',
+        wechat: 'https://www.picbed.cn/images/2021/04/30/1cea1223e43f59565.png'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://www.picbed.cn/images/2021/04/30/mmqrcode1619760412850.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: 'search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">Vue</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="https://cn.vuejs.org/images/logo.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">Vue</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>May 14, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>2638</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h1 id="Vue学习篇"><a href="#Vue学习篇" class="headerlink" title="Vue学习篇"></a>Vue学习篇</h1><h2 id="1、前端梳理"><a href="#1、前端梳理" class="headerlink" title="1、前端梳理"></a>1、前端梳理</h2><p>什么是Vue?</p>
+<ul>
+<li>Vue.js 是一套构建用户界面的渐进式框架。</li>
+<li>Vue 只关注视图层， 采用自底向上增量开发的设计。</li>
+<li>Vue 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件</li>
+</ul>
+<p>Soc关注点分离（Separation of concerns，SOC）</p>
+<p>前端三要素：HTML+CSS+JS:<br>视图：给用户看，刷新后台给的数据<br>网络通信： axios<br>页面跳转： vue-router<br>状态管理： vuex<br>Vue-UI: icework    <a target="_blank" rel="noopener" href="https://ice.work/">https://ice.work/</a></p>
+<p>什么是CSS预处理器？</p>
+<p>CSS预处理器是用一种专门的编程语言，进行Web页面样式设计，然后再编译成正常的CSS文件，以供项目使用。<br>SCSS其语法完全兼容CSS3，并且继承了SCSS的强大功能。由于SCSS是CSS的扩展，因此所有在CSS中正常工作的代码也能在SCSS中正常工作。比CSS多出好多功能如变量、嵌套、混合(Mixin)、继承等。<br>发展至今，CSS预处理器的技术已经相当成熟，也涌现出了很多中不同的CSS预处理器语言。目前主流的有三种：Sass(Scss), Less, Stylus，用一种专门的编程语言，进行web页面样式设计，再通过编译器转化为正常的CSS文件，以供项目使用。</p>
+<p>常用的CSS预处理器：</p>
+<p>SASS 基于Ruby</p>
+<p>LESS 基于NodeJS（简单，建议使用）</p>
+<p>LESS中文网：<a target="_blank" rel="noopener" href="http://lesscss.cn/">http://lesscss.cn/</a></p>
+<p>JavaScript框架：</p>
+<p>主要的前端框架：</p>
+<p>Vue.js</p>
+<p>jQuery:<br>        简化了DOM操作，但是DOM操作太频繁，影 响前端性能，在前端眼里只是为了兼容IE6,7,8而使用它。</p>
+<p>Angular:<br>        MVC（模型视图控制器）搬到了前端</p>
+<p>view:<code> jsp&#123;&#123;&#125;&#125;</code><br>        DATA:<br>        mvvm:</p>
+<p>MVVM(异步通信为主): Model、View、ViewModel</p>
+<p>什么是MVVM：</p>
+<p>​    是一种软件架构设计模式。</p>
+<p>​        vm：数据双向绑定</p>
+<p>React：</p>
+<p>提出虚拟DOM：利用内存</p>
+<p>计算属性–&gt;Vue特色</p>
+<p>Vue:<br>集大成<br>渐进式JavaScript框架<br>支持MVVM+虚拟Dom</p>
+<p>Axios:<br>​前端通信框架<br>​Vue边界很明确，就是为了处理DOM，所以不具备通信能力，此时需要额外使用一个通信框架与服务器交互    </p>
+<p>也可以使用jQuery提供的AJAX通信功能。        </p>
+<p>UI框架：<br>​Ant-Design: 阿里巴巴出品<br>ElementUI iview ice:饿了么出品，基于Vue的UI框架</p>
+<p>Bootstrap: Twitter<br>AmazeUI: HTML跨屏前端框架</p>
+<p>JavaScript构建工具</p>
+<ul>
+<li><p>Babel:  JS编译工具，主要用于浏览器不支持ES新特性，比如用于编译TypeScript</p>
+</li>
+<li><p>WebPack: 模块打包器，主要用于打包，压缩，合并及按序加载</p>
+<p>webpack打包<br>let–&gt; var<br>TypeScript 微软标准</p>
+</li>
+</ul>
+<p>三端统一:</p>
+<p>混合开发        （Hybrid App）</p>
+<p>云打包： HBuild–&gt;HBuildX , DCloud出品：API Cloud</p>
+<p>本地打包： Cordova(前身是PhoneGap)</p>
+<p>微信小程序</p>
+<p>方便微信小程序UI开发的框架: WeUI</p>
+<p>后端技术：NodeJS</p>
+<p>Express: NodeJS框架</p>
+<p>Koa: Express简化版</p>
+<p>NPM： 项目综合管理工具，类似于Maven</p>
+<p>YARN:  NPM的替代方案，类似于Maven和Gradle的关系。</p>
+<p>Vue的UI库</p>
+<p>iView(移动端支持较多)</p>
+<p>iView 是一套基于 Vue.js 的开源 UI 组件库，主要服务于 PC 界面的中后台产品。</p>
+<ul>
+<li>高质量、功能丰富</li>
+<li>友好的 API ，自由灵活地使用空间</li>
+<li>细致、漂亮的 UI</li>
+<li>事无巨细的文档</li>
+<li>可自定义主题<ul>
+<li>主页：<a target="_blank" rel="noopener" href="https://iview.github.io/">https://iview.github.io/</a></li>
+</ul>
+</li>
+</ul>
+<p>ElementUI(桌面端支持较多)</p>
+<p>​    vue-element-admin</p>
+<p>​    <a target="_blank" rel="noopener" href="https://panjiachen.github.io/vue-element-admin-site/zh/">https://panjiachen.github.io/vue-element-admin-site/zh/</a></p>
+<p>ICE</p>
+<p>VantUI</p>
+<p>AtUI</p>
+<p>CubeUI</p>
+<p>混合开发</p>
+<p>Flutter</p>
+<p>​    谷歌的移动端UI框架</p>
+<p>Lonic</p>
+<p>微信小程序</p>
+<p>mpvue</p>
+<p>WeUI</p>
+<p>了解前后端分离的演变史</p>
+<p>​    后端为主的MVC时代</p>
+<p>​    基于AJAX带来的SPA时代</p>
+<p>​    </p>
+<p>​    大前端时代：后端：轻松</p>
+<p>前端为主的MV*时代</p>
+<p>MV*模式：</p>
+<p>​    MVC（同步通信为主）：Model、View、Controller</p>
+<p>​    MVP（异步通信为主）：Model、View、Presenter</p>
+<p>​    MVVM(异步通信为主): Model、View、ViewModel</p>
+<p>优点：</p>
+<p>​        前后端职责很清晰</p>
+<p>​    前端开发的复杂度可控</p>
+<p>​    部署相对独立</p>
+<p>缺点：</p>
+<p>​    代码不能复用</p>
+<p>全异步，对SEO不利</p>
+<p>性能并非最佳</p>
+<p>SPA不能满足所有需求，依旧存在大量的页面应用</p>
+<p>URL Design需要后端配合，前端无法完全掌控</p>
+<p>NodeJS带来的全栈模式</p>
+<p>挑战：</p>
+<p>​    需要前端对服务端编程有更进一步的认识，比如TCP/IP等网络知识的掌握</p>
+<p>NodeJS层与Java曾高效通信</p>
+<p>ViewModel能观察到数据的变化，并对视图对应的内容进行更新</p>
+<p>ViewModel能够监听到视图的变化，并能够通知数据发生变化</p>
+<p>Vue.js就是MVVM的实现者，他的核心就是实现了DOM监听与数据绑定</p>
+<p>IDEA: 插件</p>
+<h2 id="2、MVVM"><a href="#2、MVVM" class="headerlink" title="2、MVVM"></a>2、MVVM</h2><p>mvvm和MVC模式一样，主要目的是分离视图和模型</p>
+<p>低耦合</p>
+<p>可复用</p>
+<p>独立开发</p>
+<p>可测试</p>
+<p>ViewModel所封装出来的数据模型包括视图的状态和行为两部分，而Model层的数据模型是只包含状态的.</p>
+<p>视图状态和行为都封装在了ViewModel里，这样的封装使得ViewModel可以完整的去描述View层，由于实现双向绑定，ViewModel的内容会实时的展现在View层。</p>
+<p>完全解耦View层和Model层，这个解耦是至关重要的，前后端分离方案实施的重要一环。</p>
+
+      </section>
+      <section class="extra">
+        
+          <ul class="copyright">
+  
+    <li><strong>本文作者：</strong>chen</li>
+    <li><strong>本文链接：</strong><a href="http://example.com/2021/05/14/Vue/index.html" title="http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;05&#x2F;14&#x2F;Vue&#x2F;index.html">http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;05&#x2F;14&#x2F;Vue&#x2F;index.html</a></li>
+    <li><strong>版权声明：</strong>本博客所有文章均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" title="BY-NC-SA" target="_blank" rel="noopener">BY-NC-SA</a> 许可协议，转载请注明出处！</li>
+  
+</ul>
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://www.picbed.cn/images/2021/04/30/1a97c92362332d74f.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2021/05/16/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%95%B0%E7%BB%84/"><i class="iconfont iconleft"></i>Java基础之数组</a>
+    <a href="/2021/05/05/Java%E5%9F%BA%E7%A1%8002/">Java基础篇02<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue%E5%AD%A6%E4%B9%A0%E7%AF%87"><span class="toc-text">Vue学习篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%89%8D%E7%AB%AF%E6%A2%B3%E7%90%86"><span class="toc-text">1、前端梳理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81MVVM"><span class="toc-text">2、MVVM</span></a></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=858144715 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="https://github.com/CodeTestC "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:858144715@qq.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

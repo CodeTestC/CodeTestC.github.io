@@ -1,0 +1,1159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Java基础之数组</title>
+    <url>/2021/05/16/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<h1 id="6、数组"><a href="#6、数组" class="headerlink" title="6、数组"></a>6、数组</h1><h2 id="6-1、数组的概述"><a href="#6-1、数组的概述" class="headerlink" title="6.1、数组的概述"></a>6.1、数组的概述</h2><p>数组(Array)：</p>
+<ul>
+<li><p>是多个<strong>相同类型数据</strong>按<strong>一定顺序排列</strong>的集合，并使用<strong>一个名字命名</strong>，并通过<strong>编号</strong>的方式对这些数据进行统一管理。<br>数组的常见概念：</p>
+</li>
+<li><p>数组名</p>
+</li>
+<li><p>下标(或索引)</p>
+</li>
+<li><p>元素</p>
+</li>
+<li><p>数组的长度：元素的个数</p>
+</li>
+</ul>
+<p>数组的特点：</p>
+<ul>
+<li>数组是有序排列的</li>
+<li>数组本身是<strong>引用数据类型</strong>，而数组中的元素可以是<strong>任何数据类型</strong>，包括基本数据类型和引用数据类型。</li>
+<li>创建数组对象会在内存中开辟一整块<strong>连续的空间</strong>，而数组名中引用的是这块连续空间的首地址</li>
+<li>数组的<strong>长度一旦确定，就不能修改。</strong></li>
+</ul>
+<p>我们可以直接通过下标（或索引）的方式调用指定位置的元素，速度很快。</p>
+<p>数组的分类：</p>
+<ul>
+<li><p>按照维度：一维数组、二维数组、三维数组、……</p>
+</li>
+<li><p>按照元素的数据类型分：</p>
+<ul>
+<li>基本数据类型元素的数组</li>
+<li>引用数据类型元素的数据（即对象数组）<h2 id="6-2、一维数组的使用"><a href="#6-2、一维数组的使用" class="headerlink" title="6.2、一维数组的使用"></a>6.2、一维数组的使用</h2></li>
+</ul>
+</li>
+<li><p>一维数组的声明和初始化</p>
+</li>
+<li><p>如何调用数组的指定位置的元素</p>
+</li>
+<li><p>如何获取数组的长度</p>
+</li>
+<li><p>如何遍历数组</p>
+</li>
+<li><p>数组元素的默认初始化值</p>
+</li>
+<li><p>数组的内存解析</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<span class="hljs-comment">//一维数组的声明和初始化</span><br>		<span class="hljs-keyword">int</span> num;<span class="hljs-comment">//声明</span><br>		num = <span class="hljs-number">10</span>;<span class="hljs-comment">//初始化</span><br>		<br>		<span class="hljs-keyword">int</span> id = <span class="hljs-number">1001</span>;<span class="hljs-comment">//声明和初始化</span><br>		<br>		<br>		<span class="hljs-keyword">int</span>[] ids;<span class="hljs-comment">//声明	</span><br>		<span class="hljs-comment">//静态初始化:</span><br>		<span class="hljs-comment">//数组的初始化和数组元素的赋值操作同时进行</span><br>		ids = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[] &#123;<span class="hljs-number">1001</span>,<span class="hljs-number">1002</span>,<span class="hljs-number">1003</span>&#125;;<br>		<span class="hljs-comment">//动态初始化:</span><br>		<span class="hljs-comment">//数组的初始化和数组元素的赋值操作分开进行</span><br>		String[] names = <span class="hljs-keyword">new</span> String[<span class="hljs-number">6</span>];<br>	<br>	&#125;<br></code></pre></td></tr></table></figure>
+
+<p>总结：</p>
+]]></content>
+      <categories>
+        <category>Java基础</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue</title>
+    <url>/2021/05/14/Vue/</url>
+    <content><![CDATA[<h1 id="Vue学习篇"><a href="#Vue学习篇" class="headerlink" title="Vue学习篇"></a>Vue学习篇</h1><h2 id="1、前端梳理"><a href="#1、前端梳理" class="headerlink" title="1、前端梳理"></a>1、前端梳理</h2><p>什么是Vue?</p>
+<ul>
+<li>Vue.js 是一套构建用户界面的渐进式框架。</li>
+<li>Vue 只关注视图层， 采用自底向上增量开发的设计。</li>
+<li>Vue 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件</li>
+</ul>
+<p>Soc关注点分离（Separation of concerns，SOC）</p>
+<p>前端三要素：HTML+CSS+JS:<br>视图：给用户看，刷新后台给的数据<br>网络通信： axios<br>页面跳转： vue-router<br>状态管理： vuex<br>Vue-UI: icework    <a href="https://ice.work/">https://ice.work/</a></p>
+<p>什么是CSS预处理器？</p>
+<p>CSS预处理器是用一种专门的编程语言，进行Web页面样式设计，然后再编译成正常的CSS文件，以供项目使用。<br>SCSS其语法完全兼容CSS3，并且继承了SCSS的强大功能。由于SCSS是CSS的扩展，因此所有在CSS中正常工作的代码也能在SCSS中正常工作。比CSS多出好多功能如变量、嵌套、混合(Mixin)、继承等。<br>发展至今，CSS预处理器的技术已经相当成熟，也涌现出了很多中不同的CSS预处理器语言。目前主流的有三种：Sass(Scss), Less, Stylus，用一种专门的编程语言，进行web页面样式设计，再通过编译器转化为正常的CSS文件，以供项目使用。</p>
+<p>常用的CSS预处理器：</p>
+<p>SASS 基于Ruby</p>
+<p>LESS 基于NodeJS（简单，建议使用）</p>
+<p>LESS中文网：<a href="http://lesscss.cn/">http://lesscss.cn/</a></p>
+<p>JavaScript框架：</p>
+<p>主要的前端框架：</p>
+<p>Vue.js</p>
+<p>jQuery:<br>        简化了DOM操作，但是DOM操作太频繁，影 响前端性能，在前端眼里只是为了兼容IE6,7,8而使用它。</p>
+<p>Angular:<br>        MVC（模型视图控制器）搬到了前端</p>
+<p>view:<code> jsp&#123;&#123;&#125;&#125;</code><br>        DATA:<br>        mvvm:</p>
+<p>MVVM(异步通信为主): Model、View、ViewModel</p>
+<p>什么是MVVM：</p>
+<p>​    是一种软件架构设计模式。</p>
+<p>​        vm：数据双向绑定</p>
+<p>React：</p>
+<p>提出虚拟DOM：利用内存</p>
+<p>计算属性–&gt;Vue特色</p>
+<p>Vue:<br>集大成<br>渐进式JavaScript框架<br>支持MVVM+虚拟Dom</p>
+<p>Axios:<br>​前端通信框架<br>​Vue边界很明确，就是为了处理DOM，所以不具备通信能力，此时需要额外使用一个通信框架与服务器交互    </p>
+<p>也可以使用jQuery提供的AJAX通信功能。        </p>
+<p>UI框架：<br>​Ant-Design: 阿里巴巴出品<br>ElementUI iview ice:饿了么出品，基于Vue的UI框架</p>
+<p>Bootstrap: Twitter<br>AmazeUI: HTML跨屏前端框架</p>
+<p>JavaScript构建工具</p>
+<ul>
+<li><p>Babel:  JS编译工具，主要用于浏览器不支持ES新特性，比如用于编译TypeScript</p>
+</li>
+<li><p>WebPack: 模块打包器，主要用于打包，压缩，合并及按序加载</p>
+<p>webpack打包<br>let–&gt; var<br>TypeScript 微软标准</p>
+</li>
+</ul>
+<p>三端统一:</p>
+<p>混合开发        （Hybrid App）</p>
+<p>云打包： HBuild–&gt;HBuildX , DCloud出品：API Cloud</p>
+<p>本地打包： Cordova(前身是PhoneGap)</p>
+<p>微信小程序</p>
+<p>方便微信小程序UI开发的框架: WeUI</p>
+<p>后端技术：NodeJS</p>
+<p>Express: NodeJS框架</p>
+<p>Koa: Express简化版</p>
+<p>NPM： 项目综合管理工具，类似于Maven</p>
+<p>YARN:  NPM的替代方案，类似于Maven和Gradle的关系。</p>
+<p>Vue的UI库</p>
+<p>iView(移动端支持较多)</p>
+<p>iView 是一套基于 Vue.js 的开源 UI 组件库，主要服务于 PC 界面的中后台产品。</p>
+<ul>
+<li>高质量、功能丰富</li>
+<li>友好的 API ，自由灵活地使用空间</li>
+<li>细致、漂亮的 UI</li>
+<li>事无巨细的文档</li>
+<li>可自定义主题<ul>
+<li>主页：<a href="https://iview.github.io/">https://iview.github.io/</a></li>
+</ul>
+</li>
+</ul>
+<p>ElementUI(桌面端支持较多)</p>
+<p>​    vue-element-admin</p>
+<p>​    <a href="https://panjiachen.github.io/vue-element-admin-site/zh/">https://panjiachen.github.io/vue-element-admin-site/zh/</a></p>
+<p>ICE</p>
+<p>VantUI</p>
+<p>AtUI</p>
+<p>CubeUI</p>
+<p>混合开发</p>
+<p>Flutter</p>
+<p>​    谷歌的移动端UI框架</p>
+<p>Lonic</p>
+<p>微信小程序</p>
+<p>mpvue</p>
+<p>WeUI</p>
+<p>了解前后端分离的演变史</p>
+<p>​    后端为主的MVC时代</p>
+<p>​    基于AJAX带来的SPA时代</p>
+<p>​    </p>
+<p>​    大前端时代：后端：轻松</p>
+<p>前端为主的MV*时代</p>
+<p>MV*模式：</p>
+<p>​    MVC（同步通信为主）：Model、View、Controller</p>
+<p>​    MVP（异步通信为主）：Model、View、Presenter</p>
+<p>​    MVVM(异步通信为主): Model、View、ViewModel</p>
+<p>优点：</p>
+<p>​        前后端职责很清晰</p>
+<p>​    前端开发的复杂度可控</p>
+<p>​    部署相对独立</p>
+<p>缺点：</p>
+<p>​    代码不能复用</p>
+<p>全异步，对SEO不利</p>
+<p>性能并非最佳</p>
+<p>SPA不能满足所有需求，依旧存在大量的页面应用</p>
+<p>URL Design需要后端配合，前端无法完全掌控</p>
+<p>NodeJS带来的全栈模式</p>
+<p>挑战：</p>
+<p>​    需要前端对服务端编程有更进一步的认识，比如TCP/IP等网络知识的掌握</p>
+<p>NodeJS层与Java曾高效通信</p>
+<p>ViewModel能观察到数据的变化，并对视图对应的内容进行更新</p>
+<p>ViewModel能够监听到视图的变化，并能够通知数据发生变化</p>
+<p>Vue.js就是MVVM的实现者，他的核心就是实现了DOM监听与数据绑定</p>
+<p>IDEA: 插件</p>
+<h2 id="2、MVVM"><a href="#2、MVVM" class="headerlink" title="2、MVVM"></a>2、MVVM</h2><p>mvvm和MVC模式一样，主要目的是分离视图和模型</p>
+<p>低耦合</p>
+<p>可复用</p>
+<p>独立开发</p>
+<p>可测试</p>
+<p>ViewModel所封装出来的数据模型包括视图的状态和行为两部分，而Model层的数据模型是只包含状态的.</p>
+<p>视图状态和行为都封装在了ViewModel里，这样的封装使得ViewModel可以完整的去描述View层，由于实现双向绑定，ViewModel的内容会实时的展现在View层。</p>
+<p>完全解耦View层和Model层，这个解耦是至关重要的，前后端分离方案实施的重要一环。</p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>学习基础篇</title>
+    <url>/2021/04/29/%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h1 id="学习基础"><a href="#学习基础" class="headerlink" title="学习基础"></a>学习基础</h1><h2 id="1-1、计算机"><a href="#1-1、计算机" class="headerlink" title="1.1、计算机"></a>1.1、计算机</h2><p>包括硬件(hardware)和软件(software)两部分</p>
+<ul>
+<li>程序设计</li>
+<li>程序设计语言</li>
+</ul>
+<h2 id="1-2、IT三大定律"><a href="#1-2、IT三大定律" class="headerlink" title="1.2、IT三大定律"></a>1.2、IT三大定律</h2><p>摩尔定律 （每一美元能买到的电脑性能，将每隔18-24个月翻一倍以上）<br>安迪-比尔定律 （描述了硬件厂商和软件产商之间的关系，即比尔要拿走安迪所给的）<br>反摩尔定律（逼着所有的硬件设备公司必须赶上摩尔定律所规定的更新速度，而所有的硬件和设备生产厂活都是非常辛苦的）</p>
+<h2 id="1-3、计算机硬件介绍"><a href="#1-3、计算机硬件介绍" class="headerlink" title="1.3、计算机硬件介绍"></a>1.3、计算机硬件介绍</h2><p><img  src="https://www.picbed.cn/images/2021/04/30/1177fb129eae14766.png"  ><span class="image-caption">硬件</span></p>
+<p>冯·<a href="https://baike.baidu.com/item/%E8%AF%BA%E4%BC%8A%E6%9B%BC">诺伊曼</a>体系结构是现代计算机的基础，现在大多计算机仍是冯·诺伊曼计算机的组织结构，只是作了一些改进而已，并没有从根本上突破冯体系结构的束缚。冯·诺伊曼也因此被人们称为“计算机之父”。</p>
+<p><img  src="https://www.picbed.cn/images/2021/04/30/2bcbf108472717026.png"  ><span class="image-caption">冯诺依曼体系结构</span></p>
+<h3 id="1-3-1、中央处理器"><a href="#1-3-1、中央处理器" class="headerlink" title="1.3.1、中央处理器"></a>1.3.1、中央处理器</h3><p><strong>中央处理器</strong>（central processing unit，简称CPU）作为计算机系统的运算和控制核心，是信息处理、程序运行的最终执行单元。从内存中中获取指令，然后执行这些指令。</p>
+<ul>
+<li><p>包括：控制单元和算术/逻辑单元。</p>
+</li>
+<li><p>每台计算机都有一个内部时钟，该时钟以固定速度发射电子脉冲。时钟速度越快，在给定时间内执行的指令就越多。速度的计量单位是赫兹（Hz），1Hz相当于每秒1个脉冲。随着CPU速度的不断提高，目前以千兆（GHz）来表达。</p>
+<p>1khz=1024hz 1mhz=1024khz 1Ghz=1024mhz</p>
+</li>
+<li><p>最初一个CPU只有一个核（core）。核是处理器中实现指令读取和执行的部分。一个多核CPU是一个具有两个或更多独立核的组件，可提高CPU的处理能力。现在的CPU都是构建在一块小小的硅半导体上，这块芯片上包含数百万称为晶体管的小电路开关上，用于处理信息。</p>
+</li>
+</ul>
+<h3 id="1-3-2、输入输出设备"><a href="#1-3-2、输入输出设备" class="headerlink" title="1.3.2、输入输出设备"></a>1.3.2、输入输出设备</h3><ul>
+<li>输入输出设备（IO设备），是<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F/8227413">数据处理系统</a>的关键外部设备之一，可以和计算机本体进行交互使用。</li>
+<li>屏幕分辨率是指纵横向上的像素点数，单位是px。屏幕分辨率确定<a href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA/140338">计算机</a>屏幕上显示多少信息的设置，以水平和垂直像素来衡量。就相同大小的屏幕而言，当屏幕分辨率低时（例如 640 x 480），在屏幕上显示的<a href="https://baike.baidu.com/item/%E5%83%8F%E7%B4%A0/95084">像素</a>少，单个像素尺寸比较大。屏幕分辨率高时（例如 1600 x 1200），在屏幕上显示的像素多，单个像素尺寸比较小。</li>
+<li>显示分辨率就是屏幕上显示的像素个数，分辨率160×128的意思是水平方向含有像素数为160个，垂直方向像素数128个。屏幕尺寸一样的情况下，分辨率越高，显示效果就越精细和细腻。</li>
+<li>屏幕的清晰程度其实是分辨率和尺寸大小共同决定，用ppi指数衡量屏幕清晰程度更加准确。</li>
+</ul>
+<h3 id="1-3-3、存储设备"><a href="#1-3-3、存储设备" class="headerlink" title="1.3.3、存储设备"></a>1.3.3、存储设备</h3><ul>
+<li><p>存储设备——内存中的信息在断电时会丢失。所以我们将程序和数据永久的保存在存储设备上，当计算机需要这些数据时再移入内存，因为从内存中读取比从存储设备中读取要快得多</p>
+</li>
+<li><p>存储设备主要有以下三种：磁盘驱动器、光盘驱动器（CD、DVD）、USB闪存驱动器<br>每台计算机至少有一个硬盘驱动器，硬盘（hard disk）用于永久的保存数据和程序。<br>USB：universal serial bus，通用串行总线<br>可以用USB将打印机、数码相机、鼠标、外部硬盘驱动器连接到计算机上；USB闪存驱动器很小，可用于存储和传输数据的设备。</p>
+</li>
+<li><p>内存——random-access memory，RAM<br>由一个有序的字节序列组成，用于存储程序及程序所需要的数据。</p>
+</li>
+<li><p>计算机就是一系列的电路开关。每个开关存在两种状态：关（off）和开（on）。如果电路是开的，它的值是1；如果电路是关的，它的值是0。<br>一个0或者一个1存储为1个比特（bit），是计算机中最小的存储单位。<br>计算机中最基本的存储单元是字节（bite）。每个字节由8个比特构成。<br>一个程序和它的数据在被CPU执行前必须移到计算机的内存中。<br>每个字节都有一个唯一的地址。使用这个地址确定字节的位置，以便于存储和获取数据。</p>
+</li>
+<li><p>一个计算机具有的RAM越多，它的运行速度越快，但是此规律是有限制的。</p>
+</li>
+<li><p>内存与CPU一样，也构建在表面嵌有数百万晶体管的硅半导体芯片上。但内存芯片更简单、更低速、更便宜。<br>但内存是带电存储的（一旦断电数据就会消失），而且容量有限，所以要长时间存储程序或数据就要使用硬盘。</p>
+</li>
+</ul>
+<h2 id="1-4、操作系统"><a href="#1-4、操作系统" class="headerlink" title="1.4、操作系统"></a>1.4、操作系统</h2><p>操作系统（operation system，简称OS）是管理<a href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6/5459592">计算机硬件</a>与<a href="https://baike.baidu.com/item/%E8%BD%AF%E4%BB%B6/12053">软件</a>资源的<a href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F/3220205">计算机程序</a>。操作系统需要处理如管理与配置<a href="https://baike.baidu.com/item/%E5%86%85%E5%AD%98/103614">内存</a>、决定<a href="https://baike.baidu.com/item/%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90/974435">系统资源</a>供需的优先次序、控制<a href="https://baike.baidu.com/item/%E8%BE%93%E5%85%A5%E8%AE%BE%E5%A4%87/10823368">输入设备</a>与<a href="https://baike.baidu.com/item/%E8%BE%93%E5%87%BA%E8%AE%BE%E5%A4%87/10823333">输出设备</a>、操作网络与管理文件系统等基本事务。操作系统也提供一个让用户与系统交互的操作界面。</p>
+<p><img src="https://www.picbed.cn/images/2021/04/30/3.png"></p>
+<p>操作系统的主要任务：</p>
+<ul>
+<li>控制和监视系统的活动</li>
+<li>分配和调配系统资源</li>
+<li>调度操作</li>
+</ul>
+<h2 id="1-4、-万维网"><a href="#1-4、-万维网" class="headerlink" title="1.4、 万维网"></a>1.4、 万维网</h2><p>万维网WWW是World Wide Web的简称，也称为Web、3W等。WWW是基于<a href="https://baike.baidu.com/item/%E5%AE%A2%E6%88%B7%E6%9C%BA/5168153">客户机</a>/<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8/100571">服务器</a>方式的信息发现技术和<a href="https://baike.baidu.com/item/%E8%B6%85%E6%96%87%E6%9C%AC/2832422">超文本</a>技术的综合。WWW服务器通过超文本标记语言(HTML)把<a href="https://baike.baidu.com/item/%E4%BF%A1%E6%81%AF/111163">信息</a>组织成为图文并茂的超文本，利用链接从一个站点跳到另个站点。这样一来彻底摆脱了以前查询工具只能按特定路径一步步地查找信息的限制</p>
+<p>万维网（world wide web，www，环球信息网）常简称为web，发明者为蒂姆伯纳斯李。<br>分为web客户端和web服务器程序。www可以让web客户端（常用浏览器）访问浏览web服务器上的页面。是一个由许多互相链接的超文本组成的系统，通过互联网访问。在这个系统中，每个有用的事物，称为一样“资源”；并且由一个全局“统一资源标识符”（URI）标识。</p>
+<p><code>HTTP</code>协议(超文本传输协议HyperText Transfer Protocol)，它是基于TCP协议的应用层传输协议，简单来说就是客户端和服务端进行数据传输的一种规则。</p>
+<p>B/S: browser浏览器 server </p>
+<p>C/S: client客户端 server </p>
+<h2 id="1-5、职业发展与提升"><a href="#1-5、职业发展与提升" class="headerlink" title="1.5、职业发展与提升"></a>1.5、职业发展与提升</h2><p>可以一直工作</p>
+<p><img  src="https://www.picbed.cn/images/2021/04/30/4.png"  ><span class="image-caption">职业路线</span></p>
+<p><a href="https://www.cnblogs.com/coderland/p/5903051.html">来自程序员跳槽全攻略读书笔记</a></p>
+<p><img src="https://www.picbed.cn/images/2021/04/30/e5aef839cabcf80a340369a7fae1084e.png"></p>
+<p>3e人才发展模型 education  exposure   experience</p>
+<h2 id="1-6、学习经验探讨"><a href="#1-6、学习经验探讨" class="headerlink" title="1.6、学习经验探讨"></a>1.6、学习经验探讨</h2><p>看得懂不等于会敲</p>
+<p>锻炼“双核处理”，<strong>边听讲思考，边做”笔记”</strong></p>
+<p>纸上得来终觉浅，绝知此事要躬行！</p>
+<ul>
+<li>第一层次：看得懂（依赖于视频、书、帖子）</li>
+<li>第二层次：练的熟（每天代码必须实现2-3遍）</li>
+<li>总结：三分看，七分练</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习基础</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java基础篇01</title>
+    <url>/2021/04/29/Java%E5%9F%BA%E7%A1%8001/</url>
+    <content><![CDATA[<h1 id="Java基础01"><a href="#Java基础01" class="headerlink" title="Java基础01"></a>Java基础01</h1><p><a href="https://www.bilibili.com/video/BV1Qb411g7cz?p=15">视频资料</a></p>
+<h2 id="1、大纲"><a href="#1、大纲" class="headerlink" title="1、大纲"></a>1、大纲</h2><p><strong>什么是框架</strong></p>
+<p>框架是一个半成品，已经对基础的代码进行了封装并提供相应的API，开发者在使用框架是直接调用封装好的api可以省去很多代码编写，从而提高工作效率和开发速度</p>
+<p>SSM框架</p>
+<p>有支付功能的都可以称为电商。</p>
+<p>JavaSE-&gt;JavaWeb-&gt;JavaEE框架-&gt;JavaEE高级-&gt;项目</p>
+<h3 id="1-1、主要应用"><a href="#1-1、主要应用" class="headerlink" title="1.1、主要应用"></a>1.1、主要应用</h3><p>Java基础是学习JavaEE、大数据、Android开发的基石！</p>
+<p>Spring - Rest(Spring MVC)</p>
+<p>Spark - Spark Streaming</p>
+<h3 id="1-2、Java基础图解"><a href="#1-2、Java基础图解" class="headerlink" title="1.2、Java基础图解"></a>1.2、Java基础图解</h3><p>Java基础知识图解</p>
+<p><img  src="https://www.picbed.cn/images/2021/05/01/1.png"  ><span class="image-caption">图解</span></p>
+<h3 id="1-3、语言概述"><a href="#1-3、语言概述" class="headerlink" title="1.3、语言概述"></a>1.3、语言概述</h3><p>后台开发：Java仍是首选语言</p>
+<p>Java、PHP、python、Go、Node.js</p>
+<p><a href="https://baike.baidu.com/item/Java/85979?fr=aladdin#1">什么是Java</a></p>
+<p>2004年，发布里程碑式版本：JDK1.5，为突出其重要性，更名为JDK5.0</p>
+<p>2005年，J2SE-&gt;JavaSE     J2EE-&gt;JavaEE      J2ME-&gt;JavaME</p>
+<p>2009年,Oracle公司收购SUN</p>
+<p>2014年，JDK 8.0，继JDK5.0以来变化最大的版本</p>
+<p>2018年3月，发布JDK 10.0，版本号也称为18.3</p>
+<p><strong>Java技术体系平台</strong></p>
+<p><img  src="https://www.picbed.cn/images/2021/05/01/2.png"  ><span class="image-caption">平台</span></p>
+<p>Java语言的应用方向:</p>
+<ul>
+<li><p>企业级应用</p>
+</li>
+<li><p>Android平台应用</p>
+</li>
+<li><p>大数据平台开发</p>
+</li>
+<li><p>移动领域应用</p>
+</li>
+</ul>
+<p>Java语言的特点：</p>
+<ul>
+<li><p>面向对象</p>
+<ul>
+<li>两个基本概念： 类、对象</li>
+<li>三大特性： 封装、继承、多态</li>
+</ul>
+</li>
+<li><p>健壮性</p>
+</li>
+<li><p>跨平台性</p>
+<p>Write once,Run Anywhere</p>
+</li>
+</ul>
+<p>因为有JVM，同一个Java程序在三个不同操作系统中都可以执行，就可以实现Java程序的跨平台性</p>
+<p>Java两种核心机制：</p>
+<ul>
+<li><p>Java虚拟机</p>
+</li>
+<li><p>垃圾收集机制</p>
+</li>
+</ul>
+<p><img  src="https://www.picbed.cn/images/2021/05/01/3.png"  ><span class="image-caption">机制</span></p>
+<p>核心机制之垃圾回收</p>
+<ul>
+<li><p>不再使用的内存空间应回收</p>
+</li>
+<li><p>Java程序运行过程中自动进行，无法精准控制和干预</p>
+</li>
+</ul>
+<p>那还会出现内存泄漏和内存溢出问题吗？</p>
+<p>会</p>
+<h2 id="2、Java语言环境搭建"><a href="#2、Java语言环境搭建" class="headerlink" title="2、Java语言环境搭建"></a>2、Java语言环境搭建</h2><p>什么是JDK,JRE</p>
+<p><img src="https://www.picbed.cn/images/2021/05/01/4.png"></p>
+<p><img src="https://www.picbed.cn/images/2021/05/01/5.png"></p>
+<p>安装JDK</p>
+<p><a href="https://www.oracle.com/java/technologies/javase-downloads.html">JDK官网下载</a></p>
+<p>jdk 8u131</p>
+<blockquote>
+<p> u: update</p>
+</blockquote>
+<p>环境变量：</p>
+<p><img  src="https://www.picbed.cn/images/2021/05/01/7.png"  ><span class="image-caption">配置安装目录</span></p>
+<p><img  src="https://www.picbed.cn/images/2021/05/01/6.png"  ><span class="image-caption">配置path</span></p>
+<p>允许安装多个JDK 但只能使用一个来配置环境变量</p>
+<p>win+R 输入cmd 执行java </p>
+<p>然后执行javac</p>
+<p>验证是否配置成功</p>
+<p>学习参考jdk api文档</p>
+<h2 id="3、第一个Java程序"><a href="#3、第一个Java程序" class="headerlink" title="3、第一个Java程序"></a>3、第一个Java程序</h2><p>先看Java的命名规范</p>
+<p><a href="https://www.cnblogs.com/wkfvawl/p/12172756.html">java命名规范</a></p>
+<p>编译： javac  Test.java</p>
+<p>执行：java Test</p>
+<p>第一个程序：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Hello</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String arg[])</span> </span>&#123;<span class="hljs-comment">//arguments:参数</span><br>		System.out.print(<span class="hljs-string">&quot;Hello World!&quot;</span>);<br>	&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>一个Java源文件中可以声明多个class，但是最多只有一个类声明为public的</p>
+</li>
+<li><p>而且要求声明为public的类的类名必须和源文件名相同·。</p>
+</li>
+<li><p>程序入口是main()方法</p>
+</li>
+<li><p>输出语句：</p>
+<ul>
+<li><p>System.out.print(“Hello World!”);</p>
+</li>
+<li><p>System.out.println(“Hello World!”);</p>
+<p>先输出后换行</p>
+</li>
+</ul>
+</li>
+<li><p>每一行执行语句都以“;”结束</p>
+</li>
+<li><p>编译的过程：</p>
+<ul>
+<li>编译以后，会生成一个或多个字节码文件</li>
+<li>字节码文件的文件名与Java源文件中的类名相同</li>
+<li>有几个类就会有几个字节码文件</li>
+</ul>
+</li>
+</ul>
+<h2 id="4、基本语法（上）"><a href="#4、基本语法（上）" class="headerlink" title="4、基本语法（上）"></a>4、基本语法（上）</h2><h3 id="4-1、关键字和保留字"><a href="#4-1、关键字和保留字" class="headerlink" title="4.1、关键字和保留字"></a>4.1、关键字和保留字</h3><p><strong>关键字（keyword）:</strong></p>
+<p>定义：</p>
+<ul>
+<li>被Java语言赋予了特殊含义，用作专门用途的字符串（单词）</li>
+</ul>
+<p>特点：关键字中所有字母都为小写</p>
+<p><img  src="https://www.picbed.cn/images/2021/05/01/8.png"  ><span class="image-caption">关键字图表</span></p>
+<p>​    <img src="https://www.picbed.cn/images/2021/05/01/9.png"></p>
+<p>灰色：严格不算关键字，但可以当作关键字使用</p>
+<p><strong>保留字（reserved word）:</strong></p>
+<p>Java保留字： 现有版本尚未使用但以后版本可能会被作为关键字使用</p>
+<p>命名标识符时注意避免使用保留字</p>
+<p>goto、const</p>
+<h3 id="4-2、标识符（Identifier）以及命名规则"><a href="#4-2、标识符（Identifier）以及命名规则" class="headerlink" title="4.2、标识符（Identifier）以及命名规则"></a>4.2、标识符（Identifier）以及命名规则</h3><p><strong>标识符</strong>：</p>
+<ul>
+<li>Java对各种变量、方法类等要素命名时使用的字符序列既是标识符</li>
+<li>技巧:凡是自己可以起名字的地方都叫标识符<ul>
+<li>例如:类名、变量名、方法名、接口名、包名……等等</li>
+</ul>
+</li>
+</ul>
+<p><strong>定义合法标识符规则：</strong>—&gt;不遵守，编译不通过</p>
+<ul>
+<li>由26个英文字母大小写，0-9，_或者$组成</li>
+<li>数字不可开头</li>
+<li>不可以使用关键字和保留字，但是可以包含它们</li>
+<li>Java严格区分大小写，长度无限制</li>
+<li>标识符不可包含空格</li>
+</ul>
+<p><strong>Java中的名称命名规范</strong>：—&gt;不遵守，编译可以通过，建议遵守。</p>
+<p>​    包名： 多单词组成时，所有字母都小写：</p>
+<ul>
+<li>xxxyyyzzz</li>
+</ul>
+<p>类名、接口名：多单词组成时，所有单词首字母大写：</p>
+<ul>
+<li>XxxYyyZzz</li>
+</ul>
+<p>变量名、方法名：多单词组成时，第一个首字母小写，第二个单词开始，每个单词首字母大写：</p>
+<ul>
+<li>xxxYyyZzz</li>
+</ul>
+<p>常量名：所有字母都大写，多单词时每个单词都用下划线连接：</p>
+<ul>
+<li>XXX_YYY_ZZZ</li>
+</ul>
+<blockquote>
+<p>注意：</p>
+</blockquote>
+<ul>
+<li><p>起名字时，为了提高阅读性，要尽量有意义，”见名知意</p>
+</li>
+<li><p>Java采用unicode字符集，因此标识符也可以使用汉字声明，但是不建议使用</p>
+</li>
+</ul>
+<h3 id="4-3、变量"><a href="#4-3、变量" class="headerlink" title="4.3、变量"></a>4.3、变量</h3><h4 id="4-3-1、变量定义、作用、注意点"><a href="#4-3-1、变量定义、作用、注意点" class="headerlink" title="4.3.1、变量定义、作用、注意点"></a>4.3.1、变量定义、作用、注意点</h4><ul>
+<li>内存中的一个存储区域</li>
+<li>该区域的数据可以在同一类型范围内不断变化</li>
+<li>变量是程序中最基本的存储单元，包含<strong>变量类型</strong>、<strong>变量名和存储的值</strong></li>
+</ul>
+<p>变量的作用：</p>
+<ul>
+<li>用于在内存中保存数据</li>
+</ul>
+<p>使用变量需要注意：</p>
+<ul>
+<li>Java中每个变量必须<strong>先声明再使用</strong></li>
+<li><strong>使用变量名来访问这块区域的数据</strong></li>
+<li>变量的作用域:<ul>
+<li>其定义所在的一对{}中</li>
+</ul>
+</li>
+<li>变量只有在其作用域中才有效<ul>
+<li>出了作用域就会失效</li>
+</ul>
+</li>
+<li>同一作用域内，不能定义重名的变量</li>
+</ul>
+<p>变量的使用</p>
+<ul>
+<li>Java定义变量的格式：<ul>
+<li>数据类型 变量名 = 变量值；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String arg[])</span> </span>&#123;<br>		<span class="hljs-comment">//变量的定义</span><br>		<span class="hljs-keyword">int</span> myAge = <span class="hljs-number">12</span>;<br>    <span class="hljs-comment">//也可以</span><br>	<span class="hljs-comment">//int myAge;变量的声明</span><br>	<span class="hljs-comment">//myAge = 12变量的赋值</span><br>    	<br>		System.out.print(myAge);<br>	&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String arg[])</span> </span>&#123;<br>		<br>		<span class="hljs-keyword">int</span> myAge;<br>		System.out.print(myAge);<br>	&#125;<br><br><span class="hljs-comment">//未初始化变量，没有默认值,未被赋值过</span><br>Exception in thread <span class="hljs-string">&quot;main&quot;</span> java.lang.Error: Unresolved compilation problem: <br>	The local variable myAge may not have been initialized<br><br></code></pre></td></tr></table></figure>
+
+<h4 id="4-3-2、变量的分类"><a href="#4-3-2、变量的分类" class="headerlink" title="4.3.2、变量的分类"></a>4.3.2、变量的分类</h4><p><img  src="https://www.picbed.cn/images/2021/05/01/10.png"  ><span class="image-caption">按数据类型</span></p>
+<blockquote>
+<p>变量在类中声明的位置：</p>
+</blockquote>
+<p>​    成员变量 VS 局部变量</p>
+<p><img src="https://www.picbed.cn/images/2021/05/01/13.png"></p>
+<h5 id="1、整型"><a href="#1、整型" class="headerlink" title="1、整型"></a>1、整型</h5><p><img src="https://www.picbed.cn/images/2021/05/01/11.png"></p>
+<p>整型：byte(1字节等于8bit)</p>
+<p>short(2字节)</p>
+<p>int(4字节)</p>
+<p>long(8字节)</p>
+<ul>
+<li>byte范围：-128~127</li>
+<li>声明long型变量，必须以”l“或者”L“结尾</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">long</span> s1 = <span class="hljs-number">123L</span>;<br>		System.out.print(s1);<br><br><br><span class="hljs-comment">//输出123</span><br></code></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>通常，定义整型变量时，使用int型。</li>
+</ul>
+<h5 id="2、浮点型"><a href="#2、浮点型" class="headerlink" title="2、浮点型"></a>2、浮点型</h5><p><img src="https://www.picbed.cn/images/2021/05/01/12.png"></p>
+<p>浮点型：float(4字节)\double(8字节)</p>
+<ul>
+<li>浮点型表示带小数点的数值</li>
+<li>float表示数值的范围比long还大</li>
+<li>定义float类型变量时，变量要以”f”或者”F“结尾</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">float</span> f1 = <span class="hljs-number">12.34f</span>;<br>		System.out.print(f1);<br><br><br><span class="hljs-comment">//运行结果: 12.34</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>通常定义浮点型变量时，使用double型</li>
+</ul>
+<h5 id="3、字符型"><a href="#3、字符型" class="headerlink" title="3、字符型"></a>3、字符型</h5><p><img src="https://www.picbed.cn/images/2021/05/01/14.png"></p>
+<ul>
+<li><p>字符型：</p>
+<ul>
+<li>char(1字符=2字节)</li>
+</ul>
+</li>
+<li><p>定义char型变量，通常使用一对<strong>‘ ’</strong>    单引号！</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">		<span class="hljs-keyword">char</span> c1 = <span class="hljs-string">&#x27;C&#x27;</span>;<br>		System.out.print(c1);<br><br><span class="hljs-comment">//运行结果:C</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>注意：</p>
+<ul>
+<li>不能赋值两个字符</li>
+</ul>
+</li>
+<li><p>表示方式：</p>
+<ul>
+<li>声明一个字符</li>
+<li>转义字符</li>
+<li>直接使用Unicode值来表示字符型常量</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">		<span class="hljs-keyword">char</span> c1 = <span class="hljs-string">&#x27;\n&#x27;</span>;<br>		System.out.print(c1);<br><span class="hljs-comment">//  \t制表符</span><br><span class="hljs-comment">//输出换行符</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String arg[])</span> </span>&#123;<br>		<span class="hljs-keyword">char</span> c1 = <span class="hljs-string">&#x27;\u0123&#x27;</span>;<br>		System.out.print(c1);<br>	&#125;<br><br><span class="hljs-comment">//输出 ？ 未显示</span><br><br><span class="hljs-keyword">char</span> c1 = <span class="hljs-string">&#x27;\u0043&#x27;</span>;<br>		System.out.print(c1);<br><br><br><span class="hljs-comment">//输出 C</span><br><br></code></pre></td></tr></table></figure>
+
+
+
+<p>了解：</p>
+<p><img src="https://www.picbed.cn/images/2021/05/01/15.png"></p>
+<p><a href="https://www.picbed.cn/image/6fJzC"><img  src="https://www.picbed.cn/images/2021/05/01/16.png"  ><span class="image-caption">16.png</span></a><br><a href="https://www.picbed.cn/image/6fL2M"><img  src="https://www.picbed.cn/images/2021/05/01/17.png"  ><span class="image-caption">17.png</span></a></p>
+<p>ANSI  GBK</p>
+<h5 id="4、布尔型"><a href="#4、布尔型" class="headerlink" title="4、布尔型"></a>4、布尔型</h5><p>boolean</p>
+<ul>
+<li><p>只能取两个值之一：</p>
+<ul>
+<li>true</li>
+<li>false</li>
+</ul>
+</li>
+<li><p>常常在条件判断、循环结构中使用</p>
+</li>
+</ul>
+<h4 id="4-3-3、自动类型提升"><a href="#4-3-3、自动类型提升" class="headerlink" title="4.3.3、自动类型提升"></a>4.3.3、自动类型提升</h4><p>基本数据类型之间的运算规则：</p>
+<p><strong>前提： 这里讨论的只是7种基本数据类型变量间的运算，不包含boolean类型的</strong></p>
+<ul>
+<li><p>自动类型提升</p>
+<ul>
+<li>范围小的和范围大的运算，需要用范围大的接受</li>
+<li>用范围更大的也可以</li>
+<li>byte–&gt; short –&gt;int–&gt;  long–&gt; float –&gt; double</li>
+</ul>
+<p><strong>结论：</strong></p>
+<p>​    当容量小的数据类型的变量与容量大的数据类型的变量做运算时，结果自动提升为容量大的数据类型。</p>
+<blockquote>
+<p>说明：</p>
+</blockquote>
+<p>此时的容量大小指的是，表示<strong>数的范围的大和小</strong>，比如float容量要大于long的容量</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">byte</span> b1 = <span class="hljs-number">2</span>;<br>		<span class="hljs-keyword">int</span> i1 =<span class="hljs-number">12</span>;<br>		<span class="hljs-comment">//byte b2 = b1 + i1;错误！不兼容的类型，从int转换到byte可能会有损失。</span><br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">short</span> s1 = <span class="hljs-number">123</span>;<br>		<span class="hljs-keyword">double</span> d1 = s1;<br>		System.out.print(d1);<br><br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">char</span> c1 = <span class="hljs-string">&#x27;a&#x27;</span>;<span class="hljs-comment">//97		int i1 = 10;		int i2 =c1+i1;		System.out.print(i2);//结果:107</span><br></code></pre></td></tr></table></figure>
+
+<p>byte、char、 short –&gt;int–&gt;  long–&gt; float –&gt; double</p>
+<p>特别的<strong>byte、char、 short</strong>三个做运算，结果都得是int型（包括两种相同的类型做运算）</p>
+<h4 id="4-3-4、强制类型转换"><a href="#4-3-4、强制类型转换" class="headerlink" title="4.3.4、强制类型转换"></a>4.3.4、强制类型转换</h4><ul>
+<li><p>自动类型提升的逆运算</p>
+</li>
+<li><p>需要使用强转符： （）</p>
+</li>
+</ul>
+<p><strong>注意：</strong></p>
+<ul>
+<li><p>强制类型转换可能导致精度损失！</p>
+</li>
+<li><p>```java<br>//精度损失—例1double d1 = 12.3;//无论是12.9        int i1 = (int)d1;//截断操作，都会被转为12        System.out.print(i1);</p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><code class="hljs arduino"><br>- ```java<br>  		<span class="hljs-keyword">long</span> l1 = <span class="hljs-number">123</span>; 		<span class="hljs-keyword">short</span> s2 = (<span class="hljs-keyword">short</span>)l1; 		System.out.<span class="hljs-built_in">print</span>(s2);<span class="hljs-comment">//没有精度损失</span><br></code></pre></td></tr></table></figure></li>
+<li><p>```java</p>
+<pre><code>//精度损失---例2        int i2 = 128;        byte b = (byte)i2;                System.out.print(b);//结果: -128
+</code></pre>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><code class="hljs arduino"><br><br><br>特殊情况：<br><br>- 编码情况：<br>  - <span class="hljs-keyword">long</span> l = <span class="hljs-number">123</span>;<span class="hljs-comment">//123是int型</span><br>  - 自动类型提升了。故此时没加L也不会报错！<br>  - 赋值一个超过<span class="hljs-keyword">int</span>型的数字就会报错！！！此时必须加L<br><br><br><br><span class="hljs-keyword">float</span> f = <span class="hljs-number">12.3</span>;<br><br>会报错！必须加F<br><br><br><br>- 编码情况<span class="hljs-number">2</span>：<br><br>  - 整形常量，默认为<span class="hljs-keyword">int</span>型<br><br>  - 浮点型常量，默认为<span class="hljs-keyword">double</span>型<br><br>  - <span class="hljs-keyword">byte</span>  b = <span class="hljs-number">12</span>;<br><br>    <span class="hljs-keyword">byte</span> b1 = b +<span class="hljs-number">1</span>;<br><br>#### <span class="hljs-number">4.3</span><span class="hljs-number">.5</span>、字符串类型<span class="hljs-keyword">String</span><br><br>![](https:<span class="hljs-comment">//www.picbed.cn/images/2021/05/01/18.png)</span><br><br><span class="hljs-keyword">String</span>类型变量的使用：<br><br>- <span class="hljs-keyword">String</span>属于引用数据类型，翻译为：字符串<br><br>- 声明<span class="hljs-keyword">String</span>类型变量时，使用一对”“<br><br>- ```java<br>  <span class="hljs-keyword">String</span> s1 = <span class="hljs-string">&quot;Hello World!&quot;</span>;System.out.<span class="hljs-built_in">println</span>(s1);<span class="hljs-keyword">String</span> s2 = <span class="hljs-string">&quot;a&quot;</span><span class="hljs-keyword">String</span> s3 = <span class="hljs-string">&quot;&quot;</span><span class="hljs-comment">//都可以</span><br></code></pre></td></tr></table></figure></li>
+<li><p>注意：char型的必须在单引号内加字符！！</p>
+</li>
+</ul>
+<ul>
+<li>String可以和8种基本数据类型变量做运算！</li>
+<li>且运算只能是<strong>连接运算： +</strong></li>
+</ul>
+<p>计算的结果仍然是String类型！</p>
+<p>练习：</p>
+<p>1、</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">char</span> c = <span class="hljs-string">&#x27;a&#x27;</span>;<br>		<span class="hljs-keyword">int</span> num = <span class="hljs-number">10</span>;<br>		String str = <span class="hljs-string">&quot;hello&quot;</span>;<br><span class="hljs-comment">//a -- 97</span><br><span class="hljs-comment">//A -- 65</span><br>		System.out.println(c+num+str);<br>		System.out.println(c+str+num);<br>		System.out.println(c+(num+str));<br>		System.out.println((c+num)+str);<br>		System.out.println(str+num+c);<br><br><br><br><br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">107hello</span><br><span class="hljs-comment">ahello10</span><br><span class="hljs-comment">a10hello</span><br><span class="hljs-comment">107hello</span><br><span class="hljs-comment">hello10a</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+
+<p>2、</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">System.out.println(<span class="hljs-string">&quot;*	*&quot;</span>);<br>		<br>		System.out.println(<span class="hljs-string">&#x27;*&#x27;</span>+<span class="hljs-string">&#x27;\t&#x27;</span>+<span class="hljs-string">&#x27;*&#x27;</span>);<br>		<br>		System.out.println(<span class="hljs-string">&#x27;*&#x27;</span>+<span class="hljs-string">&quot;\t&quot;</span>+<span class="hljs-string">&#x27;*&#x27;</span>);<br>		<br>		<br>		System.out.println(<span class="hljs-string">&#x27;*&#x27;</span>+<span class="hljs-string">&#x27;\t&#x27;</span>+<span class="hljs-string">&quot;*&quot;</span>);<br>		<br>		System.out.println(<span class="hljs-string">&#x27;*&#x27;</span>+(<span class="hljs-string">&quot;\t&quot;</span>+<span class="hljs-string">&quot;*&quot;</span>));<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">*	*</span><br><span class="hljs-comment">93</span><br><span class="hljs-comment">*	*</span><br><span class="hljs-comment">51*</span><br><span class="hljs-comment">*	*</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>String s1 = 123;</li>
+<li>编译不通过，无法int转换为String</li>
+</ul>
+<p>String也无法强转为int</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">String str = <span class="hljs-number">123</span> + <span class="hljs-string">&quot;&quot;</span>;<br>		System.out.println(str);<br>		<br>		<span class="hljs-keyword">int</span> num1 = Integer.parseInt(str);<br>		<span class="hljs-comment">//转换为int</span><br>        System.out.println(num1);<br></code></pre></td></tr></table></figure>
+
+<h4 id="4-3-6、进制与进制的转换！"><a href="#4-3-6、进制与进制的转换！" class="headerlink" title="4.3.6、进制与进制的转换！"></a>4.3.6、进制与进制的转换！</h4><p>世界上有10种人，认识和不认识二进制的</p>
+<p><img src="https://www.picbed.cn/images/2021/05/02/19.png"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">	<span class="hljs-keyword">int</span> num = <span class="hljs-number">0b110</span>;<br>		<span class="hljs-keyword">int</span> num1 = <span class="hljs-number">110</span>;<br>		<span class="hljs-keyword">int</span> num2 = <span class="hljs-number">0127</span>;<br>		<span class="hljs-keyword">int</span> num3 = <span class="hljs-number">0x110A</span>;<br>		<br>		System.out.println(num);<br>		System.out.println(num1);<br>		System.out.println(num2);<br>		System.out.println(num3);<br>		<br><br><br><span class="hljs-comment">//结果输出十进制:</span><br><span class="hljs-number">6</span><br><span class="hljs-number">110</span><br><span class="hljs-number">87</span><br><span class="hljs-number">4362</span><br></code></pre></td></tr></table></figure>
+
+<p>二进制？十进制转换</p>
+<h3 id="4-4、运算符"><a href="#4-4、运算符" class="headerlink" title="4.4、运算符"></a>4.4、运算符</h3><p>运算符是一种特殊的符号，用以表示数据的运算、赋值和比较等。</p>
+<ul>
+<li>算术运算符</li>
+<li>赋值运算符</li>
+<li>比较运算符（关系运算符）</li>
+<li>逻辑运算符</li>
+<li><strong>位运算符</strong>很少用</li>
+<li>三元运算符</li>
+</ul>
+<p><img src="https://www.picbed.cn/images/2021/05/02/20.png"></p>
+<h5 id="4-4-1、算术运算符"><a href="#4-4-1、算术运算符" class="headerlink" title="4.4.1、算术运算符"></a>4.4.1、算术运算符</h5><p>运算符之一：算术运算符</p>
+<blockquote>
+<p>  +-*/ % (前)++ （后）++ (前)–（后）–  +连接运算符</p>
+</blockquote>
+<p>除号： /</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> num1 = <span class="hljs-number">12</span>;<br>		<span class="hljs-keyword">int</span> num2 = <span class="hljs-number">5</span>;<br>		<span class="hljs-keyword">int</span> result = num1/num2;<br>		System.out.println(result);<br><br><span class="hljs-comment">//结果：2</span><br><br><span class="hljs-keyword">int</span> result2 = num1/num2 *num2;<br><span class="hljs-comment">//结果：10</span><br><br><br><span class="hljs-keyword">double</span> result3 = num1/num2;<br><span class="hljs-comment">//结果：2.0</span><br>右边先运行出来，已经是<span class="hljs-keyword">int</span>了。再赋值给<span class="hljs-keyword">double</span><br>    <br>   <br> <span class="hljs-keyword">double</span> resule4 = num1/num2+<span class="hljs-number">0.0</span>; <span class="hljs-comment">//2.0</span><br><br> <span class="hljs-keyword">double</span> resule4 = num1/(num2+<span class="hljs-number">0.0</span>); <span class="hljs-comment">//2.4</span><br><br> <span class="hljs-keyword">double</span> resule4 =(<span class="hljs-keyword">double</span>) num1/num+<span class="hljs-number">0.0</span>); <span class="hljs-comment">//2.4</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>取余运算</p>
+<p>结果的符号和被模数符号相同。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">		<span class="hljs-keyword">int</span> m1 = <span class="hljs-number">12</span>;<br>		<span class="hljs-keyword">int</span> n1 = <span class="hljs-number">5</span>;<br>		System.out.println(m1%n1);<br>		<br>		<span class="hljs-keyword">int</span> m2 = -<span class="hljs-number">12</span>;<br>		<span class="hljs-keyword">int</span> n2 = <span class="hljs-number">5</span>;<br>		System.out.println(m2%n2);<br>		<br>		<span class="hljs-keyword">int</span> m3 = <span class="hljs-number">12</span>;<br>		<span class="hljs-keyword">int</span> n3 = -<span class="hljs-number">5</span>;<br>		System.out.println(m3%n3);<br>		<br>		<br>		<span class="hljs-keyword">int</span> m4 = -<span class="hljs-number">12</span>;<br>		<span class="hljs-keyword">int</span> n4 = -<span class="hljs-number">5</span>;<br>		System.out.println(m4%n4);<br><br><br><span class="hljs-comment">//结果</span><br><span class="hljs-number">2</span><br>-<span class="hljs-number">2</span><br><span class="hljs-number">2</span><br>-<span class="hljs-number">2</span><br><br></code></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>开发中，经常使用%取余来判断能否被除尽的情况</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">(前)++ 例如：++a<br>    结论:<br>	先自增<span class="hljs-number">1</span>，后运算<br><br>（后）++ 例如：a++<br> 	结论:<br>	先运算，后自增<span class="hljs-number">1</span><br><br>	<span class="hljs-keyword">int</span> a1 = <span class="hljs-number">10</span>;<br>		<span class="hljs-keyword">int</span> b1 = ++a1;<br>		System.out.println(a1+<span class="hljs-string">&quot;\t&quot;</span>+b1);<br>		<br>		<br>		<span class="hljs-keyword">int</span> a2 = <span class="hljs-number">10</span>;<br>		<span class="hljs-keyword">int</span> b2 = a2++;<br>		System.out.println(a2+<span class="hljs-string">&quot;\t&quot;</span>+b2);<br><br><br><span class="hljs-comment">//结果:</span><br><br><span class="hljs-number">11</span>	<span class="hljs-number">11</span><br><span class="hljs-number">11</span>	<span class="hljs-number">10</span><br><br>自增<span class="hljs-number">1</span>不会改变本身变量的数据类型！<br><br><br> (前)--  例如：--a<br>结论:<br>	先自减<span class="hljs-number">1</span>，后运算<br>（后）-- 例如：a--<br>结论:<br>	先运算，后自减<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>小练习：</li>
+</ul>
+<p><strong>Java:随意给出一个整数(3位数)，打印显示他的个位数，十位数，百位数的值:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> teat01;<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test03</span> </span>&#123;	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;		<span class="hljs-keyword">int</span> num = <span class="hljs-number">169</span>;		<span class="hljs-keyword">int</span> h = num/<span class="hljs-number">100</span>;				<span class="hljs-keyword">int</span> t = num%<span class="hljs-number">100</span>/<span class="hljs-number">10</span>;		<span class="hljs-comment">//num/10%10				int o = num%10;		//num%100%10				System.out.println(&quot;百位：&quot;+h);		System.out.println(&quot;十位：&quot;+t);		System.out.println(&quot;个位：&quot;+o);			&#125;&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="4-4-2、赋值运算符"><a href="#4-4-2、赋值运算符" class="headerlink" title="4.4.2、赋值运算符"></a>4.4.2、赋值运算符</h5><p>符号 =</p>
+<ul>
+<li>当” = “两侧数据类型不一致时，可以使用自动类型转换或使用强制类型转换原则进行处理。</li>
+<li><strong>支持连续赋值</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//赋值符号</span><br>		<span class="hljs-keyword">int</span> i1 = <span class="hljs-number">10</span>;<br>		<span class="hljs-keyword">int</span> j1 = <span class="hljs-number">10</span>;<br>		<br>		<span class="hljs-keyword">int</span> i2,j2;<br>		<span class="hljs-comment">//连续赋值</span><br>		<span class="hljs-keyword">int</span> i3 = <span class="hljs-number">10</span>,j3 = <span class="hljs-number">20</span>;<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<ul>
+<li>扩展赋值运算符：<ul>
+<li>+=</li>
+<li>-=</li>
+<li>*=</li>
+<li>/=</li>
+<li>%=</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> num1 = <span class="hljs-number">10</span>;<br>num1 += <span class="hljs-number">2</span>;<br><span class="hljs-comment">//num1 = num1 + 2;</span><br><br><br><span class="hljs-keyword">int</span> num2 = <span class="hljs-number">12</span>;<br>num2 %= <span class="hljs-number">5</span>;<br><span class="hljs-comment">//num2 = num2 % 5;	</span><br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>区别：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">short</span> s1 = <span class="hljs-number">10</span>;s1 = s1 + <span class="hljs-number">2</span>;<span class="hljs-comment">//编译失败s1 += 2;//编译通过，不会改变变量本身的数据类型！！！！</span><br></code></pre></td></tr></table></figure>
+
+<p>开发中，如果希望变量实现+2的操作，有几种方法？</p>
+<p>(前提： int num =10;)</p>
+<ul>
+<li>num = num + 2;</li>
+<li>num += 2;(推荐！！！不会改变类型)</li>
+</ul>
+<p>开发中，如果希望变量实现+1的操作，有几种方法？</p>
+<p>(前提： int num =10;)</p>
+<ul>
+<li><p>num = num + 1;</p>
+</li>
+<li><p>num += 1;</p>
+</li>
+<li><p>num ++ ;(推荐！！！j简洁)</p>
+</li>
+</ul>
+<h5 id="4-4-3、比较运算符"><a href="#4-4-3、比较运算符" class="headerlink" title="4.4.3、比较运算符"></a>4.4.3、比较运算符</h5><p><img src="https://www.picbed.cn/images/2021/05/04/21.png"></p>
+<p>结论：</p>
+<ul>
+<li>比较运算符的结果是boolean类型！</li>
+<li>区分 == 和 = </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> i = <span class="hljs-number">10</span>;		<span class="hljs-keyword">int</span> j = <span class="hljs-number">20</span>;		System.out.println(i==j);		System.out.println(i=j);<span class="hljs-comment">//结果：false20</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">	<span class="hljs-keyword">boolean</span> b1 = <span class="hljs-keyword">true</span>;<br>		<span class="hljs-keyword">boolean</span> b2 = <span class="hljs-keyword">false</span>;<br>		System.out.println(b1==b2);<br>		System.out.println(b1=b2);<br><br><br><span class="hljs-comment">//结果:</span><br><span class="hljs-keyword">false</span><br><span class="hljs-keyword">false</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="4-4-4、逻辑运算符"><a href="#4-4-4、逻辑运算符" class="headerlink" title="4.4.4、逻辑运算符"></a>4.4.4、逻辑运算符</h5><p>只适用于boolean类型</p>
+<p><img src="https://www.picbed.cn/images/2021/05/04/22.png"></p>
+<p>异或：</p>
+<ul>
+<li>可记为相同为false</li>
+<li>不同为true</li>
+</ul>
+<p>逻辑运算符</p>
+<p>&amp;     &amp;&amp;    |      ||     ！     ^</p>
+<p>说明：</p>
+<ul>
+<li>逻辑运算符操作的都是boolean类型的变量</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//区别&amp; 与 &amp;&amp;</span><br>		<span class="hljs-keyword">boolean</span> b1 = <span class="hljs-keyword">true</span>;<br>		b1 = <span class="hljs-keyword">false</span>;<br>		<span class="hljs-keyword">int</span> num1 = <span class="hljs-number">10</span>;<br>		<span class="hljs-keyword">if</span>(b1 &amp; (num1++ &gt; <span class="hljs-number">0</span>)) &#123;<br>			System.out.println(<span class="hljs-string">&quot;正确&quot;</span>);<br>		&#125;<span class="hljs-keyword">else</span> &#123;<br>			System.out.println(<span class="hljs-string">&quot;错误&quot;</span>);<br>		&#125;<br>		<br>		System.out.println(num1);<br>		<span class="hljs-comment">//区别&amp; 与 &amp;&amp;</span><br>		<span class="hljs-keyword">boolean</span> b2 = <span class="hljs-keyword">true</span>;<br>		b2 = <span class="hljs-keyword">false</span>;<br>		<span class="hljs-keyword">int</span> num2 = <span class="hljs-number">10</span>;<br>		<span class="hljs-keyword">if</span>(b2 &amp;&amp; (num2++ &gt; <span class="hljs-number">0</span>)) &#123;<br>			System.out.println(<span class="hljs-string">&quot;正确&quot;</span>);<br>		&#125;<span class="hljs-keyword">else</span> &#123;<br>			System.out.println(<span class="hljs-string">&quot;错误&quot;</span>);<br>		&#125;<br>				<br>		System.out.println(num2);<br><br><br><br><span class="hljs-comment">//结果：</span><br>错误<br><span class="hljs-number">11</span><br>错误<br><span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>相同点：<ul>
+<li>&amp;与&amp;&amp;的运算结果相同</li>
+<li>当符号左边是true时，二者都会执行符号右边的运算。</li>
+</ul>
+</li>
+<li>不同点：<ul>
+<li>当符号左边是false时，&amp;继续执行符号右边的运算，&amp;&amp;不再执行符号右边的运算。</li>
+</ul>
+</li>
+</ul>
+<p>区分： | 与|| 触类旁通</p>
+<ul>
+<li>相同点：<ul>
+<li>|与||的运算结果相同</li>
+<li>当符号左边是false时，二者都会执行符号右边的运算。</li>
+</ul>
+</li>
+<li>不同点：<ul>
+<li>当符号左边是true时，|继续执行符号右边的运算，||不再执行符号右边的运算。</li>
+</ul>
+</li>
+</ul>
+<p><strong>开发中，推荐使用||</strong></p>
+<h5 id="4-4-5、位运算符（了解）"><a href="#4-4-5、位运算符（了解）" class="headerlink" title="4.4.5、位运算符（了解）"></a>4.4.5、位运算符（了解）</h5><p><img src="https://www.picbed.cn/images/2021/05/04/23.png"></p>
+<p>每向左移一位，就是它十进制的数乘以2的一次幂</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> i = <span class="hljs-number">21</span>;<br>		System.out.println(<span class="hljs-string">&quot;i &lt;&lt; 2：&quot;</span>+(i &lt;&lt; <span class="hljs-number">2</span>));<br>		System.out.println(<span class="hljs-string">&quot;i &lt;&lt; 3：&quot;</span>+(i &lt;&lt; <span class="hljs-number">3</span>));<br><br><br><span class="hljs-comment">//结果：</span><br>i &lt;&lt; <span class="hljs-number">2</span>：<span class="hljs-number">84</span><br>i &lt;&lt; <span class="hljs-number">3</span>：<span class="hljs-number">168</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">		System.out.println(<span class="hljs-string">&quot;i &lt;&lt; 27：&quot;</span> + (i &lt;&lt; <span class="hljs-number">27</span>));<br><br><span class="hljs-comment">//结果</span><br>i &lt;&lt; <span class="hljs-number">27</span>：-<span class="hljs-number">1476395008</span><br></code></pre></td></tr></table></figure>
+
+<p>结论：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">位运算符操作的都是整型的数据<br><br>&lt;&lt; : 在一定范围内，每向左移一位，相当于*<span class="hljs-number">2</span><br><br>    <br>&gt;&gt;: 在一定范围内，每向右移一位，相当于/<span class="hljs-number">2</span><br><br>最高位看原来是<span class="hljs-number">0</span>还是<span class="hljs-number">1</span>来补<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<p>面试题：</p>
+<p>最高效的计算2*8？</p>
+<p>2&lt;&lt;3或者8&lt;&lt;1</p>
+<p>&amp; | ^ ~:与、或、异或、非</p>
+<p>底层二进制。。。了解即可。。。</p>
+<h5 id="4-4-6、三元运算符"><a href="#4-4-6、三元运算符" class="headerlink" title="4.4.6、三元运算符"></a>4.4.6、三元运算符</h5><blockquote>
+<p> 结构：</p>
+</blockquote>
+<ul>
+<li>(条件表达式)？表达式1 : 表达式2</li>
+</ul>
+<blockquote>
+<p>说明:</p>
+</blockquote>
+<ul>
+<li>条件表达式结果为boolean类型</li>
+<li>根据条件表达式真或假，决定执行表达式1还是表达式2</li>
+<li>如果表达式为true,则执行表达式1</li>
+<li>如果表达式为false,则执行表达式2</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//获取两个整数的较大值</span><br>		<span class="hljs-keyword">int</span> m = <span class="hljs-number">12</span>;<br>		<span class="hljs-keyword">int</span> n = <span class="hljs-number">5</span>;<br>		<span class="hljs-keyword">int</span> max = (m&gt;n)?m:n;<br>		System.out.println(max);	<br><br><span class="hljs-comment">//结果</span><br><span class="hljs-number">12</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>表达式1 和 表达式2 要求是一致的。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">double</span> num = (m&gt;n)?<span class="hljs-number">2</span>:<span class="hljs-number">1.0</span>;<br>		System.out.println(num);<br> <br><br><br><span class="hljs-comment">//(m&gt;n)?2:&quot;n大&quot;;编译错误，要求接收结果的值，可以同时接收表达式1 和 表达式2</span><br><br><span class="hljs-comment">//结果</span><br><span class="hljs-number">2.0</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>三元运算符可以嵌套使用</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> m = <span class="hljs-number">5</span>;<br>		<span class="hljs-keyword">int</span> n = <span class="hljs-number">12</span>;<br>		String maxStr = (m &gt; n)?<span class="hljs-string">&quot;m大&quot;</span>:((m == n)?<span class="hljs-string">&quot;相等&quot;</span>:<span class="hljs-string">&quot;n大&quot;</span>);<br>		<br>		System.out.println(maxStr);<br><br><span class="hljs-comment">//结果：</span><br>n大<br></code></pre></td></tr></table></figure>
+
+<p>练习：</p>
+<p>获取三个数的最大值：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">		<span class="hljs-keyword">int</span> m = <span class="hljs-number">5</span>;<br>		<span class="hljs-keyword">int</span> n = <span class="hljs-number">12</span>;<br>		<span class="hljs-keyword">int</span> q = -<span class="hljs-number">13</span>;<br>		<br>		<br>		<span class="hljs-keyword">int</span> max1 = (m&gt;n)?m:n;<br>		<span class="hljs-keyword">int</span> max2 = (max1&gt;q)?max1:q;<br>		<br>		System.out.print(max2);<br>		<span class="hljs-comment">//int max = (((m&gt;n)?m:n)&gt;q)?((m&gt;n)?m:n):q;</span><br><br><span class="hljs-comment">//不建议使用后面这种！可读性太差！！！</span><br><span class="hljs-comment">//效率并未提高！！！</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>结论：<ul>
+<li>凡是可以使用三元运算符的地方，都可以改写为if-else</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> m = <span class="hljs-number">12</span>;<br>		<span class="hljs-keyword">int</span> n = <span class="hljs-number">5</span>;<br>		<span class="hljs-keyword">if</span>(m&gt;n) &#123;<br>			System.out.println(<span class="hljs-string">&quot;m大&quot;</span>);<br>		&#125;<span class="hljs-keyword">else</span> &#123;<br>			System.out.println(<span class="hljs-string">&quot;n大&quot;</span>);<br>		&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>反之，不成立。</p>
+<blockquote>
+<p>如果程序既可以使用三元运算符，又可以使用if-else结构，那么优先选择三元运算符。</p>
+</blockquote>
+<p>原因：简洁、执行效率高！</p>
+<h5 id="4-4-7、运算符的优先级"><a href="#4-4-7、运算符的优先级" class="headerlink" title="4.4.7、运算符的优先级"></a>4.4.7、运算符的优先级</h5><p><img src="https://www.picbed.cn/images/2021/05/05/24629b8d625d3d18b6.png"></p>
+<p>没必要记——优先计算的加括号（）</p>
+]]></content>
+      <categories>
+        <category>Java基础</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java基础篇02</title>
+    <url>/2021/05/05/Java%E5%9F%BA%E7%A1%8002/</url>
+    <content><![CDATA[<h1 id="Java基础篇02"><a href="#Java基础篇02" class="headerlink" title="Java基础篇02"></a>Java基础篇02</h1><h2 id="5、基本语法（下）"><a href="#5、基本语法（下）" class="headerlink" title="5、基本语法（下）"></a>5、基本语法（下）</h2><h3 id="5-1、程序流程控制"><a href="#5-1、程序流程控制" class="headerlink" title="5.1、程序流程控制"></a>5.1、程序流程控制</h3><p>流程控制语句是用来控制程序中各语句执行顺序的语句，可以把语句组合成能完成一定功能的小逻辑模块。</p>
+<p>其流程控制方式采用结构化程序设计中规定的三种基本流程结构，即</p>
+<ul>
+<li>顺序结构<ul>
+<li>程序从上到下逐行地执行，中间没有任何判断和跳转</li>
+</ul>
+</li>
+<li>分支结构<ul>
+<li>根据条件，选择性地执行某段代码</li>
+<li>有if-else和switch-case两种分支语句</li>
+</ul>
+</li>
+<li>循环结构<ul>
+<li>根据循环条件，重复性的执行某段代码</li>
+<li>有while、do…while、for三种循环语句</li>
+<li>注：<ul>
+<li>JDK1.5提供了foreach循环，方便的遍历集合、数组元素。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="5-1-1、分支结构"><a href="#5-1-1、分支结构" class="headerlink" title="5.1.1、分支结构"></a>5.1.1、分支结构</h5><h6 id="5-1-1-1、if-else"><a href="#5-1-1-1、if-else" class="headerlink" title="5.1.1.1、if-else"></a>5.1.1.1、if-else</h6><p>if语句三种格式：</p>
+<blockquote>
+<p>1 、 if(条件表达式){</p>
+<p>​                执行代码块;</p>
+<p>​        }</p>
+</blockquote>
+<p><img  src="https://www.picbed.cn/images/2021/05/05/1fdb7d5656b952984.png"  ><span class="image-caption">1fdb7d5656b952984.png</span></p>
+<blockquote>
+<p> if(条件表达式){</p>
+<p>​                执行代码块1;</p>
+<p>​        }else{</p>
+<p>​                执行代码块2；</p>
+<p>​        }</p>
+</blockquote>
+<p><img  src="https://www.picbed.cn/images/2021/05/05/21d18cd98afab6393.png"  ><span class="image-caption">21d18cd98afab6393.png</span></p>
+<blockquote>
+<p>if(条件表达式1){</p>
+<p>​                执行代码块1;</p>
+<p>​        }else if(条件表达式2){</p>
+<p>​                执行代码块2；</p>
+<p>​        }</p>
+<p>……</p>
+<p>​        else{</p>
+<p>​                执行代码块n；</p>
+<p>​        }</p>
+</blockquote>
+<p><img  src="https://www.picbed.cn/images/2021/05/05/30a85988d901eb9c4.png"  ><span class="image-caption">30a85988d901eb9c4.png</span></p>
+<p>选一个</p>
+<p>分支结构中的if-else(条件判断结构)</p>
+<p>1、三种结构</p>
+<p>第一种：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span>(条件表达式)&#123;<br><br>	执行代码块;<br><br>&#125;<br><br>第二种：二选一<br><br><span class="hljs-keyword">if</span>(条件表达式)&#123;<br><br>	执行代码块<span class="hljs-number">1</span>;<br><br>&#125;<span class="hljs-keyword">else</span>&#123;<br>	执行代码块<span class="hljs-number">2</span>；<br>&#125;<br><br>第三种：多选一<br><br><br><br><span class="hljs-keyword">if</span>(条件表达式<span class="hljs-number">1</span>)&#123;<br><br>	执行代码块<span class="hljs-number">1</span>;<br><br>&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(条件表达式<span class="hljs-number">2</span>)&#123;<br>	执行代码块<span class="hljs-number">2</span>；<br><br>&#125;<br><br>……<br><span class="hljs-keyword">else</span>&#123;<br>	执行代码块n；<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h6 id="5-1-1-2、Scanner类-补充"><a href="#5-1-1-2、Scanner类-补充" class="headerlink" title="5.1.1.2、Scanner类(补充)"></a>5.1.1.2、Scanner类(补充)</h6><p>如何从键盘获取不同类型的变量：需要使用Scanner类</p>
+<p>具体实现步骤：</p>
+<p>1、导包</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>2、Scanner的实例化</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.in);<br></code></pre></td></tr></table></figure>
+
+
+
+<p>3、调用Scanner类的相关方法，来获取指定类型的变量</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> num = sc.nextInt();<br>System.out.println(num);<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.in);<br>		<br>		System.out.println(<span class="hljs-string">&quot;请输入你的姓名:&quot;</span>);<br>		String name = sc.next();<br>		System.out.println(name);<br>		<br>		System.out.println(<span class="hljs-string">&quot;请输入你的年龄:&quot;</span>);<br>		<span class="hljs-keyword">int</span> age = sc.nextInt();<br>		System.out.println(age);<br>		<br>		System.out.println(<span class="hljs-string">&quot;请输入你的体重:&quot;</span>);<br>		<span class="hljs-keyword">double</span> weight = sc.nextDouble();<br>		System.out.println(weight);<br>		<br>		<br>		sc.close();<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>对于char型的获取，Scanner没有提供相关的方法。只能够获取一个字符串.</p>
+<p>只获取一个字符，使用charAt();</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">System.out.println(<span class="hljs-string">&quot;请输入你的性别:(男/女)&quot;</span>);<br>		String gender = sc.next();<br><br>		<span class="hljs-keyword">char</span> genderChar = gender.charAt(<span class="hljs-number">0</span>);		<span class="hljs-comment">//获取索引为0位置上的字符</span><br><br>		System.out.println(genderChar);<br>		sc.close();<br></code></pre></td></tr></table></figure>
+
+<p>使用nextInt()但是用户输入double型，此时会出现InputMismatchException。输入内容不匹配，程序直接终止。</p>
+<p>注意：</p>
+<ul>
+<li>需要根据相应的方法，来输入指定类型的值，如果输入的数据类型与要求的类型不匹配时，会报异常InputMismatchException，导致程序终止。</li>
+</ul>
+<h6 id="5-1-1-3、分支结构之二switch-case"><a href="#5-1-1-3、分支结构之二switch-case" class="headerlink" title="5.1.1.3、分支结构之二switch-case"></a>5.1.1.3、分支结构之二switch-case</h6><p><img src="https://www.picbed.cn/images/2021/05/09/4c8b9f9b877375447.png"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">switch</span>(表达式)&#123;<br>    <span class="hljs-keyword">case</span> 常量<span class="hljs-number">1</span>:<br>        语句<span class="hljs-number">1</span>;<br>        <span class="hljs-comment">//break;</span><br>    <span class="hljs-keyword">case</span> 常量<span class="hljs-number">2</span>:<br>        语句<span class="hljs-number">2</span>;<br>        <span class="hljs-comment">//break;</span><br>        <br>    … …<br>      <br>    <span class="hljs-keyword">case</span> 常量N:<br>        语句N;<br>        <span class="hljs-comment">//break;</span><br>    <span class="hljs-keyword">default</span>:<br>        语句;<br>        <span class="hljs-comment">//break;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>break不是必须要有的，根据实际情况而定</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> number = <span class="hljs-number">2</span>;<br>		<br>		<span class="hljs-keyword">switch</span>(number) &#123;<br>		<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:<br>			System.out.println(<span class="hljs-string">&quot;zero&quot;</span>);<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<br>			System.out.println(<span class="hljs-string">&quot;one&quot;</span>);<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<br>			System.out.println(<span class="hljs-string">&quot;two&quot;</span>);<br>			<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:<br>			System.out.println(<span class="hljs-string">&quot;three&quot;</span>);	<br>		<span class="hljs-keyword">default</span>:<br>			System.out.println(<span class="hljs-string">&quot;other&quot;</span>);<br>		&#125;<br><br><span class="hljs-comment">//结果：</span><br>two<br>three<br>other<br><br></code></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<ul>
+<li><p>根据switch表达式中的值，依次匹配各个case中的常量。一旦匹配成功，则进入相应case结构中，调用其执行语句</p>
+<p>当调用完执行语句以后，则仍然向下执行其他case结构中的执行语句，<strong>直到遇到break关键字或者此switch-case结构末尾结束为止</strong>。</p>
+</li>
+<li><p>break,可以使用在switch-case结构中，表示一旦执行到此关键字，就跳出switch-case结构。</p>
+</li>
+</ul>
+<ul>
+<li>switch(number) <ul>
+<li>switch结构中的表达式，只能是如下的6种数据类型之一<ul>
+<li>byte</li>
+<li>short</li>
+<li>char</li>
+<li>int</li>
+<li>枚举类型(JDK5.0新增)</li>
+<li>String类型(JDK7.0新增)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>switch语句应用举例</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">String season = <span class="hljs-string">&quot;summer&quot;</span>;<br>	<br>	<span class="hljs-keyword">switch</span>(season) &#123;<br>	<br>	<span class="hljs-keyword">case</span> <span class="hljs-string">&quot;spring&quot;</span>:<br>		System.out.println(<span class="hljs-string">&quot;春暖花开&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-string">&quot;summer&quot;</span>:<br>		System.out.println(<span class="hljs-string">&quot;夏日炎炎&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-string">&quot;autumn&quot;</span>:<br>		System.out.println(<span class="hljs-string">&quot;秋高气爽&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>		<br>	<span class="hljs-keyword">case</span> <span class="hljs-string">&quot;winter&quot;</span>:<br>		System.out.println(<span class="hljs-string">&quot;冬雪皑皑&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">default</span>:<br>		System.out.println(<span class="hljs-string">&quot;输入有误&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	&#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>case之后只能声明常量，不能声明范围。</p>
+</li>
+<li><p>break关键字</p>
+<ul>
+<li>可选的</li>
+</ul>
+</li>
+<li><p>default</p>
+<ul>
+<li>相当于if-else结构中的else</li>
+<li>default结构是可选的，而且位置是灵活的。</li>
+</ul>
+</li>
+</ul>
+<h5 id="5-1-2、循环结构"><a href="#5-1-2、循环结构" class="headerlink" title="5.1.2、循环结构"></a>5.1.2、循环结构</h5><p>​    在某些条件满足的情况下，反复执行特定代码的功能</p>
+<p>循环语句分类：</p>
+<ul>
+<li>for循环</li>
+<li>while循环</li>
+<li>do-while循环</li>
+</ul>
+<p>循环语句的四个组成部分</p>
+<ul>
+<li>初始化部分(init_statement)</li>
+<li>循环条件部分(test_exp)</li>
+<li>循环体部分(body_statement)</li>
+<li>迭代部分(alter_statement)</li>
+</ul>
+<p><img src="https://www.picbed.cn/images/2021/05/15/5.png"></p>
+<h6 id="5-1-2-1、for循环"><a href="#5-1-2-1、for循环" class="headerlink" title="5.1.2.1、for循环"></a>5.1.2.1、for循环</h6><p>for循环结构的使用</p>
+<p>一、循环结构的4个要素</p>
+<ul>
+<li>初始化条件</li>
+<li>循环条件 ——-&gt;是boolean类型</li>
+<li>循环体</li>
+<li>迭代条件</li>
+</ul>
+<p>二、for循环的结构</p>
+<p>for(①;②;④){</p>
+<p>​    ③</p>
+<p>}</p>
+<p>执行过程:    ①–&gt;②–&gt;③–&gt;④–&gt;②–&gt;③–&gt;④–&gt;…….②</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; <span class="hljs-number">5</span>;i++) &#123;<br>			System.out.println(<span class="hljs-string">&quot;Hello World!&quot;</span>);<br>		&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>i在for循环内有效，出了for循环就失效了。</strong></p>
+<p>练习：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span>(System.out.print(<span class="hljs-string">&#x27;a&#x27;</span>);j&lt;<span class="hljs-number">3</span>;j++,System.out.print(<span class="hljs-string">&#x27;c&#x27;</span>)) &#123;<br>        System.out.print(<span class="hljs-string">&#x27;b&#x27;</span>);<br>    &#125;<br><br>结果:<br>abcbc<br></code></pre></td></tr></table></figure>
+
+<p>例题：</p>
+<p>遍历100以内的偶数,并且输出所有偶数的和</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">100</span>;i++) &#123;<br>			<span class="hljs-keyword">if</span>(i%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>) &#123;<br>				System.out.println(i);<br>				sum += i;<br>				count++;<br>			&#125;<br>		&#125;<br>		System.out.println(count);<br>		System.out.println(sum);<br><br>结果:<br><span class="hljs-number">50</span><br><span class="hljs-number">2550</span><br></code></pre></td></tr></table></figure>
+
+<h6 id="5-1-2-2、while循环"><a href="#5-1-2-2、while循环" class="headerlink" title="5.1.2.2、while循环"></a>5.1.2.2、while循环</h6><p>while循环的结构</p>
+<p>①</p>
+<p>while(②){</p>
+<p>​    ③；</p>
+<p>​    ④；</p>
+<p>}</p>
+<p>执行过程：</p>
+<p>①–&gt;②–&gt;③–&gt;④–&gt;②–&gt;③–&gt;④–&gt;……–&gt;②</p>
+<p>说明：</p>
+<p>1、写while循环千万不要丢了迭代条件，一旦丢了，就可能导致死循环！</p>
+<p>2、我们写程序，要避免出现死循环。</p>
+<p>3、for循环和while循环是可以相互转换的！</p>
+<p>算法：有限性。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//遍历100以内的所有偶数</span><br><span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span>(i&lt;=<span class="hljs-number">100</span>) &#123;<br>    <span class="hljs-keyword">if</span>(i%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>) &#123;<br>        System.out.println(i);<br>    &#125;<br>    i++;<br>&#125;<br>除了<span class="hljs-keyword">while</span>循环以后，仍可以调用。<br></code></pre></td></tr></table></figure>
+
+<p>区别：</p>
+<p>for循环和while循环的初始化条件部分的作用范围不同。</p>
+<h6 id="5-1-2-3、do-while循环"><a href="#5-1-2-3、do-while循环" class="headerlink" title="5.1.2.3、do-while循环"></a>5.1.2.3、do-while循环</h6><p>一、循环结构的4个要素</p>
+<ul>
+<li>初始化条件</li>
+<li>循环条件 ——-&gt;是boolean类型</li>
+<li>循环体</li>
+<li>迭代条件</li>
+</ul>
+<p>二、do-while循环结构</p>
+<p>①</p>
+<p>do{</p>
+<p>​    ③；</p>
+<p>​    ④；</p>
+<p>}while(②);</p>
+<p>执行过程：①–&gt;③–&gt;④–&gt;②–&gt;….—&gt;②</p>
+<p>说明：</p>
+<p>1、do-while循环至少会执行一次循环体！</p>
+<p>2、开发中，使用for和while更多一些。较少使用do-while.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//遍历100以内的所有偶数</span><br>		<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">do</span>&#123;<br>			<span class="hljs-keyword">if</span>(i%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>) &#123;<br>				System.out.println(i);<br>			&#125;<br>			i++;<br>		&#125;<span class="hljs-keyword">while</span>(i&lt;=<span class="hljs-number">100</span>);<br></code></pre></td></tr></table></figure>
+
+<h5 id="5-1-3、循环语句综合例题"><a href="#5-1-3、循环语句综合例题" class="headerlink" title="5.1.3、循环语句综合例题"></a>5.1.3、循环语句综合例题</h5><p>最简单”无限“循环格式：while(true),for(;;),无限循环存在的原因是并不知道循环多少次，需要根据循环体内部某些条件，来控制循环的结束。</p>
+<p>题目：</p>
+<p>​    从键盘读入个数不确定的整数，并判断读入的正数和负数的个数，输入为0时结束程序。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.in);<br>		<span class="hljs-keyword">int</span> positiveNumber = <span class="hljs-number">0</span>;<span class="hljs-comment">//记录正数的个数</span><br>		<span class="hljs-keyword">int</span> negativeNumber = <span class="hljs-number">0</span>;<span class="hljs-comment">//记录负数的个数</span><br>	<br>		<span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>) &#123;<br>      <span class="hljs-comment">//for(;;)&#123;</span><br>      <span class="hljs-comment">//效果一样</span><br>			<span class="hljs-keyword">int</span> num = sc.nextInt();<br>			<br>			<span class="hljs-comment">//判断number的正负情况</span><br>			<span class="hljs-keyword">if</span>(num&gt;<span class="hljs-number">0</span>) &#123;<br>				positiveNumber++;<br>			&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(num&lt;<span class="hljs-number">0</span>) &#123;<br>				negativeNumber++;<br>			&#125;<span class="hljs-keyword">else</span> &#123;<br>				<span class="hljs-comment">//一旦(输入0)执行break,跳出循环。</span><br>				<span class="hljs-keyword">break</span>;<br>			&#125;<br>		&#125;<br>		System.out.println(positiveNumber);<br>		System.out.println(negativeNumber);<br></code></pre></td></tr></table></figure>
+
+
+
+<p>说明：</p>
+<ul>
+<li>不在循环条件部分限制次数的结构：<ul>
+<li>for(;;)或while(true)</li>
+</ul>
+</li>
+<li>结束循环有几种方式？<ul>
+<li>方式一：循环条件部分返回false</li>
+<li>方式二：在循环体中，执行break</li>
+</ul>
+</li>
+</ul>
+<h5 id="5-1-4、嵌套循环-多重循环"><a href="#5-1-4、嵌套循环-多重循环" class="headerlink" title="5.1.4、嵌套循环(多重循环)"></a>5.1.4、嵌套循环(多重循环)</h5><p>一般不超过三层</p>
+<p>1、嵌套循环：</p>
+<p>将一个循环结构A声明在另一个循环结构B的循环体中，就构成了嵌套循环。</p>
+<p>2、</p>
+<p>外层查询</p>
+<p>内层循环</p>
+<p>说明：</p>
+<ul>
+<li>内层循环结构遍历一遍，只相当于外层循环体执行了一次</li>
+<li>假设外层循环需要执行m次，内层循环需要执行n次。此时内层循环的循环体一共执行了m*n次</li>
+</ul>
+<p>4、技巧</p>
+<p>​    外层循环控制行数，内层循环控制列数</p>
+<p>一百以内的所有质数的输出</p>
+<p>质数：</p>
+<ul>
+<li>素数，只能被1和它本身整除的自然数。<ul>
+<li>从2开始，到这个数-1结束为止，都不能被整除</li>
+</ul>
+</li>
+</ul>
+<p>最小的质数是2</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>	<br>	<span class="hljs-keyword">boolean</span> isFlag = <span class="hljs-keyword">true</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>;i &lt;= <span class="hljs-number">100</span>; i++) &#123;<br>		<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">2</span>; j &lt; i;j++) &#123;<br>			<span class="hljs-keyword">if</span>(i % j == <span class="hljs-number">0</span>) &#123;<br>				isFlag = <span class="hljs-keyword">false</span>;<br>			&#125;	<br>		&#125;<br>		<span class="hljs-keyword">if</span>(isFlag == <span class="hljs-keyword">true</span>) &#123;<br>			System.out.println(i);<br>		&#125;<br>		<span class="hljs-comment">//重置isFlag</span><br>		isFlag = <span class="hljs-keyword">true</span>;<br>	&#125;<br>	<br>&#125;<br><br><br></code></pre></td></tr></table></figure>
+
+<p>优化1：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">boolean</span> isFlag = <span class="hljs-keyword">true</span>;<br>		<span class="hljs-comment">//获取当前时间距离1970-01-01 00:00:00的毫秒数</span><br>		<span class="hljs-keyword">long</span> start = System.currentTimeMillis();<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>;i &lt;= <span class="hljs-number">100000</span>; i++) &#123;<br>			<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">2</span>; j &lt; i;j++) &#123;<br>				<span class="hljs-keyword">if</span>(i % j == <span class="hljs-number">0</span>) &#123;<br>					isFlag = <span class="hljs-keyword">false</span>;<br>					<span class="hljs-keyword">break</span>;<span class="hljs-comment">//优化一:只对本身非质数的自然数是有效的</span><br>				&#125;	<br>			&#125;<br>			<span class="hljs-keyword">if</span>(isFlag == <span class="hljs-keyword">true</span>) &#123;<br>				System.out.println(i);<br>			&#125;<br>			<span class="hljs-comment">//重置isFlag</span><br>			isFlag = <span class="hljs-keyword">true</span>;<br>		&#125;<br><br>		<span class="hljs-comment">//获取当前时间距离1970-01-01 00:00:00的毫秒数</span><br>		<span class="hljs-keyword">long</span> end = System.currentTimeMillis();<br>		<br>		System.out.println(end-start);<br>		<span class="hljs-comment">//break优化前24905</span><br>		<span class="hljs-comment">//break优化后2287</span><br>	&#125;<br></code></pre></td></tr></table></figure>
+
+<p>优化2：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>	<br>	<span class="hljs-keyword">boolean</span> isFlag = <span class="hljs-keyword">true</span>;<br>	<span class="hljs-comment">//获取当前时间距离1970-01-01 00:00:00的毫秒数</span><br>	<span class="hljs-keyword">long</span> start = System.currentTimeMillis();<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>;i &lt;= <span class="hljs-number">100000</span>; i++) &#123;<br>		<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">2</span>; j &lt;= Math.sqrt(i);j++) &#123;<br>		<span class="hljs-comment">/*</span><br><span class="hljs-comment">		 优化2：</span><br><span class="hljs-comment">		  	j &lt; Math.sqrt(i) 为什么？</span><br><span class="hljs-comment">			对本身是质数的自然数是有效的</span><br><span class="hljs-comment">		*/</span><br>			<span class="hljs-keyword">if</span>(i % j == <span class="hljs-number">0</span>) &#123;<br>				isFlag = <span class="hljs-keyword">false</span>;<br>				<span class="hljs-keyword">break</span>;<span class="hljs-comment">//优化一:只对本身非质数的自然数是有效的</span><br>			&#125;	<br>		&#125;<br>		<span class="hljs-keyword">if</span>(isFlag == <span class="hljs-keyword">true</span>) &#123;<br>			System.out.println(i);<br>		&#125;<br>		<span class="hljs-comment">//重置isFlag</span><br>		isFlag = <span class="hljs-keyword">true</span>;<br>	&#125;<br><br>	<span class="hljs-comment">//获取当前时间距离1970-01-01 00:00:00的毫秒数</span><br>	<span class="hljs-keyword">long</span> end = System.currentTimeMillis();<br>	<br>	System.out.println(end-start);<br>	<span class="hljs-comment">//break优化前:24905</span><br>	<span class="hljs-comment">//break优化后:2287</span><br>	<span class="hljs-comment">//优化2后:92</span><br>&#125;<br><br><br><br><br></code></pre></td></tr></table></figure>
+
+
+
+<h5 id="5-1-5、特殊关键字break、continue的使用"><a href="#5-1-5、特殊关键字break、continue的使用" class="headerlink" title="5.1.5、特殊关键字break、continue的使用"></a>5.1.5、特殊关键字break、continue的使用</h5><table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>使用范围</th>
+<th>循环中使用的作用(不同点)</th>
+<th>相同点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>break:</td>
+<td>switch-case</td>
+<td>结束当前循环</td>
+<td>关键字后面不能声明执行语句</td>
+</tr>
+<tr>
+<td></td>
+<td>循环结构中</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>continue</td>
+<td>循环结构中</td>
+<td>结束当次循环</td>
+<td>关键字后面不能声明执行语句</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">10</span>; i++) &#123;<br>			<span class="hljs-keyword">if</span>(i % <span class="hljs-number">4</span> == <span class="hljs-number">0</span>) &#123;<br>				<span class="hljs-keyword">break</span>;<br>			&#125;<br>			System.out.println(i);<br>		&#125;<br><br>结果：<br><span class="hljs-number">1</span><br><span class="hljs-number">2</span><br><span class="hljs-number">3</span><br> <br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">10</span>; i++) &#123;<br>			<span class="hljs-keyword">if</span>(i % <span class="hljs-number">4</span> == <span class="hljs-number">0</span>) &#123;<br>				<span class="hljs-keyword">continue</span>;<br>			&#125;<br>			System.out.println(i);<br>		&#125;<br>结果：<br><span class="hljs-number">1</span><br><span class="hljs-number">2</span><br><span class="hljs-number">3</span><br><span class="hljs-number">5</span><br><span class="hljs-number">6</span><br><span class="hljs-number">7</span><br><span class="hljs-number">9</span><br><span class="hljs-number">10</span><br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">4</span>;i++) &#123;<br>			<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= <span class="hljs-number">10</span>;j++) &#123;<br>				<span class="hljs-keyword">if</span>(j % <span class="hljs-number">4</span> == <span class="hljs-number">0</span>) &#123;<br>					<span class="hljs-keyword">break</span>;<br>					<span class="hljs-comment">//默认跳出包裹此关键字最近的一层循环。</span><br>				&#125;<br>				System.out.print(j);<br>			&#125;<br>			System.out.println();<br>		&#125;<br><br>	&#125;<br><br><br>结果：<br><span class="hljs-number">123</span><br><span class="hljs-number">123</span><br><span class="hljs-number">123</span><br><span class="hljs-number">123</span><br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">4</span>;i++) &#123;<br>			<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= <span class="hljs-number">10</span>;j++) &#123;<br>				<span class="hljs-keyword">if</span>(j % <span class="hljs-number">4</span> == <span class="hljs-number">0</span>) &#123;<br>					<span class="hljs-keyword">continue</span>;<br>					<span class="hljs-comment">//默认跳出包裹此关键字最近的一层循环的当次循环。</span><br>				&#125;<br>				System.out.print(j);<br>			&#125;<br>			System.out.println();<br>		&#125;<br><br>	&#125;<br><br><br>结果：<br><span class="hljs-number">123567910</span><br><span class="hljs-number">123567910</span><br><span class="hljs-number">123567910</span><br><span class="hljs-number">123567910</span><br><br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		label:<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">4</span>;i++) &#123;<br>			<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= <span class="hljs-number">10</span>;j++) &#123;<br>				<span class="hljs-keyword">if</span>(j % <span class="hljs-number">4</span> == <span class="hljs-number">0</span>) &#123;<br>					<span class="hljs-keyword">break</span> label;<br>					<span class="hljs-comment">//结束指定标识的一层循环结构。</span><br>				&#125;<br>				System.out.print(j);<br>			&#125;<br>			System.out.println();<br>		&#125;<br>	&#125;<br><br>结果：<br><span class="hljs-number">123</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		label:<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">4</span>;i++) &#123;<br>			<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= <span class="hljs-number">10</span>;j++) &#123;<br>				<span class="hljs-keyword">if</span>(j % <span class="hljs-number">4</span> == <span class="hljs-number">0</span>) &#123;<br>					<span class="hljs-keyword">continue</span> label;<br>					<span class="hljs-comment">//结束指定标识的一层循环结构当次循环。</span><br>				&#125;<br>				System.out.print(j);<br>			&#125;<br>			System.out.println();<br>		&#125;<br>	&#125;<br><br>结果：<br><span class="hljs-number">123123123123</span><br></code></pre></td></tr></table></figure>
+
+<p>质数方法二：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<br>		<span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">long</span> start = System.currentTimeMillis();<br>		label:<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>;i &lt;= <span class="hljs-number">100000</span>; i++) &#123;<br>			<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">2</span>; j &lt;= Math.sqrt(i);j++) &#123;<br>			<br>				<span class="hljs-keyword">if</span>(i % j == <span class="hljs-number">0</span>) &#123;<br>					<span class="hljs-keyword">continue</span> label;<br>				&#125;	<br>			&#125;<br>			<span class="hljs-comment">//执行到此步骤的都是质数</span><br>			count++;<br>		&#125;<br><br>		<span class="hljs-comment">//获取当前时间距离1970-01-01 00:00:00的毫秒数</span><br>		<span class="hljs-keyword">long</span> end = System.currentTimeMillis();<br>		System.out.println(count);<br>		System.out.println(end-start);<br>		<span class="hljs-comment">//break优化前:24905</span><br>		<span class="hljs-comment">//break优化后:2287</span><br>		<span class="hljs-comment">//优化:92</span><br>        <span class="hljs-comment">//此时:62</span><br>	&#125;<br><br><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-2、项目一"><a href="#5-2、项目一" class="headerlink" title="5.2、项目一"></a>5.2、项目一</h3><p>家庭记账软件</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>	<span class="hljs-keyword">boolean</span> isFlag = <span class="hljs-keyword">true</span>;<br>	<span class="hljs-comment">//用于记录用户收入支出和详情</span><br>	String details=<span class="hljs-string">&quot;收支\t账户金额\t\t收支金额\t\t说  明\n&quot;</span>;<br>	<span class="hljs-keyword">int</span> money;<br>	String info;<br>	<span class="hljs-comment">//初始金额</span><br>	<span class="hljs-keyword">int</span> balance = <span class="hljs-number">10000</span>;<br>	<span class="hljs-keyword">while</span>(isFlag) &#123;<span class="hljs-comment">//也可以写true</span><br>		System.out.println(<span class="hljs-string">&quot;---------------家庭收支记账软件----------------\n&quot;</span>);<br>		System.out.println(<span class="hljs-string">&quot;                 1 收支明细&quot;</span>);<br>		System.out.println(<span class="hljs-string">&quot;                 2 登记收入&quot;</span>);<br>		System.out.println(<span class="hljs-string">&quot;                 3 登记支出&quot;</span>);<br>		System.out.println(<span class="hljs-string">&quot;                 4 退出\n&quot;</span>);<br>		System.out.print(<span class="hljs-string">&quot;                 &lt;请输入1-4&gt;:&quot;</span>);<br><br>		<span class="hljs-keyword">char</span> selection = Utility.readMenuSelection();<br>		<br>		<span class="hljs-keyword">switch</span>(selection) &#123;<br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;1&#x27;</span>:<br>				System.out.println(<span class="hljs-string">&quot;---------------当前收支明细记录----------------&quot;</span>);<br>				System.out.println(details);<br>				System.out.println(<span class="hljs-string">&quot;----------------------------------------------&quot;</span>);<br>				<span class="hljs-keyword">break</span>;<br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;2&#x27;</span>:<br>				System.out.print(<span class="hljs-string">&quot;本次收入金额：&quot;</span>);<br>				money = Utility.readNumber();<br>				System.out.print(<span class="hljs-string">&quot;本次收入说明：&quot;</span>);<br>				info = Utility.readString();<br>				<br>				balance += money;<br>				<span class="hljs-comment">//处理details</span><br>				details += <span class="hljs-string">&quot;收入\t&quot;</span> + balance + <span class="hljs-string">&quot;\t\t&quot;</span> + money + <span class="hljs-string">&quot;\t\t&quot;</span> + info + <span class="hljs-string">&quot;\n&quot;</span>;<br>				<br>				<br>				System.out.println(<span class="hljs-string">&quot;-------------------登记完成--------------------&quot;</span>);<br>				<span class="hljs-keyword">break</span>;<br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;3&#x27;</span>:<br>				System.out.print(<span class="hljs-string">&quot;本次支出金额：&quot;</span>);<br>				money = Utility.readNumber();<br>				System.out.print(<span class="hljs-string">&quot;本次支出说明：&quot;</span>);<br>				info = Utility.readString();<br>				<br>				<br>				<span class="hljs-comment">//处理balance</span><br>				<span class="hljs-keyword">if</span>(balance &gt;= money) &#123;<br>					balance -= money;<br>					<span class="hljs-comment">//处理details</span><br>					details += <span class="hljs-string">&quot;支出\t&quot;</span> + balance + <span class="hljs-string">&quot;\t\t&quot;</span> + money + <span class="hljs-string">&quot;\t\t&quot;</span> + info + <span class="hljs-string">&quot;\n&quot;</span>;<br>				&#125;<span class="hljs-keyword">else</span> &#123;<br>					System.out.println(<span class="hljs-string">&quot;错误！超出账户额度！&quot;</span>);<br>				&#125;<br>				<br>				<br>				System.out.println(<span class="hljs-string">&quot;-------------------登记完成--------------------&quot;</span>);<br>				<span class="hljs-keyword">break</span>;<br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;4&#x27;</span>:<br>				System.out.println(<span class="hljs-string">&quot;确认是否退出(Y/N):&quot;</span>);<br>				<span class="hljs-keyword">char</span> isExit = Utility.readConfirmSelection();<br>				<span class="hljs-keyword">if</span>(isExit == <span class="hljs-string">&#x27;Y&#x27;</span>) &#123;<br>					isFlag = <span class="hljs-keyword">false</span>;<span class="hljs-comment">//也可以break;</span><br>				&#125;<br>				<span class="hljs-keyword">break</span>;<br>		&#125;<br>		<br>		<br>	&#125;<br>	<br><br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>Utility.java</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> test03;<br><br><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-comment">/*Utility工具类：</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">	将不同的功能封装为方法</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Utility</span></span>&#123;<br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Scanner scanner = <span class="hljs-keyword">new</span> Scanner(System.in);<br><br><span class="hljs-comment">/*用于界面的选择。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">	该方法读取键盘，如果用户输入1到4的任意字符，方法返回值为输入的任意字符</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">char</span> <span class="hljs-title">readMenuSelection</span><span class="hljs-params">()</span></span>&#123;<br>		<span class="hljs-keyword">char</span> c;<br><br>		<span class="hljs-keyword">for</span>(;;)&#123;<br>			String str = readKeyBoard(<span class="hljs-number">1</span>);<br>			c = str.charAt(<span class="hljs-number">0</span>);<br>			<span class="hljs-keyword">if</span> (c !=<span class="hljs-string">&#x27;1&#x27;</span> &amp;&amp; c !=<span class="hljs-string">&#x27;2&#x27;</span> &amp;&amp; c != <span class="hljs-string">&#x27;3&#x27;</span> &amp;&amp; c != <span class="hljs-string">&#x27;4&#x27;</span>)&#123;<br>				System.out.print(<span class="hljs-string">&quot;选择错误，请重新输入&quot;</span>);<br>			&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">break</span>;<br><br>		&#125;<br>		<span class="hljs-keyword">return</span> c;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">用于支出和收入金额的输入，读取一个不超过4位数长度的整数，并将其作为方法的返回值</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">readNumber</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-keyword">int</span> n;<br><br>	<span class="hljs-keyword">for</span>(;;)&#123;<br>		String str = readKeyBoard(<span class="hljs-number">4</span>);<br><br>		<span class="hljs-keyword">try</span>&#123;<br>			n = Integer.parseInt(str);<br>			<span class="hljs-keyword">break</span>;<br>		&#125;<span class="hljs-keyword">catch</span>(NumberFormatException e)&#123;<br>			System.out.print(<span class="hljs-string">&quot;数字输入有误，请重新输入：&quot;</span>);<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> n;<br>&#125;<br><br><span class="hljs-comment">/*用于支出和收入说明的输入。用于读取从键盘输入的不超过8为字符串长度的输入值，</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">并将其作为方法的返回值</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">readString</span><span class="hljs-params">()</span></span>&#123;<br>	String str = readKeyBoard(<span class="hljs-number">8</span>);<br>	<span class="hljs-keyword">return</span> str;<br>&#125;<br><br><span class="hljs-comment">/*用于确认选择的输入，从键盘读取&#x27;y&#x27;或者&#x27;n&#x27;,并将其作为返回值</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">char</span> <span class="hljs-title">readConfirmSelection</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-keyword">char</span> c;<br>	<span class="hljs-keyword">for</span>(;;)&#123;<br>		String str = readKeyBoard(<span class="hljs-number">1</span>).toUpperCase();<br><br>		c = str.charAt(<span class="hljs-number">0</span>);<br><br>		<span class="hljs-keyword">if</span>(c == <span class="hljs-string">&#x27;Y&#x27;</span> || c == <span class="hljs-string">&#x27;N&#x27;</span>)&#123;<br>			<span class="hljs-keyword">break</span>;<br><br>		&#125;<span class="hljs-keyword">else</span>&#123;<br>			System.out.print(<span class="hljs-string">&quot;选择错误，请重新输入：&quot;</span>);<br><br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> c;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">readKeyBoard</span><span class="hljs-params">(<span class="hljs-keyword">int</span> limit)</span></span>&#123;<br>	String line = <span class="hljs-string">&quot;&quot;</span>;<br><br>	<span class="hljs-keyword">while</span> (scanner.hasNext())&#123;<br>		line = scanner.nextLine();<br><br>		<span class="hljs-keyword">if</span> (line.length()&lt;<span class="hljs-number">1</span> || line.length()&gt;limit)&#123;<br>			System.out.print(<span class="hljs-string">&quot;输入长度(不大于&quot;</span> + limit+ <span class="hljs-string">&quot;)错误，请重新输入&quot;</span>);<br>			<span class="hljs-keyword">continue</span>;<br>		&#125;<br>		<span class="hljs-keyword">break</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> line;	<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="5-3、Eclipse"><a href="#5-3、Eclipse" class="headerlink" title="5.3、Eclipse"></a>5.3、Eclipse</h3><p>之前版本是字母顺序版本</p>
+<p>后改为年</p>
+<p><img src="https://www.picbed.cn/images/2021/05/16/1.png"></p>
+<p><img src="https://www.picbed.cn/images/2021/05/16/2.png"></p>
+<p><img src="https://www.picbed.cn/images/2021/05/16/3.png"></p>
+<p><img src="https://www.picbed.cn/images/2021/05/16/4.png"></p>
+<p>当视图乱七八糟时,重新设置</p>
+<p><img src="https://www.picbed.cn/images/2021/05/16/5.png"></p>
+<p><img src="https://www.picbed.cn/images/2021/05/16/6.png"></p>
+<p>勿忘记命名规范</p>
+<p><a href="https://www.cnblogs.com/wkfvawl/p/12172756.html">java命名规范</a></p>
+]]></content>
+      <categories>
+        <category>Java基础</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+</search>
