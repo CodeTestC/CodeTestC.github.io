@@ -370,9 +370,8 @@
 <p>遵循SoC关注度分离原则，Vue是纯粹的视图框架，并不包含，比如Ajax之类的通信功能，为了解决通信问题，我们需要使用Axios框架做异步通信</p>
 <p>说明：</p>
 <p>Vue的开发都是要基于NodeJS,实际开发采用vue-cil脚手架开发，vue-router路由，vuex做状态管理；Vue UI界面我们一般使用ElementUI(饿了么出品)，或者ICE（阿里巴巴出品）来快速搭建前端项目。</p>
-<h2 id="WebPack学习"><a href="#WebPack学习" class="headerlink" title="WebPack学习"></a>WebPack学习</h2><p>什么是Webpack?</p>
-<p>本质上，webpack是一个现代JavaScript应用程序的静态模块打包器（module bundler）。</p>
-<p>当webpack处理应用程序时，它会递归地构建关系图（dependency graph）,其中包括应用程序需要的每个模块，然后将所有这些模块打包成一个或多个bundle.</p>
+<h2 id="WebPack学习"><a href="#WebPack学习" class="headerlink" title="WebPack学习"></a>WebPack学习</h2><p><a href="https://webpack.docschina.org/">webpack官网</a></p>
+<p>本质上，<strong>webpack</strong> 是一个用于现代 JavaScript 应用程序的 <em>静态模块打包工具</em>。当 webpack 处理应用程序时，它会在内部构建一个 <a href="https://webpack.docschina.org/concepts/dependency-graph/">依赖图(dependency graph)</a>，此依赖图对应映射到项目所需的每个模块，并生成一个或多个 <em>bundle</em>。</p>
 ]]></content>
       <categories>
         <category>Vue</category>
