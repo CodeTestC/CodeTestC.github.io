@@ -97,26 +97,117 @@
 <p><img src="https://www.picbed.cn/images/2021/05/17/1.png"></p>
 <p><img src="https://www.picbed.cn/images/2021/05/17/2.png"></p>
 <h2 id="6-3、多维数组的使用"><a href="#6-3、多维数组的使用" class="headerlink" title="6.3、多维数组的使用"></a>6.3、多维数组的使用</h2><ul>
-<li><p>Java语言里提供了支持多维数组的语法</p>
-</li>
-<li><p>如果说可以把一维数组当成几何中的线性图形，那么二维数组就相当于是一个表格。</p>
-</li>
-<li><p>对于二维数组的理解，我们可以看成是一维数组array1又作为另一个一维数组array2的元素而存在，其实，<strong>从数组底层的运行机制来看，其实没有多维数组。</strong></p>
-</li>
-<li><p>二维数组的声明和初始化</p>
-</li>
-<li><p>如何调用数组的指定位置的元素</p>
-</li>
-<li><p>如何获取数组的长度</p>
-</li>
-<li><p>如何遍历数组</p>
-</li>
-<li><p>数组元素的默认初始化值</p>
-</li>
-<li><p>数组的内存解析</p>
-</li>
+<li>Java语言里提供了支持多维数组的语法</li>
+<li>如果说可以把一维数组当成几何中的线性图形，那么二维数组就相当于是一个表格。</li>
+<li>对于二维数组的理解，我们可以看成是一维数组array1又作为另一个一维数组array2的元素而存在，其实，<strong>从数组底层的运行机制来看，其实没有多维数组。</strong></li>
 </ul>
+<p>二维数组的使用：</p>
+<p>规定：二维数组分为外层数组的元素，内层数组的元素</p>
+<ul>
+<li>二维数组的声明和初始化</li>
+<li>如何调用数组的指定位置的元素</li>
+<li>如何获取数组的长度</li>
+<li>如何遍历数组</li>
+<li>数组元素的默认初始化值</li>
+<li>数组的内存解析</li>
+</ul>
+<p>1、二维数组的声明和初始化</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span>[] arr = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[] &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>&#125;;<span class="hljs-comment">//一维数组</span><br>		<br>		<span class="hljs-comment">//1、二维数组的声明和初始化</span><br>		<span class="hljs-comment">//静态初始化</span><br>		<span class="hljs-keyword">int</span>[][] arr1 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][] &#123;&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>&#125;,&#123;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>&#125;&#125;;<br>		<span class="hljs-comment">//动态初始化1</span><br>		<span class="hljs-keyword">int</span>[][] arr2 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">3</span>][<span class="hljs-number">2</span>];<br>		<span class="hljs-comment">//动态初始化2</span><br>		<span class="hljs-keyword">int</span>[][] arr3 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">3</span>][];<br>		<br>		<br>		<span class="hljs-comment">//一些正确写法</span><br>		<span class="hljs-keyword">int</span> arr4[][]  = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][] &#123;&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>&#125;,&#123;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>&#125;&#125;;<br>		<span class="hljs-keyword">int</span>[] arr5[]  = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][] &#123;&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>&#125;,&#123;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>&#125;&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>2、如何调用数组的指定位置的元素</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">		<br>		<span class="hljs-comment">//1、二维数组的声明和初始化</span><br>				<span class="hljs-comment">//静态初始化</span><br>				<span class="hljs-keyword">int</span>[][] arr1 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][] &#123;&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>&#125;,&#123;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>&#125;&#125;;<br>				<span class="hljs-comment">//动态初始化1</span><br>				String[][] arr2 = <span class="hljs-keyword">new</span> String[<span class="hljs-number">3</span>][<span class="hljs-number">2</span>];<br>				<span class="hljs-comment">//动态初始化2</span><br>				String[][] arr3 = <span class="hljs-keyword">new</span> String[<span class="hljs-number">3</span>][];<br>		<span class="hljs-comment">//如何调用数组的指定位置的元素</span><br>		System.out.println(arr1[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>]);<span class="hljs-comment">//2</span><br>		<br>		System.out.println(arr2[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>]);<span class="hljs-comment">//null</span><br>		<br>		<br>		arr3[<span class="hljs-number">1</span>] = <span class="hljs-keyword">new</span> String[<span class="hljs-number">4</span>];<span class="hljs-comment">//没有这个就会出现java.lang.NullPointerException</span><br>		System.out.println(arr3[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>]);<br>  结果：<br>  <span class="hljs-number">2</span><br><span class="hljs-keyword">null</span><br><span class="hljs-keyword">null</span><br><br></code></pre></td></tr></table></figure>
+
+
+
+<p>3、如何获取数组的长度</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//1、二维数组的声明和初始化</span><br>				<span class="hljs-comment">//静态初始化</span><br>				<span class="hljs-keyword">int</span>[][] arr1 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][] &#123;&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>&#125;,&#123;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>&#125;&#125;;<br>				<span class="hljs-comment">//动态初始化1</span><br>				String[][] arr2 = <span class="hljs-keyword">new</span> String[<span class="hljs-number">3</span>][<span class="hljs-number">2</span>];<br>				<span class="hljs-comment">//动态初始化2</span><br>				String[][] arr3 = <span class="hljs-keyword">new</span> String[<span class="hljs-number">3</span>][];<br>				<br>				<span class="hljs-keyword">int</span> arr4[][]  = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][] &#123;&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>&#125;,&#123;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>&#125;&#125;;<br>				<span class="hljs-keyword">int</span>[] arr5[]  = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][] &#123;&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>&#125;,&#123;<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>&#125;&#125;;<br>		<span class="hljs-comment">//如何调用数组的指定位置的元素</span><br>		System.out.println(arr1[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>]);<span class="hljs-comment">//2</span><br>		<br>		System.out.println(arr2[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>]);<span class="hljs-comment">//null</span><br>		<br>		<br>		arr3[<span class="hljs-number">1</span>] = <span class="hljs-keyword">new</span> String[<span class="hljs-number">4</span>];<br>		System.out.println(arr3[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>]);<span class="hljs-comment">//java.lang.NullPointerException</span><br>		<br>		<br><span class="hljs-comment">//获取长度！！！</span><br>		<br>		System.out.println(arr4.length);<br>		System.out.println(arr4[<span class="hljs-number">0</span>].length);<br></code></pre></td></tr></table></figure>
+
+
+
+<p>4、如何遍历数组</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; arr4.length;i++) &#123;<br>			<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; arr4[i].length;j++) &#123;<br>				System.out.println(arr4[i][j]);<br>				<br>			&#125;<br>		&#125;<br></code></pre></td></tr></table></figure>
+
+<p>5、数组元素的默认初始化值</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span>[][] arr = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">4</span>][<span class="hljs-number">3</span>];<br>		<br>		System.out.println(arr);<br>		System.out.println(arr[<span class="hljs-number">0</span>]);<br>		System.out.println(arr[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]);<br>		<br><br>		<br><span class="hljs-comment">//结果</span><br>[[I@182decdb<span class="hljs-comment">//[[表示二维数组，I表示int型，@后面表示地址</span><br>[I@7637f22<br><span class="hljs-number">0</span><br><br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">float</span>[][] arr = <span class="hljs-keyword">new</span> <span class="hljs-keyword">float</span>[<span class="hljs-number">4</span>][<span class="hljs-number">3</span>];<br>		<br><br>		System.out.println(arr[<span class="hljs-number">0</span>]);<br>		System.out.println(arr[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]);<br>结果：<br>[F@182decdb<br><span class="hljs-number">0.0</span><br>    <br>    <br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">String[][] arr = <span class="hljs-keyword">new</span> String[<span class="hljs-number">4</span>][<span class="hljs-number">3</span>];<br>		<br><br>		System.out.println(arr[<span class="hljs-number">0</span>]);<br>		System.out.println(arr[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]);<br><br><br>结果：<br>   [Ljava.lang.String;@182decdb<br><span class="hljs-keyword">null</span> <br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">double</span>[][] arr = <span class="hljs-keyword">new</span> <span class="hljs-keyword">double</span>[<span class="hljs-number">4</span>][];<br>		<br><br>System.out.println(arr[<span class="hljs-number">1</span>]);<span class="hljs-comment">//null  数组是引用数据类型</span><br>		System.out.println(arr[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]);<span class="hljs-comment">//空指针异常</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>针对于初始化方式一：</p>
+<p>比如：<code>int[][] arr = new int[4][3];</code></p>
+<p>外层元素的初始化值为：地址值</p>
+<p>内层元素的初始化值为：与一维数组初始化情况相同！</p>
+<p>针对于初始化方式二：</p>
+<p>比如：<code>int[][] arr = new int[4][];</code></p>
+<p>外层元素的初始化值为：null</p>
+<p>内层元素的初始化值为：不能调用！</p>
+<p>6、数组的内存解析</p>
+<p><img src="https://www.picbed.cn/images/2021/05/19/3.png"></p>
+<h2 id="6-5、Arrays工具类的使用"><a href="#6-5、Arrays工具类的使用" class="headerlink" title="6.5、Arrays工具类的使用"></a>6.5、Arrays工具类的使用</h2><p>某个类后面加S 一般是这个类的工具类</p>
+<p>java.util.Arrays类即为操作数组的工具类，包含了用来操作数组</p>
+<ul>
+<li>比如排序和搜索</li>
+</ul>
+<p>的各种方法。</p>
+<table>
+<thead>
+<tr>
+<th>boolean equals(int[] a,int[] b)</th>
+<th>判断两个数组是否相等</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>String toString(int[] a)</td>
+<td>输出数组信息</td>
+</tr>
+<tr>
+<td>void fill(int[] a,int val)</td>
+<td>将指定值填充到数组之中</td>
+</tr>
+<tr>
+<td>void sort(int[] a)</td>
+<td>对数组进行排序</td>
+</tr>
+<tr>
+<td>int binarySearch(int[] a,int key)</td>
+<td>对排序后的数组进行二分法检索指定的值</td>
+</tr>
+</tbody></table>
+<p>演示：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*</span><br><span class="hljs-comment">		 * java.util.Arrays:操作数组的工具类。</span><br><span class="hljs-comment">		 * 里面定义了很多操作数组的方法</span><br><span class="hljs-comment">		 * </span><br><span class="hljs-comment">		 */</span><br>	<span class="hljs-comment">//1、	boolean  equals(int[] a,int[] b)</span><br>			<span class="hljs-keyword">int</span>[] arr1 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[]&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>&#125;;<br>			<span class="hljs-keyword">int</span>[] arr2 = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[]&#123;<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>&#125;;<br>			<br>			<br>			<br>			<span class="hljs-keyword">boolean</span> isEquals = Arrays.equals(arr1, arr2);<br>			System.out.println(isEquals);<br>			<span class="hljs-comment">//int[] arr1 = new int[]&#123;1,2,3,4&#125;;</span><br>			<span class="hljs-comment">//int[] arr2 = new int[]&#123;1,2,3,4&#125;;</span><br>			<span class="hljs-comment">//true</span><br>	<span class="hljs-comment">//2、   	String toString(int[] a)</span><br>			System.out.println(Arrays.toString(arr1));<br>			<span class="hljs-comment">//[1, 2, 3, 4]</span><br>    <span class="hljs-comment">//3、   void fill(int[] a,int val)      </span><br>			Arrays.fill(arr1, <span class="hljs-number">10</span>);<br>			System.out.println(Arrays.toString(arr1));<br>			<span class="hljs-comment">//[10, 10, 10, 10]</span><br>	<span class="hljs-comment">//4、	 void sort(int[] a)        </span><br>			Arrays.sort(arr2);<br>			System.out.println(Arrays.toString(arr2));<br>			<span class="hljs-comment">//[1, 2, 3, 4]</span><br>	<span class="hljs-comment">//5、	int binarySearch(int[] a,int key) </span><br>			<span class="hljs-keyword">int</span>[] arr = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[] &#123;-<span class="hljs-number">98</span>,-<span class="hljs-number">34</span>,<span class="hljs-number">2</span>,<span class="hljs-number">34</span>,<span class="hljs-number">54</span>,<span class="hljs-number">66</span>,<span class="hljs-number">79</span>,<span class="hljs-number">105</span>,<span class="hljs-number">210</span>,<span class="hljs-number">333</span>&#125;;<br>			<span class="hljs-keyword">int</span> index = Arrays.binarySearch(arr, <span class="hljs-number">210</span>);<br>			System.out.println(index);<span class="hljs-comment">//负数就是没找到！</span><br><br><br>结果：<br>    <span class="hljs-keyword">false</span><br>[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]<br>[<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>]<br>[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]<br><span class="hljs-number">8</span><br><br></code></pre></td></tr></table></figure>
+
+<h2 id="6-6、数组使用中的常见异常"><a href="#6-6、数组使用中的常见异常" class="headerlink" title="6.6、数组使用中的常见异常"></a>6.6、数组使用中的常见异常</h2><p>数组中常见异常：</p>
+<p>1、数组角标越界的异常：(左右都有越界)</p>
+<ul>
+<li>ArrayIndexOutOfBoundsException</li>
+</ul>
+<p>2、空指针异常：</p>
+<ul>
+<li>NullPointerException</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//情况1</span><br>	<span class="hljs-keyword">int</span>[] arr = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[]&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>&#125;;<br>	arr=<span class="hljs-keyword">null</span>;<br>	System.out.println(arr[<span class="hljs-number">0</span>]);<br></code></pre></td></tr></table></figure>
+
+<p>本指向数组，赋值为null,无指向，则为空指针！</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//情况2</span><br>	<span class="hljs-keyword">int</span>[][] arr = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">4</span>][];<br>		System.out.println(arr[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]);<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//情况2</span><br>String[] arr = <span class="hljs-keyword">new</span> String[] &#123;<span class="hljs-string">&quot;AA&quot;</span>,<span class="hljs-string">&quot;BB&quot;</span>,<span class="hljs-string">&quot;CC&quot;</span>&#125;;<br>		System.out.println(arr[<span class="hljs-number">0</span>].toString());<br><span class="hljs-comment">//输出AA</span><br>String[] arr = <span class="hljs-keyword">new</span> String[] &#123;<span class="hljs-string">&quot;AA&quot;</span>,<span class="hljs-string">&quot;BB&quot;</span>,<span class="hljs-string">&quot;CC&quot;</span>&#125;;<br>		arr[<span class="hljs-number">0</span>] = <span class="hljs-keyword">null</span>;<br>		System.out.println(arr[<span class="hljs-number">0</span>].toString());<br><span class="hljs-comment">//此时空指针异常</span><br></code></pre></td></tr></table></figure>
+
+
 
 ]]></content>
       <categories>
@@ -279,6 +370,9 @@
 <p>遵循SoC关注度分离原则，Vue是纯粹的视图框架，并不包含，比如Ajax之类的通信功能，为了解决通信问题，我们需要使用Axios框架做异步通信</p>
 <p>说明：</p>
 <p>Vue的开发都是要基于NodeJS,实际开发采用vue-cil脚手架开发，vue-router路由，vuex做状态管理；Vue UI界面我们一般使用ElementUI(饿了么出品)，或者ICE（阿里巴巴出品）来快速搭建前端项目。</p>
+<h2 id="WebPack学习"><a href="#WebPack学习" class="headerlink" title="WebPack学习"></a>WebPack学习</h2><p>什么是Webpack?</p>
+<p>本质上，webpack是一个现代JavaScript应用程序的静态模块打包器（module bundler）。</p>
+<p>当webpack处理应用程序时，它会递归地构建关系图（dependency graph）,其中包括应用程序需要的每个模块，然后将所有这些模块打包成一个或多个bundle.</p>
 ]]></content>
       <categories>
         <category>Vue</category>
@@ -1253,6 +1347,17 @@
 <h5 id="4-4-7、运算符的优先级"><a href="#4-4-7、运算符的优先级" class="headerlink" title="4.4.7、运算符的优先级"></a>4.4.7、运算符的优先级</h5><p><img src="https://www.picbed.cn/images/2021/05/05/24629b8d625d3d18b6.png"></p>
 <p>没必要记——优先计算的加括号（）</p>
 ]]></content>
+      <categories>
+        <category>Java基础</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java基础之面向对象(上)</title>
+    <url>/2021/05/19/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1(%E4%B8%8A)/</url>
+    <content><![CDATA[]]></content>
       <categories>
         <category>Java基础</category>
       </categories>
