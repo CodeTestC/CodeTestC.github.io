@@ -11,7 +11,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="google" content="notranslate" />
   
-  
+  <meta name="description" content="7、面向对象编程（上）学习面向对象内容的三条主线
+1、...">
   <meta name="author" content="chen">
   <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
   <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -190,13 +191,146 @@
     <div class="head-info">
       <span class="post-info-item"><i class="iconfont iconcalendar"></i>May 19, 2021</span>
       
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>0</span>
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>7307</span>
     </div>
   </div>
 </section>
     <section class="main">
       <section class="content">
-        
+        <h1 id="7、面向对象编程（上）"><a href="#7、面向对象编程（上）" class="headerlink" title="7、面向对象编程（上）"></a>7、面向对象编程（上）</h1><p><strong>学习</strong>面向对象内容的三条主线</p>
+<p>1、Java类及类的成员</p>
+<p>2、面向对象的三大特征</p>
+<p>3、其他关键字</p>
+<ul>
+<li><p>Java类及类的成员</p>
+<ul>
+<li>属性、方法、构造器；代码块、内部类</li>
+</ul>
+</li>
+<li><p>面向对象的三大特征</p>
+<ul>
+<li>封装性、继承性、多态性、（抽象性）</li>
+</ul>
+</li>
+<li><p>其他关键字</p>
+<ul>
+<li>this\super\static\final\abstract\interface\package\import等</li>
+</ul>
+</li>
+</ul>
+<h2 id="7-1、面向过程（POP）和面向对象（OOP）"><a href="#7-1、面向过程（POP）和面向对象（OOP）" class="headerlink" title="7.1、面向过程（POP）和面向对象（OOP）"></a>7.1、面向过程（POP）和面向对象（OOP）</h2><p>二者都是一种思想，面向对象是相对于面向对象而言的。面向过程，强调的是功能行为，以函数为最小单位，考虑怎么做。面向对象，将功能封装进对象，强调具备了功能的对象，以类/对象为最小单位，考虑谁来做。</p>
+<p>面向对象更加强调运用人类在日常思维逻辑中采用的思想方法和原则，如抽象、分类、继承、聚合、多态等。</p>
+<p>面向对象的三大特征：</p>
+<p>封装 （Encapsulation）</p>
+<p>继承 （Inheritance）</p>
+<p>多态  (Polymorphism)</p>
+<p>面向对象：Object Oriented Programming</p>
+<p>面向过程： Procedure Oriented Programming</p>
+<p>二、“人把大象装进冰箱”</p>
+<p>1、面向过程：强调的是功能行为，以函数为最小单位，考虑怎么做</p>
+<ul>
+<li>把冰箱门打开</li>
+<li>抬起大象，塞进冰箱</li>
+<li>把冰箱门关闭</li>
+</ul>
+<p>2、面向对象：强调具备了功能的对象，以类/对象为最小单位，考虑谁来做。</p>
+<p>人{</p>
+<p>​        打开（冰箱）</p>
+<p>​                冰箱.打开();</p>
+<p>​        抬起（大象）{</p>
+<p>​                大象.进入（冰箱);    </p>
+<p>}</p>
+<p>}</p>
+<p>冰箱 {</p>
+<p>​        冰箱.打开();</p>
+<p>​        冰箱.闭合（）；</p>
+<p>}</p>
+<p>大象 {</p>
+<p>​        进入（冰箱）{</p>
+<p>​    }</p>
+<p>}</p>
+<p>面向对象的思想概述</p>
+<p>程序员从面向过程的执行者转化成了面向对象的指挥者</p>
+<p>面向对象分析方法分析问题的思路和步骤：</p>
+<ul>
+<li> 根据问题需要，选择问题所针对的现实世界中的实体。</li>
+<li>从实体中寻找解决问题相关的属性和功能，这些属性和功能就形成了概念世界中的类。</li>
+<li>把抽象的实体用计算机语言进行描述，形成计算机世界中类的定义。即借助某种程序语言，把类构造成计算机能够识别和处理的数据结构。</li>
+<li>把类实例化成计算机世界中的对象，对象是计算机世界中解决问题的最终工具。</li>
+</ul>
+<h2 id="7-2、类和对象"><a href="#7-2、类和对象" class="headerlink" title="7.2、类和对象"></a>7.2、类和对象</h2><p>面向对象的思想概述：</p>
+<p>类（Class）和 对象（Object）是面向对象的核心概念。</p>
+<ul>
+<li>类是对一类事物的描述，是抽象的、概念上的定义</li>
+<li>对象是实际存在的该类事物的每个个体，因而也被称为实例（instance）</li>
+</ul>
+<p>“万事万物皆对象”</p>
+<p>可以理解为：<strong>类=抽象概念的人；对象=实实在在的某个人</strong></p>
+<p>面向对象程序设计的重点是<strong>类的设计</strong></p>
+<p>类的设计，<strong>其实就是类的成员的设计</strong></p>
+<h3 id="7-1、类的结构：属性和方法"><a href="#7-1、类的结构：属性和方法" class="headerlink" title="7.1、类的结构：属性和方法"></a>7.1、类的结构：属性和方法</h3><p>属性： 对应类中的成员变量</p>
+<p>行为：对应类中的成员方法</p>
+<blockquote>
+<p>Field = 属性 = 成员变量，    Method = (成员)方法 = 函数</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 设计类，其实就是设计类的成员</span><br><span class="hljs-comment"> * 属性 = 成员变量 = field = 域、字段</span><br><span class="hljs-comment"> * 方法 = 成员方法 = 函数 = method</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> */</span><br></code></pre></td></tr></table></figure>
+
+<p><img   class="lazyload" data-original="https://www.picbed.cn/images/2021/05/20/1.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" ></p>
+<p>Java类及类的成员</p>
+<p>如何使用Java类？</p>
+<p>Java类的实例化，即创建类的对象</p>
+<p>二、类和对象的使用（面向对象思想落地的实现）：</p>
+<p>1、创建类，设计类的成员</p>
+<p>2、创建类的对象</p>
+<p>3、通过“对象.属性“ 或”对象.方法”调用对象的结构</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> test;<br><br><br><span class="hljs-comment">//创建类的对象 = 类的实例化 = 实例化类</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PersonTest</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<span class="hljs-comment">//创建Person类的对象</span><br>		Person p1 = <span class="hljs-keyword">new</span> Person();<br>		<span class="hljs-comment">//类似Scanner scanner = new Scanner(System.in);</span><br>		<br>		<br>		<span class="hljs-comment">//调用对象的结构： 属性、方法</span><br>		<span class="hljs-comment">//调用属性： “对象.属性”</span><br>	<br>		p1.name = <span class="hljs-string">&quot;Tom&quot;</span>;<br>		p1.isMale = <span class="hljs-keyword">true</span>;<br>		System.out.println(p1.name);<br>		<br>		<span class="hljs-comment">//调用方法：“对象.方法”</span><br>		p1.eat();<br>		p1.sleep();<br>		p1.talk(<span class="hljs-string">&quot;Chinese&quot;</span>);<br>	&#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span></span>&#123;<br>	<br>	<span class="hljs-comment">//属性</span><br>	String name;<br>	<span class="hljs-keyword">int</span> age = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">boolean</span> isMale;<br>	<span class="hljs-comment">//方法</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span> </span>&#123;&#125;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sleep</span><span class="hljs-params">()</span> </span>&#123;&#125;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">talk</span><span class="hljs-params">(String language)</span> </span>&#123;&#125;<br>	<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>三、如果创建了一个类的多个对象，则每个对象都独立的拥有一套类的属性。(非static的）</p>
+<p>意味着： 如果我们修改一个对象的属性a,则不影响另外一个对象属性a的值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> test;<br><br><br><span class="hljs-comment">//创建类的对象 = 类的实例化 = 实例化类</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PersonTest</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<span class="hljs-comment">//创建Person类的对象</span><br>		Person p1 = <span class="hljs-keyword">new</span> Person();<br>		<span class="hljs-comment">//类似Scanner scanner = new Scanner(System.in);</span><br>		<br>		<br>		<span class="hljs-comment">//调用对象的结构： 属性、方法</span><br>		<span class="hljs-comment">//调用属性： “对象.属性”</span><br>	<br>		p1.name = <span class="hljs-string">&quot;Tom&quot;</span>;<br>		p1.isMale = <span class="hljs-keyword">true</span>;<br>		System.out.println(p1.name);<br>		<br>		<span class="hljs-comment">//调用方法：“对象.方法”</span><br>		p1.eat();<br>		p1.sleep();<br>		p1.talk(<span class="hljs-string">&quot;Chinese&quot;</span>);<br>		<br>		<br>		Person p2 = <span class="hljs-keyword">new</span> Person();<br>		System.out.println(p2.name);<span class="hljs-comment">//null</span><br>		System.out.println(p2.isMale);<span class="hljs-comment">//false</span><br>		<br>		<span class="hljs-comment">//将p1变量保存的对象地址值赋给p3,导致p1和p3指向了堆空间中的同一个对象实体。</span><br>		Person p3 = p1;<br>		System.out.println(p3.name);<span class="hljs-comment">//Tom</span><br>		p3.age = <span class="hljs-number">10</span>;<br>		System.out.println(p1.age);<span class="hljs-comment">//10</span><br>	&#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span></span>&#123;<br>	<br>	<span class="hljs-comment">//属性</span><br>	String name;<br>	<span class="hljs-keyword">int</span> age = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">boolean</span> isMale;<br>	<span class="hljs-comment">//方法</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span> </span>&#123;&#125;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sleep</span><span class="hljs-params">()</span> </span>&#123;&#125;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">talk</span><span class="hljs-params">(String language)</span> </span>&#123;&#125;<br>	<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>四、对象的内存解析</p>
+<p><img   class="lazyload" data-original="https://www.picbed.cn/images/2021/05/20/2.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" ></p>
+<p><img   class="lazyload" data-original="https://www.picbed.cn/images/2021/05/20/3.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" ></p>
+<h3 id="7-2、属性与局部变量对比"><a href="#7-2、属性与局部变量对比" class="headerlink" title="7.2、属性与局部变量对比"></a>7.2、属性与局部变量对比</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 类中属性的使用</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 属性(成员变量) VS 局部变量</span><br><span class="hljs-comment"> * 1、相同点</span><br><span class="hljs-comment"> * 		1.1、定义变量的格式;数据类型 变量名 = 变量值</span><br><span class="hljs-comment"> * 		1.2、先声明，后使用</span><br><span class="hljs-comment"> * 		1.3、变量都有其对应的作用域</span><br><span class="hljs-comment"> * 2、不同点</span><br><span class="hljs-comment"> * 		2.1、在类中声明的位置的不同</span><br><span class="hljs-comment"> * 		属性：直接定义在类的一对&#123;&#125;内</span><br><span class="hljs-comment"> * 		局部变量：</span><br><span class="hljs-comment"> * 			声明在方法内、方法形参、代码块内、构造器形参、构造器内部的变量</span><br><span class="hljs-comment"> *		</span><br><span class="hljs-comment"> *		2.2、关于权限修饰符的不同</span><br><span class="hljs-comment"> *		属性：</span><br><span class="hljs-comment"> *			可以在声明属性时，指明其权限，使用权限修饰符。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *			常用的权限修饰符：</span><br><span class="hljs-comment"> *					private、public、缺省、protected------&gt;封装性</span><br><span class="hljs-comment"> *			目前。大家声明属性时，都使用缺省就可以了。</span><br><span class="hljs-comment"> *		局部变量：</span><br><span class="hljs-comment"> *			不可以使用权限修饰符。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *		2.3、默认初始化值的情况:</span><br><span class="hljs-comment"> *		属性：</span><br><span class="hljs-comment"> *			类的属性，根据其类型，都有默认初始化值。</span><br><span class="hljs-comment"> *			整型(byte、short、int、long): 0</span><br><span class="hljs-comment"> *			浮点型(float、double): 0.0</span><br><span class="hljs-comment"> *			字符型(char): 0 (或者&#x27;\u0000&#x27;)</span><br><span class="hljs-comment"> *			布尔型(boolean): false</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *			引用数据类型(类、数组、接口): null</span><br><span class="hljs-comment"> *			</span><br><span class="hljs-comment"> *		局部变量:</span><br><span class="hljs-comment"> *			没有默认初始化值。</span><br><span class="hljs-comment"> *			意味着，我们在调用局部变量之前，一定要显式赋值。</span><br><span class="hljs-comment"> *			特别地:形参在调用时，我们赋值即可。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *		2.4、在内存中加载的位置:</span><br><span class="hljs-comment"> *		属性: </span><br><span class="hljs-comment"> *			加载到堆空间中(非static)</span><br><span class="hljs-comment"> *		局部变量:</span><br><span class="hljs-comment"> *			加载到栈空间</span><br><span class="hljs-comment"> */</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserTest</span> </span>&#123;<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<br>	&#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span></span>&#123;<br>	<span class="hljs-comment">//属性(或成员变量)</span><br>	<span class="hljs-keyword">private</span> String name;<br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> age;<br>	<span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> isMale;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">talk</span><span class="hljs-params">(String language)</span> </span>&#123;<span class="hljs-comment">//此处的language：形参,属于局部变量</span><br>		System.out.println(<span class="hljs-string">&quot;我们使用&quot;</span>+language+<span class="hljs-string">&quot;进行交流&quot;</span>);<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span> </span>&#123;<br>		String food = <span class="hljs-string">&quot;烙饼&quot;</span>;<span class="hljs-comment">//声明定义在方法内，是局部变量</span><br>		System.out.println(<span class="hljs-string">&quot;北方人喜欢吃&quot;</span>+food);<br>	&#125;<br>	<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="7-3、类中的方法-method"><a href="#7-3、类中的方法-method" class="headerlink" title="7.3、类中的方法(method)"></a>7.3、类中的方法(method)</h3><p>方法的分类：按照是否有形参及返回值</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>无返回值</th>
+<th>有返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>无形参</td>
+<td>void 方法名(){}</td>
+<td>返回值的类型 方法名(){}</td>
+</tr>
+<tr>
+<td>有形参</td>
+<td>void 方法名(形参列表){}</td>
+<td>返回值的类型 方法名(形参列表){}</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 类中方法的声明和使用</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 方法：</span><br><span class="hljs-comment"> * 		描述类应该具有的功能</span><br><span class="hljs-comment"> * 		比如: </span><br><span class="hljs-comment"> * 			Math类:sqrt() \ random() \...</span><br><span class="hljs-comment"> * 			Scanner类: nextXxx()...</span><br><span class="hljs-comment"> * 			Arrays类: sort() \ binarySearch() \ toString() \ equals() \ ....</span><br><span class="hljs-comment"> * 		1.举例：</span><br><span class="hljs-comment"> * 			public void eat()&#123;&#125;</span><br><span class="hljs-comment"> * 			public void sleep(int hour) &#123;&#125;</span><br><span class="hljs-comment"> * 			String getName()&#123;&#125;</span><br><span class="hljs-comment"> * 			public String getNation(String nation)&#123;&#125;</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 			</span><br><span class="hljs-comment"> * 			void的位置表示返回值类型，void表示没有返回值，String表示返回一个String类型的</span><br><span class="hljs-comment"> * 			int hour的位置是形参的位置，可以没有</span><br><span class="hljs-comment"> * 			</span><br><span class="hljs-comment"> * 			Ctrl+shift+T 输入Arrays/Math可以打开这个类</span><br><span class="hljs-comment"> * 			Ctrl+O 输入sort/random,可以查看此方法</span><br><span class="hljs-comment"> * 			</span><br><span class="hljs-comment"> * 		2.方法的声明:权限修饰符 返回值类型 方法名(形参列表)&#123;</span><br><span class="hljs-comment"> * 								方法体</span><br><span class="hljs-comment"> * 					&#125;</span><br><span class="hljs-comment"> * 		注意：static、final、abstract 来修饰的方法，后面再讲。</span><br><span class="hljs-comment"> * 			</span><br><span class="hljs-comment"> * 		3.说明:</span><br><span class="hljs-comment"> * 			3.1 关于权限修饰符:</span><br><span class="hljs-comment"> * 				Java规定的4种权限修饰符:</span><br><span class="hljs-comment"> * 				private、public、缺省、protected----&gt;封装性再细说。</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 			3.2 返回值类型：有返回值 VS 没有返回值</span><br><span class="hljs-comment"> * 				3.2.1 如果方法有返回值，则必须在方法声明时，指定返回值的类型。</span><br><span class="hljs-comment"> * 					同时，方法中，需要使用return关键字来返回指定类型的变量或常量: “return 数据”。</span><br><span class="hljs-comment"> * 					</span><br><span class="hljs-comment"> * 					如果方法没有返回值，则方法声明时，使用void来表示。</span><br><span class="hljs-comment"> * 					通常，没有返回值的方法中，就不需要return了，</span><br><span class="hljs-comment"> * 					但是，如果使用的话，只能“return;”表示结束此方法的意思。	</span><br><span class="hljs-comment"> * 				3.2.1 我们定义方法该不该有返回值？</span><br><span class="hljs-comment"> * 					1、题目要求</span><br><span class="hljs-comment"> * 					2、凭经验: 具体问题具体分析</span><br><span class="hljs-comment"> * 				</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 			3.3 方法名: 属于标识符，遵循标识符的规则和规范，“见名知意”</span><br><span class="hljs-comment"> * 						</span><br><span class="hljs-comment"> * 			3.4 形参列表: 方法可以声明0个，1个，或多个形参。</span><br><span class="hljs-comment"> * 				3.4.1 格式：</span><br><span class="hljs-comment"> * 						数据类型1 形参1,数据类型2 形参2,......</span><br><span class="hljs-comment"> * 				3.4.2 我们定义方法时，该不该定义形参？</span><br><span class="hljs-comment"> * 					1、题目要求</span><br><span class="hljs-comment"> * 					2、凭经验: 具体问题具体分析</span><br><span class="hljs-comment"> * 			3.5 方法体</span><br><span class="hljs-comment"> * 					方法功能的体现。</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 		</span><br><span class="hljs-comment"> * 		4、return关键字的使用：		</span><br><span class="hljs-comment"> * 			1、使用范围：使用在方法体中</span><br><span class="hljs-comment"> * 			2、作用：</span><br><span class="hljs-comment"> * 				① 结束方法 “return;”</span><br><span class="hljs-comment"> * 				② 针对于有返回值类型的方法，使用“return 数据”方法，返回所要的数据。</span><br><span class="hljs-comment"> * 			3、注意点:</span><br><span class="hljs-comment"> * 				return关键字后面不可以声明执行语句。</span><br><span class="hljs-comment"> * 		</span><br><span class="hljs-comment"> * 		5、方法的使用中，可以调用当前类的属性或方法。</span><br><span class="hljs-comment"> * 				特殊的，方法A中又调用了方法A:递归方法。</span><br><span class="hljs-comment"> * 			方法中,不可以定义方法。	</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomerTest</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		Customer cust1 = <span class="hljs-keyword">new</span> Customer();<br>		cust1.eat();<br>	&#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Customer</span></span>&#123;<br>	<span class="hljs-comment">//属性</span><br>	String name;<br>	<span class="hljs-keyword">int</span> age;<br>	<span class="hljs-keyword">boolean</span> isMale;<br>	<br>	<span class="hljs-comment">//方法</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span> </span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;客户吃饭&quot;</span>);<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sleep</span><span class="hljs-params">(<span class="hljs-keyword">int</span> hour)</span> </span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;休息了&quot;</span>+hour+<span class="hljs-string">&quot;个小时&quot;</span>);<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-comment">/*</span><br><span class="hljs-comment">		 * if(age &gt; 18)&#123;</span><br><span class="hljs-comment">		 * 		return name;</span><br><span class="hljs-comment">		 * &#125;不行，必须返回。</span><br><span class="hljs-comment">		 * </span><br><span class="hljs-comment">		 */</span><br>		<span class="hljs-keyword">return</span> name;<br>		<span class="hljs-comment">//return &quot;Tom&quot;;</span><br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getNation</span><span class="hljs-params">(String nation)</span> </span>&#123;<br>		String info = <span class="hljs-string">&quot;我的国籍是:&quot;</span>+nation;<br>		<span class="hljs-keyword">return</span> info;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="7-4、理解“万事万物皆对象”"><a href="#7-4、理解“万事万物皆对象”" class="headerlink" title="7.4、理解“万事万物皆对象”"></a>7.4、理解“万事万物皆对象”</h3><p>一、理解“万事万物皆对象”</p>
+<p>1、在Java语言范畴中，我们都将功能、结构等封装到类中，通过类的实例化，来调用具体的功能结构</p>
+<p>​        &gt; Scanner,String等</p>
+<p>​        &gt;文件，File</p>
+<p>​        &gt;网络资源，URL</p>
+<p>2、涉及到Java语言和前端HTML、后端的数据库交互时，前后端的结构在Java层面交互时，都体现为类、对象。</p>
+<h3 id="7-5、对象数组的内存解析"><a href="#7-5、对象数组的内存解析" class="headerlink" title="7.5、对象数组的内存解析"></a>7.5、对象数组的内存解析</h3><p>内存解析说明：</p>
+<p>1、引用类型的变量，只可能存储两类值 null 或  地址值（含变量的类型）</p>
+<p><img   class="lazyload" data-original="https://www.picbed.cn/images/2021/05/20/4.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" ></p>
+<p>对象数组</p>
+
       </section>
       <section class="extra">
         
@@ -230,7 +364,7 @@
           
   <aside class="toc-wrap">
     <h3 class="toc-title">文章目录：</h3>
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#7%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%8A%EF%BC%89"><span class="toc-text">7、面向对象编程（上）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1%E3%80%81%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%EF%BC%88POP%EF%BC%89%E5%92%8C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88OOP%EF%BC%89"><span class="toc-text">7.1、面向过程（POP）和面向对象（OOP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2%E3%80%81%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="toc-text">7.2、类和对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1%E3%80%81%E7%B1%BB%E7%9A%84%E7%BB%93%E6%9E%84%EF%BC%9A%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95"><span class="toc-text">7.1、类的结构：属性和方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2%E3%80%81%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%AF%B9%E6%AF%94"><span class="toc-text">7.2、属性与局部变量对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3%E3%80%81%E7%B1%BB%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95-method"><span class="toc-text">7.3、类中的方法(method)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4%E3%80%81%E7%90%86%E8%A7%A3%E2%80%9C%E4%B8%87%E4%BA%8B%E4%B8%87%E7%89%A9%E7%9A%86%E5%AF%B9%E8%B1%A1%E2%80%9D"><span class="toc-text">7.4、理解“万事万物皆对象”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-5%E3%80%81%E5%AF%B9%E8%B1%A1%E6%95%B0%E7%BB%84%E7%9A%84%E5%86%85%E5%AD%98%E8%A7%A3%E6%9E%90"><span class="toc-text">7.5、对象数组的内存解析</span></a></li></ol></li></ol></li></ol>
   </aside>
 
         
