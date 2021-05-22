@@ -218,150 +218,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java基础之面向对象(上)</title>
-    <url>/2021/05/19/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1(%E4%B8%8A)/</url>
-    <content><![CDATA[<h1 id="7、面向对象编程（上）"><a href="#7、面向对象编程（上）" class="headerlink" title="7、面向对象编程（上）"></a>7、面向对象编程（上）</h1><p><strong>学习</strong>面向对象内容的三条主线</p>
-<p>1、Java类及类的成员</p>
-<p>2、面向对象的三大特征</p>
-<p>3、其他关键字</p>
-<ul>
-<li><p>Java类及类的成员</p>
-<ul>
-<li>属性、方法、构造器；代码块、内部类</li>
-</ul>
-</li>
-<li><p>面向对象的三大特征</p>
-<ul>
-<li>封装性、继承性、多态性、（抽象性）</li>
-</ul>
-</li>
-<li><p>其他关键字</p>
-<ul>
-<li>this\super\static\final\abstract\interface\package\import等</li>
-</ul>
-</li>
-</ul>
-<h2 id="7-1、面向过程（POP）和面向对象（OOP）"><a href="#7-1、面向过程（POP）和面向对象（OOP）" class="headerlink" title="7.1、面向过程（POP）和面向对象（OOP）"></a>7.1、面向过程（POP）和面向对象（OOP）</h2><p>二者都是一种思想，面向对象是相对于面向对象而言的。面向过程，强调的是功能行为，以函数为最小单位，考虑怎么做。面向对象，将功能封装进对象，强调具备了功能的对象，以类/对象为最小单位，考虑谁来做。</p>
-<p>面向对象更加强调运用人类在日常思维逻辑中采用的思想方法和原则，如抽象、分类、继承、聚合、多态等。</p>
-<p>面向对象的三大特征：</p>
-<p>封装 （Encapsulation）</p>
-<p>继承 （Inheritance）</p>
-<p>多态  (Polymorphism)</p>
-<p>面向对象：Object Oriented Programming</p>
-<p>面向过程： Procedure Oriented Programming</p>
-<p>二、“人把大象装进冰箱”</p>
-<p>1、面向过程：强调的是功能行为，以函数为最小单位，考虑怎么做</p>
-<ul>
-<li>把冰箱门打开</li>
-<li>抬起大象，塞进冰箱</li>
-<li>把冰箱门关闭</li>
-</ul>
-<p>2、面向对象：强调具备了功能的对象，以类/对象为最小单位，考虑谁来做。</p>
-<p>人{</p>
-<p>​        打开（冰箱）</p>
-<p>​                冰箱.打开();</p>
-<p>​        抬起（大象）{</p>
-<p>​                大象.进入（冰箱);    </p>
-<p>}</p>
-<p>}</p>
-<p>冰箱 {</p>
-<p>​        冰箱.打开();</p>
-<p>​        冰箱.闭合（）；</p>
-<p>}</p>
-<p>大象 {</p>
-<p>​        进入（冰箱）{</p>
-<p>​    }</p>
-<p>}</p>
-<p>面向对象的思想概述</p>
-<p>程序员从面向过程的执行者转化成了面向对象的指挥者</p>
-<p>面向对象分析方法分析问题的思路和步骤：</p>
-<ul>
-<li> 根据问题需要，选择问题所针对的现实世界中的实体。</li>
-<li>从实体中寻找解决问题相关的属性和功能，这些属性和功能就形成了概念世界中的类。</li>
-<li>把抽象的实体用计算机语言进行描述，形成计算机世界中类的定义。即借助某种程序语言，把类构造成计算机能够识别和处理的数据结构。</li>
-<li>把类实例化成计算机世界中的对象，对象是计算机世界中解决问题的最终工具。</li>
-</ul>
-<h2 id="7-2、类和对象"><a href="#7-2、类和对象" class="headerlink" title="7.2、类和对象"></a>7.2、类和对象</h2><p>面向对象的思想概述：</p>
-<p>类（Class）和 对象（Object）是面向对象的核心概念。</p>
-<ul>
-<li>类是对一类事物的描述，是抽象的、概念上的定义</li>
-<li>对象是实际存在的该类事物的每个个体，因而也被称为实例（instance）</li>
-</ul>
-<p>“万事万物皆对象”</p>
-<p>可以理解为：<strong>类=抽象概念的人；对象=实实在在的某个人</strong></p>
-<p>面向对象程序设计的重点是<strong>类的设计</strong></p>
-<p>类的设计，<strong>其实就是类的成员的设计</strong></p>
-<h3 id="7-1、类的结构：属性和方法"><a href="#7-1、类的结构：属性和方法" class="headerlink" title="7.1、类的结构：属性和方法"></a>7.1、类的结构：属性和方法</h3><p>属性： 对应类中的成员变量</p>
-<p>行为：对应类中的成员方法</p>
-<blockquote>
-<p>Field = 属性 = 成员变量，    Method = (成员)方法 = 函数</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 设计类，其实就是设计类的成员</span><br><span class="hljs-comment"> * 属性 = 成员变量 = field = 域、字段</span><br><span class="hljs-comment"> * 方法 = 成员方法 = 函数 = method</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> */</span><br></code></pre></td></tr></table></figure>
-
-<p><img src="https://www.picbed.cn/images/2021/05/20/1.png"></p>
-<p>Java类及类的成员</p>
-<p>如何使用Java类？</p>
-<p>Java类的实例化，即创建类的对象</p>
-<p>二、类和对象的使用（面向对象思想落地的实现）：</p>
-<p>1、创建类，设计类的成员</p>
-<p>2、创建类的对象</p>
-<p>3、通过“对象.属性“ 或”对象.方法”调用对象的结构</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> test;<br><br><br><span class="hljs-comment">//创建类的对象 = 类的实例化 = 实例化类</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PersonTest</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<span class="hljs-comment">//创建Person类的对象</span><br>		Person p1 = <span class="hljs-keyword">new</span> Person();<br>		<span class="hljs-comment">//类似Scanner scanner = new Scanner(System.in);</span><br>		<br>		<br>		<span class="hljs-comment">//调用对象的结构： 属性、方法</span><br>		<span class="hljs-comment">//调用属性： “对象.属性”</span><br>	<br>		p1.name = <span class="hljs-string">&quot;Tom&quot;</span>;<br>		p1.isMale = <span class="hljs-keyword">true</span>;<br>		System.out.println(p1.name);<br>		<br>		<span class="hljs-comment">//调用方法：“对象.方法”</span><br>		p1.eat();<br>		p1.sleep();<br>		p1.talk(<span class="hljs-string">&quot;Chinese&quot;</span>);<br>	&#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span></span>&#123;<br>	<br>	<span class="hljs-comment">//属性</span><br>	String name;<br>	<span class="hljs-keyword">int</span> age = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">boolean</span> isMale;<br>	<span class="hljs-comment">//方法</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span> </span>&#123;&#125;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sleep</span><span class="hljs-params">()</span> </span>&#123;&#125;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">talk</span><span class="hljs-params">(String language)</span> </span>&#123;&#125;<br>	<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>三、如果创建了一个类的多个对象，则每个对象都独立的拥有一套类的属性。(非static的）</p>
-<p>意味着： 如果我们修改一个对象的属性a,则不影响另外一个对象属性a的值。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> test;<br><br><br><span class="hljs-comment">//创建类的对象 = 类的实例化 = 实例化类</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PersonTest</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<span class="hljs-comment">//创建Person类的对象</span><br>		Person p1 = <span class="hljs-keyword">new</span> Person();<br>		<span class="hljs-comment">//类似Scanner scanner = new Scanner(System.in);</span><br>		<br>		<br>		<span class="hljs-comment">//调用对象的结构： 属性、方法</span><br>		<span class="hljs-comment">//调用属性： “对象.属性”</span><br>	<br>		p1.name = <span class="hljs-string">&quot;Tom&quot;</span>;<br>		p1.isMale = <span class="hljs-keyword">true</span>;<br>		System.out.println(p1.name);<br>		<br>		<span class="hljs-comment">//调用方法：“对象.方法”</span><br>		p1.eat();<br>		p1.sleep();<br>		p1.talk(<span class="hljs-string">&quot;Chinese&quot;</span>);<br>		<br>		<br>		Person p2 = <span class="hljs-keyword">new</span> Person();<br>		System.out.println(p2.name);<span class="hljs-comment">//null</span><br>		System.out.println(p2.isMale);<span class="hljs-comment">//false</span><br>		<br>		<span class="hljs-comment">//将p1变量保存的对象地址值赋给p3,导致p1和p3指向了堆空间中的同一个对象实体。</span><br>		Person p3 = p1;<br>		System.out.println(p3.name);<span class="hljs-comment">//Tom</span><br>		p3.age = <span class="hljs-number">10</span>;<br>		System.out.println(p1.age);<span class="hljs-comment">//10</span><br>	&#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span></span>&#123;<br>	<br>	<span class="hljs-comment">//属性</span><br>	String name;<br>	<span class="hljs-keyword">int</span> age = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">boolean</span> isMale;<br>	<span class="hljs-comment">//方法</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span> </span>&#123;&#125;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sleep</span><span class="hljs-params">()</span> </span>&#123;&#125;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">talk</span><span class="hljs-params">(String language)</span> </span>&#123;&#125;<br>	<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>四、对象的内存解析</p>
-<p><img src="https://www.picbed.cn/images/2021/05/20/2.png"></p>
-<p><img src="https://www.picbed.cn/images/2021/05/20/3.png"></p>
-<h3 id="7-2、属性与局部变量对比"><a href="#7-2、属性与局部变量对比" class="headerlink" title="7.2、属性与局部变量对比"></a>7.2、属性与局部变量对比</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 类中属性的使用</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 属性(成员变量) VS 局部变量</span><br><span class="hljs-comment"> * 1、相同点</span><br><span class="hljs-comment"> * 		1.1、定义变量的格式;数据类型 变量名 = 变量值</span><br><span class="hljs-comment"> * 		1.2、先声明，后使用</span><br><span class="hljs-comment"> * 		1.3、变量都有其对应的作用域</span><br><span class="hljs-comment"> * 2、不同点</span><br><span class="hljs-comment"> * 		2.1、在类中声明的位置的不同</span><br><span class="hljs-comment"> * 		属性：直接定义在类的一对&#123;&#125;内</span><br><span class="hljs-comment"> * 		局部变量：</span><br><span class="hljs-comment"> * 			声明在方法内、方法形参、代码块内、构造器形参、构造器内部的变量</span><br><span class="hljs-comment"> *		</span><br><span class="hljs-comment"> *		2.2、关于权限修饰符的不同</span><br><span class="hljs-comment"> *		属性：</span><br><span class="hljs-comment"> *			可以在声明属性时，指明其权限，使用权限修饰符。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *			常用的权限修饰符：</span><br><span class="hljs-comment"> *					private、public、缺省、protected------&gt;封装性</span><br><span class="hljs-comment"> *			目前。大家声明属性时，都使用缺省就可以了。</span><br><span class="hljs-comment"> *		局部变量：</span><br><span class="hljs-comment"> *			不可以使用权限修饰符。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *		2.3、默认初始化值的情况:</span><br><span class="hljs-comment"> *		属性：</span><br><span class="hljs-comment"> *			类的属性，根据其类型，都有默认初始化值。</span><br><span class="hljs-comment"> *			整型(byte、short、int、long): 0</span><br><span class="hljs-comment"> *			浮点型(float、double): 0.0</span><br><span class="hljs-comment"> *			字符型(char): 0 (或者&#x27;\u0000&#x27;)</span><br><span class="hljs-comment"> *			布尔型(boolean): false</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *			引用数据类型(类、数组、接口): null</span><br><span class="hljs-comment"> *			</span><br><span class="hljs-comment"> *		局部变量:</span><br><span class="hljs-comment"> *			没有默认初始化值。</span><br><span class="hljs-comment"> *			意味着，我们在调用局部变量之前，一定要显式赋值。</span><br><span class="hljs-comment"> *			特别地:形参在调用时，我们赋值即可。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *		2.4、在内存中加载的位置:</span><br><span class="hljs-comment"> *		属性: </span><br><span class="hljs-comment"> *			加载到堆空间中(非static)</span><br><span class="hljs-comment"> *		局部变量:</span><br><span class="hljs-comment"> *			加载到栈空间</span><br><span class="hljs-comment"> */</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserTest</span> </span>&#123;<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<br>	&#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span></span>&#123;<br>	<span class="hljs-comment">//属性(或成员变量)</span><br>	<span class="hljs-keyword">private</span> String name;<br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> age;<br>	<span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> isMale;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">talk</span><span class="hljs-params">(String language)</span> </span>&#123;<span class="hljs-comment">//此处的language：形参,属于局部变量</span><br>		System.out.println(<span class="hljs-string">&quot;我们使用&quot;</span>+language+<span class="hljs-string">&quot;进行交流&quot;</span>);<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span> </span>&#123;<br>		String food = <span class="hljs-string">&quot;烙饼&quot;</span>;<span class="hljs-comment">//声明定义在方法内，是局部变量</span><br>		System.out.println(<span class="hljs-string">&quot;北方人喜欢吃&quot;</span>+food);<br>	&#125;<br>	<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-<h3 id="7-3、类中的方法-method"><a href="#7-3、类中的方法-method" class="headerlink" title="7.3、类中的方法(method)"></a>7.3、类中的方法(method)</h3><p>方法的分类：按照是否有形参及返回值</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>无返回值</th>
-<th>有返回值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>无形参</td>
-<td>void 方法名(){}</td>
-<td>返回值的类型 方法名(){}</td>
-</tr>
-<tr>
-<td>有形参</td>
-<td>void 方法名(形参列表){}</td>
-<td>返回值的类型 方法名(形参列表){}</td>
-</tr>
-</tbody></table>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 类中方法的声明和使用</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 方法：</span><br><span class="hljs-comment"> * 		描述类应该具有的功能</span><br><span class="hljs-comment"> * 		比如: </span><br><span class="hljs-comment"> * 			Math类:sqrt() \ random() \...</span><br><span class="hljs-comment"> * 			Scanner类: nextXxx()...</span><br><span class="hljs-comment"> * 			Arrays类: sort() \ binarySearch() \ toString() \ equals() \ ....</span><br><span class="hljs-comment"> * 		1.举例：</span><br><span class="hljs-comment"> * 			public void eat()&#123;&#125;</span><br><span class="hljs-comment"> * 			public void sleep(int hour) &#123;&#125;</span><br><span class="hljs-comment"> * 			String getName()&#123;&#125;</span><br><span class="hljs-comment"> * 			public String getNation(String nation)&#123;&#125;</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 			</span><br><span class="hljs-comment"> * 			void的位置表示返回值类型，void表示没有返回值，String表示返回一个String类型的</span><br><span class="hljs-comment"> * 			int hour的位置是形参的位置，可以没有</span><br><span class="hljs-comment"> * 			</span><br><span class="hljs-comment"> * 			Ctrl+shift+T 输入Arrays/Math可以打开这个类</span><br><span class="hljs-comment"> * 			Ctrl+O 输入sort/random,可以查看此方法</span><br><span class="hljs-comment"> * 			</span><br><span class="hljs-comment"> * 		2.方法的声明:权限修饰符 返回值类型 方法名(形参列表)&#123;</span><br><span class="hljs-comment"> * 								方法体</span><br><span class="hljs-comment"> * 					&#125;</span><br><span class="hljs-comment"> * 		注意：static、final、abstract 来修饰的方法，后面再讲。</span><br><span class="hljs-comment"> * 			</span><br><span class="hljs-comment"> * 		3.说明:</span><br><span class="hljs-comment"> * 			3.1 关于权限修饰符:</span><br><span class="hljs-comment"> * 				Java规定的4种权限修饰符:</span><br><span class="hljs-comment"> * 				private、public、缺省、protected----&gt;封装性再细说。</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 			3.2 返回值类型：有返回值 VS 没有返回值</span><br><span class="hljs-comment"> * 				3.2.1 如果方法有返回值，则必须在方法声明时，指定返回值的类型。</span><br><span class="hljs-comment"> * 					同时，方法中，需要使用return关键字来返回指定类型的变量或常量: “return 数据”。</span><br><span class="hljs-comment"> * 					</span><br><span class="hljs-comment"> * 					如果方法没有返回值，则方法声明时，使用void来表示。</span><br><span class="hljs-comment"> * 					通常，没有返回值的方法中，就不需要return了，</span><br><span class="hljs-comment"> * 					但是，如果使用的话，只能“return;”表示结束此方法的意思。	</span><br><span class="hljs-comment"> * 				3.2.1 我们定义方法该不该有返回值？</span><br><span class="hljs-comment"> * 					1、题目要求</span><br><span class="hljs-comment"> * 					2、凭经验: 具体问题具体分析</span><br><span class="hljs-comment"> * 				</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 			3.3 方法名: 属于标识符，遵循标识符的规则和规范，“见名知意”</span><br><span class="hljs-comment"> * 						</span><br><span class="hljs-comment"> * 			3.4 形参列表: 方法可以声明0个，1个，或多个形参。</span><br><span class="hljs-comment"> * 				3.4.1 格式：</span><br><span class="hljs-comment"> * 						数据类型1 形参1,数据类型2 形参2,......</span><br><span class="hljs-comment"> * 				3.4.2 我们定义方法时，该不该定义形参？</span><br><span class="hljs-comment"> * 					1、题目要求</span><br><span class="hljs-comment"> * 					2、凭经验: 具体问题具体分析</span><br><span class="hljs-comment"> * 			3.5 方法体</span><br><span class="hljs-comment"> * 					方法功能的体现。</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 		</span><br><span class="hljs-comment"> * 		4、return关键字的使用：		</span><br><span class="hljs-comment"> * 			1、使用范围：使用在方法体中</span><br><span class="hljs-comment"> * 			2、作用：</span><br><span class="hljs-comment"> * 				① 结束方法 “return;”</span><br><span class="hljs-comment"> * 				② 针对于有返回值类型的方法，使用“return 数据”方法，返回所要的数据。</span><br><span class="hljs-comment"> * 			3、注意点:</span><br><span class="hljs-comment"> * 				return关键字后面不可以声明执行语句。</span><br><span class="hljs-comment"> * 		</span><br><span class="hljs-comment"> * 		5、方法的使用中，可以调用当前类的属性或方法。</span><br><span class="hljs-comment"> * 				特殊的，方法A中又调用了方法A:递归方法。</span><br><span class="hljs-comment"> * 			方法中,不可以定义方法。	</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomerTest</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		Customer cust1 = <span class="hljs-keyword">new</span> Customer();<br>		cust1.eat();<br>	&#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Customer</span></span>&#123;<br>	<span class="hljs-comment">//属性</span><br>	String name;<br>	<span class="hljs-keyword">int</span> age;<br>	<span class="hljs-keyword">boolean</span> isMale;<br>	<br>	<span class="hljs-comment">//方法</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span> </span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;客户吃饭&quot;</span>);<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sleep</span><span class="hljs-params">(<span class="hljs-keyword">int</span> hour)</span> </span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;休息了&quot;</span>+hour+<span class="hljs-string">&quot;个小时&quot;</span>);<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-comment">/*</span><br><span class="hljs-comment">		 * if(age &gt; 18)&#123;</span><br><span class="hljs-comment">		 * 		return name;</span><br><span class="hljs-comment">		 * &#125;不行，必须返回。</span><br><span class="hljs-comment">		 * </span><br><span class="hljs-comment">		 */</span><br>		<span class="hljs-keyword">return</span> name;<br>		<span class="hljs-comment">//return &quot;Tom&quot;;</span><br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getNation</span><span class="hljs-params">(String nation)</span> </span>&#123;<br>		String info = <span class="hljs-string">&quot;我的国籍是:&quot;</span>+nation;<br>		<span class="hljs-keyword">return</span> info;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="7-4、理解“万事万物皆对象”"><a href="#7-4、理解“万事万物皆对象”" class="headerlink" title="7.4、理解“万事万物皆对象”"></a>7.4、理解“万事万物皆对象”</h3><p>一、理解“万事万物皆对象”</p>
-<p>1、在Java语言范畴中，我们都将功能、结构等封装到类中，通过类的实例化，来调用具体的功能结构</p>
-<p>​        &gt; Scanner,String等</p>
-<p>​        &gt;文件，File</p>
-<p>​        &gt;网络资源，URL</p>
-<p>2、涉及到Java语言和前端HTML、后端的数据库交互时，前后端的结构在Java层面交互时，都体现为类、对象。</p>
-<h3 id="7-5、对象数组的内存解析"><a href="#7-5、对象数组的内存解析" class="headerlink" title="7.5、对象数组的内存解析"></a>7.5、对象数组的内存解析</h3><p>内存解析说明：</p>
-<p>1、引用类型的变量，只可能存储两类值 null 或  地址值（含变量的类型）</p>
-<p><img src="https://www.picbed.cn/images/2021/05/20/4.png"></p>
-<p>对象数组</p>
-]]></content>
-      <categories>
-        <category>Java基础</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue</title>
     <url>/2021/05/14/Vue/</url>
     <content><![CDATA[<h1 id="Vue学习篇"><a href="#Vue学习篇" class="headerlink" title="Vue学习篇"></a>Vue学习篇</h1><h2 id="1、前端梳理"><a href="#1、前端梳理" class="headerlink" title="1、前端梳理"></a>1、前端梳理</h2><p>什么是Vue?</p>
@@ -699,6 +555,341 @@
       </categories>
       <tags>
         <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java基础篇02</title>
+    <url>/2021/05/05/Java%E5%9F%BA%E7%A1%8002/</url>
+    <content><![CDATA[<h1 id="Java基础篇02"><a href="#Java基础篇02" class="headerlink" title="Java基础篇02"></a>Java基础篇02</h1><h2 id="5、基本语法（下）"><a href="#5、基本语法（下）" class="headerlink" title="5、基本语法（下）"></a>5、基本语法（下）</h2><h3 id="5-1、程序流程控制"><a href="#5-1、程序流程控制" class="headerlink" title="5.1、程序流程控制"></a>5.1、程序流程控制</h3><p>流程控制语句是用来控制程序中各语句执行顺序的语句，可以把语句组合成能完成一定功能的小逻辑模块。</p>
+<p>其流程控制方式采用结构化程序设计中规定的三种基本流程结构，即</p>
+<ul>
+<li>顺序结构<ul>
+<li>程序从上到下逐行地执行，中间没有任何判断和跳转</li>
+</ul>
+</li>
+<li>分支结构<ul>
+<li>根据条件，选择性地执行某段代码</li>
+<li>有if-else和switch-case两种分支语句</li>
+</ul>
+</li>
+<li>循环结构<ul>
+<li>根据循环条件，重复性的执行某段代码</li>
+<li>有while、do…while、for三种循环语句</li>
+<li>注：<ul>
+<li>JDK1.5提供了foreach循环，方便的遍历集合、数组元素。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="5-1-1、分支结构"><a href="#5-1-1、分支结构" class="headerlink" title="5.1.1、分支结构"></a>5.1.1、分支结构</h5><h6 id="5-1-1-1、if-else"><a href="#5-1-1-1、if-else" class="headerlink" title="5.1.1.1、if-else"></a>5.1.1.1、if-else</h6><p>if语句三种格式：</p>
+<blockquote>
+<p>1 、 if(条件表达式){</p>
+<p>​                执行代码块;</p>
+<p>​        }</p>
+</blockquote>
+<p><img  src="https://www.picbed.cn/images/2021/05/05/1fdb7d5656b952984.png"  ><span class="image-caption">1fdb7d5656b952984.png</span></p>
+<blockquote>
+<p> if(条件表达式){</p>
+<p>​                执行代码块1;</p>
+<p>​        }else{</p>
+<p>​                执行代码块2；</p>
+<p>​        }</p>
+</blockquote>
+<p><img  src="https://www.picbed.cn/images/2021/05/05/21d18cd98afab6393.png"  ><span class="image-caption">21d18cd98afab6393.png</span></p>
+<blockquote>
+<p>if(条件表达式1){</p>
+<p>​                执行代码块1;</p>
+<p>​        }else if(条件表达式2){</p>
+<p>​                执行代码块2；</p>
+<p>​        }</p>
+<p>……</p>
+<p>​        else{</p>
+<p>​                执行代码块n；</p>
+<p>​        }</p>
+</blockquote>
+<p><img  src="https://www.picbed.cn/images/2021/05/05/30a85988d901eb9c4.png"  ><span class="image-caption">30a85988d901eb9c4.png</span></p>
+<p>选一个</p>
+<p>分支结构中的if-else(条件判断结构)</p>
+<p>1、三种结构</p>
+<p>第一种：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span>(条件表达式)&#123;<br><br>	执行代码块;<br><br>&#125;<br><br>第二种：二选一<br><br><span class="hljs-keyword">if</span>(条件表达式)&#123;<br><br>	执行代码块<span class="hljs-number">1</span>;<br><br>&#125;<span class="hljs-keyword">else</span>&#123;<br>	执行代码块<span class="hljs-number">2</span>；<br>&#125;<br><br>第三种：多选一<br><br><br><br><span class="hljs-keyword">if</span>(条件表达式<span class="hljs-number">1</span>)&#123;<br><br>	执行代码块<span class="hljs-number">1</span>;<br><br>&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(条件表达式<span class="hljs-number">2</span>)&#123;<br>	执行代码块<span class="hljs-number">2</span>；<br><br>&#125;<br><br>……<br><span class="hljs-keyword">else</span>&#123;<br>	执行代码块n；<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h6 id="5-1-1-2、Scanner类-补充"><a href="#5-1-1-2、Scanner类-补充" class="headerlink" title="5.1.1.2、Scanner类(补充)"></a>5.1.1.2、Scanner类(补充)</h6><p>如何从键盘获取不同类型的变量：需要使用Scanner类</p>
+<p>具体实现步骤：</p>
+<p>1、导包</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>2、Scanner的实例化</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.in);<br></code></pre></td></tr></table></figure>
+
+
+
+<p>3、调用Scanner类的相关方法，来获取指定类型的变量</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> num = sc.nextInt();<br>System.out.println(num);<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.in);<br>		<br>		System.out.println(<span class="hljs-string">&quot;请输入你的姓名:&quot;</span>);<br>		String name = sc.next();<br>		System.out.println(name);<br>		<br>		System.out.println(<span class="hljs-string">&quot;请输入你的年龄:&quot;</span>);<br>		<span class="hljs-keyword">int</span> age = sc.nextInt();<br>		System.out.println(age);<br>		<br>		System.out.println(<span class="hljs-string">&quot;请输入你的体重:&quot;</span>);<br>		<span class="hljs-keyword">double</span> weight = sc.nextDouble();<br>		System.out.println(weight);<br>		<br>		<br>		sc.close();<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>对于char型的获取，Scanner没有提供相关的方法。只能够获取一个字符串.</p>
+<p>只获取一个字符，使用charAt();</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">System.out.println(<span class="hljs-string">&quot;请输入你的性别:(男/女)&quot;</span>);<br>		String gender = sc.next();<br><br>		<span class="hljs-keyword">char</span> genderChar = gender.charAt(<span class="hljs-number">0</span>);		<span class="hljs-comment">//获取索引为0位置上的字符</span><br><br>		System.out.println(genderChar);<br>		sc.close();<br></code></pre></td></tr></table></figure>
+
+<p>使用nextInt()但是用户输入double型，此时会出现InputMismatchException。输入内容不匹配，程序直接终止。</p>
+<p>注意：</p>
+<ul>
+<li>需要根据相应的方法，来输入指定类型的值，如果输入的数据类型与要求的类型不匹配时，会报异常InputMismatchException，导致程序终止。</li>
+</ul>
+<h6 id="5-1-1-3、分支结构之二switch-case"><a href="#5-1-1-3、分支结构之二switch-case" class="headerlink" title="5.1.1.3、分支结构之二switch-case"></a>5.1.1.3、分支结构之二switch-case</h6><p><img src="https://www.picbed.cn/images/2021/05/09/4c8b9f9b877375447.png"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">switch</span>(表达式)&#123;<br>    <span class="hljs-keyword">case</span> 常量<span class="hljs-number">1</span>:<br>        语句<span class="hljs-number">1</span>;<br>        <span class="hljs-comment">//break;</span><br>    <span class="hljs-keyword">case</span> 常量<span class="hljs-number">2</span>:<br>        语句<span class="hljs-number">2</span>;<br>        <span class="hljs-comment">//break;</span><br>        <br>    … …<br>      <br>    <span class="hljs-keyword">case</span> 常量N:<br>        语句N;<br>        <span class="hljs-comment">//break;</span><br>    <span class="hljs-keyword">default</span>:<br>        语句;<br>        <span class="hljs-comment">//break;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>break不是必须要有的，根据实际情况而定</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> number = <span class="hljs-number">2</span>;<br>		<br>		<span class="hljs-keyword">switch</span>(number) &#123;<br>		<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:<br>			System.out.println(<span class="hljs-string">&quot;zero&quot;</span>);<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<br>			System.out.println(<span class="hljs-string">&quot;one&quot;</span>);<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<br>			System.out.println(<span class="hljs-string">&quot;two&quot;</span>);<br>			<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:<br>			System.out.println(<span class="hljs-string">&quot;three&quot;</span>);	<br>		<span class="hljs-keyword">default</span>:<br>			System.out.println(<span class="hljs-string">&quot;other&quot;</span>);<br>		&#125;<br><br><span class="hljs-comment">//结果：</span><br>two<br>three<br>other<br><br></code></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<ul>
+<li><p>根据switch表达式中的值，依次匹配各个case中的常量。一旦匹配成功，则进入相应case结构中，调用其执行语句</p>
+<p>当调用完执行语句以后，则仍然向下执行其他case结构中的执行语句，<strong>直到遇到break关键字或者此switch-case结构末尾结束为止</strong>。</p>
+</li>
+<li><p>break,可以使用在switch-case结构中，表示一旦执行到此关键字，就跳出switch-case结构。</p>
+</li>
+</ul>
+<ul>
+<li>switch(number) <ul>
+<li>switch结构中的表达式，只能是如下的6种数据类型之一<ul>
+<li>byte</li>
+<li>short</li>
+<li>char</li>
+<li>int</li>
+<li>枚举类型(JDK5.0新增)</li>
+<li>String类型(JDK7.0新增)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>switch语句应用举例</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">String season = <span class="hljs-string">&quot;summer&quot;</span>;<br>	<br>	<span class="hljs-keyword">switch</span>(season) &#123;<br>	<br>	<span class="hljs-keyword">case</span> <span class="hljs-string">&quot;spring&quot;</span>:<br>		System.out.println(<span class="hljs-string">&quot;春暖花开&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-string">&quot;summer&quot;</span>:<br>		System.out.println(<span class="hljs-string">&quot;夏日炎炎&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-string">&quot;autumn&quot;</span>:<br>		System.out.println(<span class="hljs-string">&quot;秋高气爽&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>		<br>	<span class="hljs-keyword">case</span> <span class="hljs-string">&quot;winter&quot;</span>:<br>		System.out.println(<span class="hljs-string">&quot;冬雪皑皑&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">default</span>:<br>		System.out.println(<span class="hljs-string">&quot;输入有误&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	&#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>case之后只能声明常量，不能声明范围。</p>
+</li>
+<li><p>break关键字</p>
+<ul>
+<li>可选的</li>
+</ul>
+</li>
+<li><p>default</p>
+<ul>
+<li>相当于if-else结构中的else</li>
+<li>default结构是可选的，而且位置是灵活的。</li>
+</ul>
+</li>
+</ul>
+<h5 id="5-1-2、循环结构"><a href="#5-1-2、循环结构" class="headerlink" title="5.1.2、循环结构"></a>5.1.2、循环结构</h5><p>​    在某些条件满足的情况下，反复执行特定代码的功能</p>
+<p>循环语句分类：</p>
+<ul>
+<li>for循环</li>
+<li>while循环</li>
+<li>do-while循环</li>
+</ul>
+<p>循环语句的四个组成部分</p>
+<ul>
+<li>初始化部分(init_statement)</li>
+<li>循环条件部分(test_exp)</li>
+<li>循环体部分(body_statement)</li>
+<li>迭代部分(alter_statement)</li>
+</ul>
+<p><img src="https://www.picbed.cn/images/2021/05/15/5.png"></p>
+<h6 id="5-1-2-1、for循环"><a href="#5-1-2-1、for循环" class="headerlink" title="5.1.2.1、for循环"></a>5.1.2.1、for循环</h6><p>for循环结构的使用</p>
+<p>一、循环结构的4个要素</p>
+<ul>
+<li>初始化条件</li>
+<li>循环条件 ——-&gt;是boolean类型</li>
+<li>循环体</li>
+<li>迭代条件</li>
+</ul>
+<p>二、for循环的结构</p>
+<p>for(①;②;④){</p>
+<p>​    ③</p>
+<p>}</p>
+<p>执行过程:    ①–&gt;②–&gt;③–&gt;④–&gt;②–&gt;③–&gt;④–&gt;…….②</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; <span class="hljs-number">5</span>;i++) &#123;<br>			System.out.println(<span class="hljs-string">&quot;Hello World!&quot;</span>);<br>		&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>i在for循环内有效，出了for循环就失效了。</strong></p>
+<p>练习：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span>(System.out.print(<span class="hljs-string">&#x27;a&#x27;</span>);j&lt;<span class="hljs-number">3</span>;j++,System.out.print(<span class="hljs-string">&#x27;c&#x27;</span>)) &#123;<br>        System.out.print(<span class="hljs-string">&#x27;b&#x27;</span>);<br>    &#125;<br><br>结果:<br>abcbc<br></code></pre></td></tr></table></figure>
+
+<p>例题：</p>
+<p>遍历100以内的偶数,并且输出所有偶数的和</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">100</span>;i++) &#123;<br>			<span class="hljs-keyword">if</span>(i%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>) &#123;<br>				System.out.println(i);<br>				sum += i;<br>				count++;<br>			&#125;<br>		&#125;<br>		System.out.println(count);<br>		System.out.println(sum);<br><br>结果:<br><span class="hljs-number">50</span><br><span class="hljs-number">2550</span><br></code></pre></td></tr></table></figure>
+
+<h6 id="5-1-2-2、while循环"><a href="#5-1-2-2、while循环" class="headerlink" title="5.1.2.2、while循环"></a>5.1.2.2、while循环</h6><p>while循环的结构</p>
+<p>①</p>
+<p>while(②){</p>
+<p>​    ③；</p>
+<p>​    ④；</p>
+<p>}</p>
+<p>执行过程：</p>
+<p>①–&gt;②–&gt;③–&gt;④–&gt;②–&gt;③–&gt;④–&gt;……–&gt;②</p>
+<p>说明：</p>
+<p>1、写while循环千万不要丢了迭代条件，一旦丢了，就可能导致死循环！</p>
+<p>2、我们写程序，要避免出现死循环。</p>
+<p>3、for循环和while循环是可以相互转换的！</p>
+<p>算法：有限性。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//遍历100以内的所有偶数</span><br><span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span>(i&lt;=<span class="hljs-number">100</span>) &#123;<br>    <span class="hljs-keyword">if</span>(i%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>) &#123;<br>        System.out.println(i);<br>    &#125;<br>    i++;<br>&#125;<br>除了<span class="hljs-keyword">while</span>循环以后，仍可以调用。<br></code></pre></td></tr></table></figure>
+
+<p>区别：</p>
+<p>for循环和while循环的初始化条件部分的作用范围不同。</p>
+<h6 id="5-1-2-3、do-while循环"><a href="#5-1-2-3、do-while循环" class="headerlink" title="5.1.2.3、do-while循环"></a>5.1.2.3、do-while循环</h6><p>一、循环结构的4个要素</p>
+<ul>
+<li>初始化条件</li>
+<li>循环条件 ——-&gt;是boolean类型</li>
+<li>循环体</li>
+<li>迭代条件</li>
+</ul>
+<p>二、do-while循环结构</p>
+<p>①</p>
+<p>do{</p>
+<p>​    ③；</p>
+<p>​    ④；</p>
+<p>}while(②);</p>
+<p>执行过程：①–&gt;③–&gt;④–&gt;②–&gt;….—&gt;②</p>
+<p>说明：</p>
+<p>1、do-while循环至少会执行一次循环体！</p>
+<p>2、开发中，使用for和while更多一些。较少使用do-while.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//遍历100以内的所有偶数</span><br>		<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">do</span>&#123;<br>			<span class="hljs-keyword">if</span>(i%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>) &#123;<br>				System.out.println(i);<br>			&#125;<br>			i++;<br>		&#125;<span class="hljs-keyword">while</span>(i&lt;=<span class="hljs-number">100</span>);<br></code></pre></td></tr></table></figure>
+
+<h5 id="5-1-3、循环语句综合例题"><a href="#5-1-3、循环语句综合例题" class="headerlink" title="5.1.3、循环语句综合例题"></a>5.1.3、循环语句综合例题</h5><p>最简单”无限“循环格式：while(true),for(;;),无限循环存在的原因是并不知道循环多少次，需要根据循环体内部某些条件，来控制循环的结束。</p>
+<p>题目：</p>
+<p>​    从键盘读入个数不确定的整数，并判断读入的正数和负数的个数，输入为0时结束程序。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.in);<br>		<span class="hljs-keyword">int</span> positiveNumber = <span class="hljs-number">0</span>;<span class="hljs-comment">//记录正数的个数</span><br>		<span class="hljs-keyword">int</span> negativeNumber = <span class="hljs-number">0</span>;<span class="hljs-comment">//记录负数的个数</span><br>	<br>		<span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>) &#123;<br>      <span class="hljs-comment">//for(;;)&#123;</span><br>      <span class="hljs-comment">//效果一样</span><br>			<span class="hljs-keyword">int</span> num = sc.nextInt();<br>			<br>			<span class="hljs-comment">//判断number的正负情况</span><br>			<span class="hljs-keyword">if</span>(num&gt;<span class="hljs-number">0</span>) &#123;<br>				positiveNumber++;<br>			&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(num&lt;<span class="hljs-number">0</span>) &#123;<br>				negativeNumber++;<br>			&#125;<span class="hljs-keyword">else</span> &#123;<br>				<span class="hljs-comment">//一旦(输入0)执行break,跳出循环。</span><br>				<span class="hljs-keyword">break</span>;<br>			&#125;<br>		&#125;<br>		System.out.println(positiveNumber);<br>		System.out.println(negativeNumber);<br></code></pre></td></tr></table></figure>
+
+
+
+<p>说明：</p>
+<ul>
+<li>不在循环条件部分限制次数的结构：<ul>
+<li>for(;;)或while(true)</li>
+</ul>
+</li>
+<li>结束循环有几种方式？<ul>
+<li>方式一：循环条件部分返回false</li>
+<li>方式二：在循环体中，执行break</li>
+</ul>
+</li>
+</ul>
+<h5 id="5-1-4、嵌套循环-多重循环"><a href="#5-1-4、嵌套循环-多重循环" class="headerlink" title="5.1.4、嵌套循环(多重循环)"></a>5.1.4、嵌套循环(多重循环)</h5><p>一般不超过三层</p>
+<p>1、嵌套循环：</p>
+<p>将一个循环结构A声明在另一个循环结构B的循环体中，就构成了嵌套循环。</p>
+<p>2、</p>
+<p>外层查询</p>
+<p>内层循环</p>
+<p>说明：</p>
+<ul>
+<li>内层循环结构遍历一遍，只相当于外层循环体执行了一次</li>
+<li>假设外层循环需要执行m次，内层循环需要执行n次。此时内层循环的循环体一共执行了m*n次</li>
+</ul>
+<p>4、技巧</p>
+<p>​    外层循环控制行数，内层循环控制列数</p>
+<p>一百以内的所有质数的输出</p>
+<p>质数：</p>
+<ul>
+<li>素数，只能被1和它本身整除的自然数。<ul>
+<li>从2开始，到这个数-1结束为止，都不能被整除</li>
+</ul>
+</li>
+</ul>
+<p>最小的质数是2</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>	<br>	<span class="hljs-keyword">boolean</span> isFlag = <span class="hljs-keyword">true</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>;i &lt;= <span class="hljs-number">100</span>; i++) &#123;<br>		<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">2</span>; j &lt; i;j++) &#123;<br>			<span class="hljs-keyword">if</span>(i % j == <span class="hljs-number">0</span>) &#123;<br>				isFlag = <span class="hljs-keyword">false</span>;<br>			&#125;	<br>		&#125;<br>		<span class="hljs-keyword">if</span>(isFlag == <span class="hljs-keyword">true</span>) &#123;<br>			System.out.println(i);<br>		&#125;<br>		<span class="hljs-comment">//重置isFlag</span><br>		isFlag = <span class="hljs-keyword">true</span>;<br>	&#125;<br>	<br>&#125;<br><br><br></code></pre></td></tr></table></figure>
+
+<p>优化1：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">boolean</span> isFlag = <span class="hljs-keyword">true</span>;<br>		<span class="hljs-comment">//获取当前时间距离1970-01-01 00:00:00的毫秒数</span><br>		<span class="hljs-keyword">long</span> start = System.currentTimeMillis();<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>;i &lt;= <span class="hljs-number">100000</span>; i++) &#123;<br>			<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">2</span>; j &lt; i;j++) &#123;<br>				<span class="hljs-keyword">if</span>(i % j == <span class="hljs-number">0</span>) &#123;<br>					isFlag = <span class="hljs-keyword">false</span>;<br>					<span class="hljs-keyword">break</span>;<span class="hljs-comment">//优化一:只对本身非质数的自然数是有效的</span><br>				&#125;	<br>			&#125;<br>			<span class="hljs-keyword">if</span>(isFlag == <span class="hljs-keyword">true</span>) &#123;<br>				System.out.println(i);<br>			&#125;<br>			<span class="hljs-comment">//重置isFlag</span><br>			isFlag = <span class="hljs-keyword">true</span>;<br>		&#125;<br><br>		<span class="hljs-comment">//获取当前时间距离1970-01-01 00:00:00的毫秒数</span><br>		<span class="hljs-keyword">long</span> end = System.currentTimeMillis();<br>		<br>		System.out.println(end-start);<br>		<span class="hljs-comment">//break优化前24905</span><br>		<span class="hljs-comment">//break优化后2287</span><br>	&#125;<br></code></pre></td></tr></table></figure>
+
+<p>优化2：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>	<br>	<span class="hljs-keyword">boolean</span> isFlag = <span class="hljs-keyword">true</span>;<br>	<span class="hljs-comment">//获取当前时间距离1970-01-01 00:00:00的毫秒数</span><br>	<span class="hljs-keyword">long</span> start = System.currentTimeMillis();<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>;i &lt;= <span class="hljs-number">100000</span>; i++) &#123;<br>		<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">2</span>; j &lt;= Math.sqrt(i);j++) &#123;<br>		<span class="hljs-comment">/*</span><br><span class="hljs-comment">		 优化2：</span><br><span class="hljs-comment">		  	j &lt; Math.sqrt(i) 为什么？</span><br><span class="hljs-comment">			对本身是质数的自然数是有效的</span><br><span class="hljs-comment">		*/</span><br>			<span class="hljs-keyword">if</span>(i % j == <span class="hljs-number">0</span>) &#123;<br>				isFlag = <span class="hljs-keyword">false</span>;<br>				<span class="hljs-keyword">break</span>;<span class="hljs-comment">//优化一:只对本身非质数的自然数是有效的</span><br>			&#125;	<br>		&#125;<br>		<span class="hljs-keyword">if</span>(isFlag == <span class="hljs-keyword">true</span>) &#123;<br>			System.out.println(i);<br>		&#125;<br>		<span class="hljs-comment">//重置isFlag</span><br>		isFlag = <span class="hljs-keyword">true</span>;<br>	&#125;<br><br>	<span class="hljs-comment">//获取当前时间距离1970-01-01 00:00:00的毫秒数</span><br>	<span class="hljs-keyword">long</span> end = System.currentTimeMillis();<br>	<br>	System.out.println(end-start);<br>	<span class="hljs-comment">//break优化前:24905</span><br>	<span class="hljs-comment">//break优化后:2287</span><br>	<span class="hljs-comment">//优化2后:92</span><br>&#125;<br><br><br><br><br></code></pre></td></tr></table></figure>
+
+
+
+<h5 id="5-1-5、特殊关键字break、continue的使用"><a href="#5-1-5、特殊关键字break、continue的使用" class="headerlink" title="5.1.5、特殊关键字break、continue的使用"></a>5.1.5、特殊关键字break、continue的使用</h5><table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>使用范围</th>
+<th>循环中使用的作用(不同点)</th>
+<th>相同点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>break:</td>
+<td>switch-case</td>
+<td>结束当前循环</td>
+<td>关键字后面不能声明执行语句</td>
+</tr>
+<tr>
+<td></td>
+<td>循环结构中</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>continue</td>
+<td>循环结构中</td>
+<td>结束当次循环</td>
+<td>关键字后面不能声明执行语句</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">10</span>; i++) &#123;<br>			<span class="hljs-keyword">if</span>(i % <span class="hljs-number">4</span> == <span class="hljs-number">0</span>) &#123;<br>				<span class="hljs-keyword">break</span>;<br>			&#125;<br>			System.out.println(i);<br>		&#125;<br><br>结果：<br><span class="hljs-number">1</span><br><span class="hljs-number">2</span><br><span class="hljs-number">3</span><br> <br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">10</span>; i++) &#123;<br>			<span class="hljs-keyword">if</span>(i % <span class="hljs-number">4</span> == <span class="hljs-number">0</span>) &#123;<br>				<span class="hljs-keyword">continue</span>;<br>			&#125;<br>			System.out.println(i);<br>		&#125;<br>结果：<br><span class="hljs-number">1</span><br><span class="hljs-number">2</span><br><span class="hljs-number">3</span><br><span class="hljs-number">5</span><br><span class="hljs-number">6</span><br><span class="hljs-number">7</span><br><span class="hljs-number">9</span><br><span class="hljs-number">10</span><br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">4</span>;i++) &#123;<br>			<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= <span class="hljs-number">10</span>;j++) &#123;<br>				<span class="hljs-keyword">if</span>(j % <span class="hljs-number">4</span> == <span class="hljs-number">0</span>) &#123;<br>					<span class="hljs-keyword">break</span>;<br>					<span class="hljs-comment">//默认跳出包裹此关键字最近的一层循环。</span><br>				&#125;<br>				System.out.print(j);<br>			&#125;<br>			System.out.println();<br>		&#125;<br><br>	&#125;<br><br><br>结果：<br><span class="hljs-number">123</span><br><span class="hljs-number">123</span><br><span class="hljs-number">123</span><br><span class="hljs-number">123</span><br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">4</span>;i++) &#123;<br>			<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= <span class="hljs-number">10</span>;j++) &#123;<br>				<span class="hljs-keyword">if</span>(j % <span class="hljs-number">4</span> == <span class="hljs-number">0</span>) &#123;<br>					<span class="hljs-keyword">continue</span>;<br>					<span class="hljs-comment">//默认跳出包裹此关键字最近的一层循环的当次循环。</span><br>				&#125;<br>				System.out.print(j);<br>			&#125;<br>			System.out.println();<br>		&#125;<br><br>	&#125;<br><br><br>结果：<br><span class="hljs-number">123567910</span><br><span class="hljs-number">123567910</span><br><span class="hljs-number">123567910</span><br><span class="hljs-number">123567910</span><br><br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		label:<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">4</span>;i++) &#123;<br>			<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= <span class="hljs-number">10</span>;j++) &#123;<br>				<span class="hljs-keyword">if</span>(j % <span class="hljs-number">4</span> == <span class="hljs-number">0</span>) &#123;<br>					<span class="hljs-keyword">break</span> label;<br>					<span class="hljs-comment">//结束指定标识的一层循环结构。</span><br>				&#125;<br>				System.out.print(j);<br>			&#125;<br>			System.out.println();<br>		&#125;<br>	&#125;<br><br>结果：<br><span class="hljs-number">123</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		label:<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">4</span>;i++) &#123;<br>			<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= <span class="hljs-number">10</span>;j++) &#123;<br>				<span class="hljs-keyword">if</span>(j % <span class="hljs-number">4</span> == <span class="hljs-number">0</span>) &#123;<br>					<span class="hljs-keyword">continue</span> label;<br>					<span class="hljs-comment">//结束指定标识的一层循环结构当次循环。</span><br>				&#125;<br>				System.out.print(j);<br>			&#125;<br>			System.out.println();<br>		&#125;<br>	&#125;<br><br>结果：<br><span class="hljs-number">123123123123</span><br></code></pre></td></tr></table></figure>
+
+<p>质数方法二：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<br>		<span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">long</span> start = System.currentTimeMillis();<br>		label:<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>;i &lt;= <span class="hljs-number">100000</span>; i++) &#123;<br>			<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">2</span>; j &lt;= Math.sqrt(i);j++) &#123;<br>			<br>				<span class="hljs-keyword">if</span>(i % j == <span class="hljs-number">0</span>) &#123;<br>					<span class="hljs-keyword">continue</span> label;<br>				&#125;	<br>			&#125;<br>			<span class="hljs-comment">//执行到此步骤的都是质数</span><br>			count++;<br>		&#125;<br><br>		<span class="hljs-comment">//获取当前时间距离1970-01-01 00:00:00的毫秒数</span><br>		<span class="hljs-keyword">long</span> end = System.currentTimeMillis();<br>		System.out.println(count);<br>		System.out.println(end-start);<br>		<span class="hljs-comment">//break优化前:24905</span><br>		<span class="hljs-comment">//break优化后:2287</span><br>		<span class="hljs-comment">//优化:92</span><br>        <span class="hljs-comment">//此时:62</span><br>	&#125;<br><br><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-2、项目一"><a href="#5-2、项目一" class="headerlink" title="5.2、项目一"></a>5.2、项目一</h3><p>家庭记账软件</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>	<span class="hljs-keyword">boolean</span> isFlag = <span class="hljs-keyword">true</span>;<br>	<span class="hljs-comment">//用于记录用户收入支出和详情</span><br>	String details=<span class="hljs-string">&quot;收支\t账户金额\t\t收支金额\t\t说  明\n&quot;</span>;<br>	<span class="hljs-keyword">int</span> money;<br>	String info;<br>	<span class="hljs-comment">//初始金额</span><br>	<span class="hljs-keyword">int</span> balance = <span class="hljs-number">10000</span>;<br>	<span class="hljs-keyword">while</span>(isFlag) &#123;<span class="hljs-comment">//也可以写true</span><br>		System.out.println(<span class="hljs-string">&quot;---------------家庭收支记账软件----------------\n&quot;</span>);<br>		System.out.println(<span class="hljs-string">&quot;                 1 收支明细&quot;</span>);<br>		System.out.println(<span class="hljs-string">&quot;                 2 登记收入&quot;</span>);<br>		System.out.println(<span class="hljs-string">&quot;                 3 登记支出&quot;</span>);<br>		System.out.println(<span class="hljs-string">&quot;                 4 退出\n&quot;</span>);<br>		System.out.print(<span class="hljs-string">&quot;                 &lt;请输入1-4&gt;:&quot;</span>);<br><br>		<span class="hljs-keyword">char</span> selection = Utility.readMenuSelection();<br>		<br>		<span class="hljs-keyword">switch</span>(selection) &#123;<br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;1&#x27;</span>:<br>				System.out.println(<span class="hljs-string">&quot;---------------当前收支明细记录----------------&quot;</span>);<br>				System.out.println(details);<br>				System.out.println(<span class="hljs-string">&quot;----------------------------------------------&quot;</span>);<br>				<span class="hljs-keyword">break</span>;<br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;2&#x27;</span>:<br>				System.out.print(<span class="hljs-string">&quot;本次收入金额：&quot;</span>);<br>				money = Utility.readNumber();<br>				System.out.print(<span class="hljs-string">&quot;本次收入说明：&quot;</span>);<br>				info = Utility.readString();<br>				<br>				balance += money;<br>				<span class="hljs-comment">//处理details</span><br>				details += <span class="hljs-string">&quot;收入\t&quot;</span> + balance + <span class="hljs-string">&quot;\t\t&quot;</span> + money + <span class="hljs-string">&quot;\t\t&quot;</span> + info + <span class="hljs-string">&quot;\n&quot;</span>;<br>				<br>				<br>				System.out.println(<span class="hljs-string">&quot;-------------------登记完成--------------------&quot;</span>);<br>				<span class="hljs-keyword">break</span>;<br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;3&#x27;</span>:<br>				System.out.print(<span class="hljs-string">&quot;本次支出金额：&quot;</span>);<br>				money = Utility.readNumber();<br>				System.out.print(<span class="hljs-string">&quot;本次支出说明：&quot;</span>);<br>				info = Utility.readString();<br>				<br>				<br>				<span class="hljs-comment">//处理balance</span><br>				<span class="hljs-keyword">if</span>(balance &gt;= money) &#123;<br>					balance -= money;<br>					<span class="hljs-comment">//处理details</span><br>					details += <span class="hljs-string">&quot;支出\t&quot;</span> + balance + <span class="hljs-string">&quot;\t\t&quot;</span> + money + <span class="hljs-string">&quot;\t\t&quot;</span> + info + <span class="hljs-string">&quot;\n&quot;</span>;<br>				&#125;<span class="hljs-keyword">else</span> &#123;<br>					System.out.println(<span class="hljs-string">&quot;错误！超出账户额度！&quot;</span>);<br>				&#125;<br>				<br>				<br>				System.out.println(<span class="hljs-string">&quot;-------------------登记完成--------------------&quot;</span>);<br>				<span class="hljs-keyword">break</span>;<br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;4&#x27;</span>:<br>				System.out.println(<span class="hljs-string">&quot;确认是否退出(Y/N):&quot;</span>);<br>				<span class="hljs-keyword">char</span> isExit = Utility.readConfirmSelection();<br>				<span class="hljs-keyword">if</span>(isExit == <span class="hljs-string">&#x27;Y&#x27;</span>) &#123;<br>					isFlag = <span class="hljs-keyword">false</span>;<span class="hljs-comment">//也可以break;</span><br>				&#125;<br>				<span class="hljs-keyword">break</span>;<br>		&#125;<br>		<br>		<br>	&#125;<br>	<br><br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>Utility.java</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> test03;<br><br><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-comment">/*Utility工具类：</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">	将不同的功能封装为方法</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Utility</span></span>&#123;<br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Scanner scanner = <span class="hljs-keyword">new</span> Scanner(System.in);<br><br><span class="hljs-comment">/*用于界面的选择。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">	该方法读取键盘，如果用户输入1到4的任意字符，方法返回值为输入的任意字符</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">char</span> <span class="hljs-title">readMenuSelection</span><span class="hljs-params">()</span></span>&#123;<br>		<span class="hljs-keyword">char</span> c;<br><br>		<span class="hljs-keyword">for</span>(;;)&#123;<br>			String str = readKeyBoard(<span class="hljs-number">1</span>);<br>			c = str.charAt(<span class="hljs-number">0</span>);<br>			<span class="hljs-keyword">if</span> (c !=<span class="hljs-string">&#x27;1&#x27;</span> &amp;&amp; c !=<span class="hljs-string">&#x27;2&#x27;</span> &amp;&amp; c != <span class="hljs-string">&#x27;3&#x27;</span> &amp;&amp; c != <span class="hljs-string">&#x27;4&#x27;</span>)&#123;<br>				System.out.print(<span class="hljs-string">&quot;选择错误，请重新输入&quot;</span>);<br>			&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">break</span>;<br><br>		&#125;<br>		<span class="hljs-keyword">return</span> c;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">用于支出和收入金额的输入，读取一个不超过4位数长度的整数，并将其作为方法的返回值</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">readNumber</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-keyword">int</span> n;<br><br>	<span class="hljs-keyword">for</span>(;;)&#123;<br>		String str = readKeyBoard(<span class="hljs-number">4</span>);<br><br>		<span class="hljs-keyword">try</span>&#123;<br>			n = Integer.parseInt(str);<br>			<span class="hljs-keyword">break</span>;<br>		&#125;<span class="hljs-keyword">catch</span>(NumberFormatException e)&#123;<br>			System.out.print(<span class="hljs-string">&quot;数字输入有误，请重新输入：&quot;</span>);<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> n;<br>&#125;<br><br><span class="hljs-comment">/*用于支出和收入说明的输入。用于读取从键盘输入的不超过8为字符串长度的输入值，</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">并将其作为方法的返回值</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">readString</span><span class="hljs-params">()</span></span>&#123;<br>	String str = readKeyBoard(<span class="hljs-number">8</span>);<br>	<span class="hljs-keyword">return</span> str;<br>&#125;<br><br><span class="hljs-comment">/*用于确认选择的输入，从键盘读取&#x27;y&#x27;或者&#x27;n&#x27;,并将其作为返回值</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">char</span> <span class="hljs-title">readConfirmSelection</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-keyword">char</span> c;<br>	<span class="hljs-keyword">for</span>(;;)&#123;<br>		String str = readKeyBoard(<span class="hljs-number">1</span>).toUpperCase();<br><br>		c = str.charAt(<span class="hljs-number">0</span>);<br><br>		<span class="hljs-keyword">if</span>(c == <span class="hljs-string">&#x27;Y&#x27;</span> || c == <span class="hljs-string">&#x27;N&#x27;</span>)&#123;<br>			<span class="hljs-keyword">break</span>;<br><br>		&#125;<span class="hljs-keyword">else</span>&#123;<br>			System.out.print(<span class="hljs-string">&quot;选择错误，请重新输入：&quot;</span>);<br><br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> c;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">readKeyBoard</span><span class="hljs-params">(<span class="hljs-keyword">int</span> limit)</span></span>&#123;<br>	String line = <span class="hljs-string">&quot;&quot;</span>;<br><br>	<span class="hljs-keyword">while</span> (scanner.hasNext())&#123;<br>		line = scanner.nextLine();<br><br>		<span class="hljs-keyword">if</span> (line.length()&lt;<span class="hljs-number">1</span> || line.length()&gt;limit)&#123;<br>			System.out.print(<span class="hljs-string">&quot;输入长度(不大于&quot;</span> + limit+ <span class="hljs-string">&quot;)错误，请重新输入&quot;</span>);<br>			<span class="hljs-keyword">continue</span>;<br>		&#125;<br>		<span class="hljs-keyword">break</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> line;	<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="5-3、Eclipse"><a href="#5-3、Eclipse" class="headerlink" title="5.3、Eclipse"></a>5.3、Eclipse</h3><p>之前版本是字母顺序版本</p>
+<p>后改为年</p>
+<p><img src="https://www.picbed.cn/images/2021/05/16/1.png"></p>
+<p><img src="https://www.picbed.cn/images/2021/05/16/2.png"></p>
+<p><img src="https://www.picbed.cn/images/2021/05/16/3.png"></p>
+<p><img src="https://www.picbed.cn/images/2021/05/16/4.png"></p>
+<p>当视图乱七八糟时,重新设置</p>
+<p><img src="https://www.picbed.cn/images/2021/05/16/5.png"></p>
+<p><img src="https://www.picbed.cn/images/2021/05/16/6.png"></p>
+<p>勿忘记命名规范</p>
+<p><a href="https://www.cnblogs.com/wkfvawl/p/12172756.html">java命名规范</a></p>
+]]></content>
+      <categories>
+        <category>Java基础</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -1264,332 +1455,288 @@
       </tags>
   </entry>
   <entry>
-    <title>Java基础篇02</title>
-    <url>/2021/05/05/Java%E5%9F%BA%E7%A1%8002/</url>
-    <content><![CDATA[<h1 id="Java基础篇02"><a href="#Java基础篇02" class="headerlink" title="Java基础篇02"></a>Java基础篇02</h1><h2 id="5、基本语法（下）"><a href="#5、基本语法（下）" class="headerlink" title="5、基本语法（下）"></a>5、基本语法（下）</h2><h3 id="5-1、程序流程控制"><a href="#5-1、程序流程控制" class="headerlink" title="5.1、程序流程控制"></a>5.1、程序流程控制</h3><p>流程控制语句是用来控制程序中各语句执行顺序的语句，可以把语句组合成能完成一定功能的小逻辑模块。</p>
-<p>其流程控制方式采用结构化程序设计中规定的三种基本流程结构，即</p>
+    <title>Java基础之面向对象(上)</title>
+    <url>/2021/05/19/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1(%E4%B8%8A)/</url>
+    <content><![CDATA[<h1 id="7、面向对象编程（上）"><a href="#7、面向对象编程（上）" class="headerlink" title="7、面向对象编程（上）"></a>7、面向对象编程（上）</h1><p><strong>学习</strong>面向对象内容的三条主线</p>
+<p>1、Java类及类的成员</p>
+<p>2、面向对象的三大特征</p>
+<p>3、其他关键字</p>
 <ul>
-<li>顺序结构<ul>
-<li>程序从上到下逐行地执行，中间没有任何判断和跳转</li>
-</ul>
-</li>
-<li>分支结构<ul>
-<li>根据条件，选择性地执行某段代码</li>
-<li>有if-else和switch-case两种分支语句</li>
-</ul>
-</li>
-<li>循环结构<ul>
-<li>根据循环条件，重复性的执行某段代码</li>
-<li>有while、do…while、for三种循环语句</li>
-<li>注：<ul>
-<li>JDK1.5提供了foreach循环，方便的遍历集合、数组元素。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h5 id="5-1-1、分支结构"><a href="#5-1-1、分支结构" class="headerlink" title="5.1.1、分支结构"></a>5.1.1、分支结构</h5><h6 id="5-1-1-1、if-else"><a href="#5-1-1-1、if-else" class="headerlink" title="5.1.1.1、if-else"></a>5.1.1.1、if-else</h6><p>if语句三种格式：</p>
-<blockquote>
-<p>1 、 if(条件表达式){</p>
-<p>​                执行代码块;</p>
-<p>​        }</p>
-</blockquote>
-<p><img  src="https://www.picbed.cn/images/2021/05/05/1fdb7d5656b952984.png"  ><span class="image-caption">1fdb7d5656b952984.png</span></p>
-<blockquote>
-<p> if(条件表达式){</p>
-<p>​                执行代码块1;</p>
-<p>​        }else{</p>
-<p>​                执行代码块2；</p>
-<p>​        }</p>
-</blockquote>
-<p><img  src="https://www.picbed.cn/images/2021/05/05/21d18cd98afab6393.png"  ><span class="image-caption">21d18cd98afab6393.png</span></p>
-<blockquote>
-<p>if(条件表达式1){</p>
-<p>​                执行代码块1;</p>
-<p>​        }else if(条件表达式2){</p>
-<p>​                执行代码块2；</p>
-<p>​        }</p>
-<p>……</p>
-<p>​        else{</p>
-<p>​                执行代码块n；</p>
-<p>​        }</p>
-</blockquote>
-<p><img  src="https://www.picbed.cn/images/2021/05/05/30a85988d901eb9c4.png"  ><span class="image-caption">30a85988d901eb9c4.png</span></p>
-<p>选一个</p>
-<p>分支结构中的if-else(条件判断结构)</p>
-<p>1、三种结构</p>
-<p>第一种：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span>(条件表达式)&#123;<br><br>	执行代码块;<br><br>&#125;<br><br>第二种：二选一<br><br><span class="hljs-keyword">if</span>(条件表达式)&#123;<br><br>	执行代码块<span class="hljs-number">1</span>;<br><br>&#125;<span class="hljs-keyword">else</span>&#123;<br>	执行代码块<span class="hljs-number">2</span>；<br>&#125;<br><br>第三种：多选一<br><br><br><br><span class="hljs-keyword">if</span>(条件表达式<span class="hljs-number">1</span>)&#123;<br><br>	执行代码块<span class="hljs-number">1</span>;<br><br>&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(条件表达式<span class="hljs-number">2</span>)&#123;<br>	执行代码块<span class="hljs-number">2</span>；<br><br>&#125;<br><br>……<br><span class="hljs-keyword">else</span>&#123;<br>	执行代码块n；<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h6 id="5-1-1-2、Scanner类-补充"><a href="#5-1-1-2、Scanner类-补充" class="headerlink" title="5.1.1.2、Scanner类(补充)"></a>5.1.1.2、Scanner类(补充)</h6><p>如何从键盘获取不同类型的变量：需要使用Scanner类</p>
-<p>具体实现步骤：</p>
-<p>1、导包</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;<br></code></pre></td></tr></table></figure>
-
-
-
-<p>2、Scanner的实例化</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.in);<br></code></pre></td></tr></table></figure>
-
-
-
-<p>3、调用Scanner类的相关方法，来获取指定类型的变量</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> num = sc.nextInt();<br>System.out.println(num);<br></code></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.in);<br>		<br>		System.out.println(<span class="hljs-string">&quot;请输入你的姓名:&quot;</span>);<br>		String name = sc.next();<br>		System.out.println(name);<br>		<br>		System.out.println(<span class="hljs-string">&quot;请输入你的年龄:&quot;</span>);<br>		<span class="hljs-keyword">int</span> age = sc.nextInt();<br>		System.out.println(age);<br>		<br>		System.out.println(<span class="hljs-string">&quot;请输入你的体重:&quot;</span>);<br>		<span class="hljs-keyword">double</span> weight = sc.nextDouble();<br>		System.out.println(weight);<br>		<br>		<br>		sc.close();<br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>对于char型的获取，Scanner没有提供相关的方法。只能够获取一个字符串.</p>
-<p>只获取一个字符，使用charAt();</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">System.out.println(<span class="hljs-string">&quot;请输入你的性别:(男/女)&quot;</span>);<br>		String gender = sc.next();<br><br>		<span class="hljs-keyword">char</span> genderChar = gender.charAt(<span class="hljs-number">0</span>);		<span class="hljs-comment">//获取索引为0位置上的字符</span><br><br>		System.out.println(genderChar);<br>		sc.close();<br></code></pre></td></tr></table></figure>
-
-<p>使用nextInt()但是用户输入double型，此时会出现InputMismatchException。输入内容不匹配，程序直接终止。</p>
-<p>注意：</p>
+<li><p>Java类及类的成员</p>
 <ul>
-<li>需要根据相应的方法，来输入指定类型的值，如果输入的数据类型与要求的类型不匹配时，会报异常InputMismatchException，导致程序终止。</li>
+<li>属性、方法、构造器；代码块、内部类</li>
 </ul>
-<h6 id="5-1-1-3、分支结构之二switch-case"><a href="#5-1-1-3、分支结构之二switch-case" class="headerlink" title="5.1.1.3、分支结构之二switch-case"></a>5.1.1.3、分支结构之二switch-case</h6><p><img src="https://www.picbed.cn/images/2021/05/09/4c8b9f9b877375447.png"></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">switch</span>(表达式)&#123;<br>    <span class="hljs-keyword">case</span> 常量<span class="hljs-number">1</span>:<br>        语句<span class="hljs-number">1</span>;<br>        <span class="hljs-comment">//break;</span><br>    <span class="hljs-keyword">case</span> 常量<span class="hljs-number">2</span>:<br>        语句<span class="hljs-number">2</span>;<br>        <span class="hljs-comment">//break;</span><br>        <br>    … …<br>      <br>    <span class="hljs-keyword">case</span> 常量N:<br>        语句N;<br>        <span class="hljs-comment">//break;</span><br>    <span class="hljs-keyword">default</span>:<br>        语句;<br>        <span class="hljs-comment">//break;</span><br>&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>break不是必须要有的，根据实际情况而定</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> number = <span class="hljs-number">2</span>;<br>		<br>		<span class="hljs-keyword">switch</span>(number) &#123;<br>		<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:<br>			System.out.println(<span class="hljs-string">&quot;zero&quot;</span>);<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<br>			System.out.println(<span class="hljs-string">&quot;one&quot;</span>);<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<br>			System.out.println(<span class="hljs-string">&quot;two&quot;</span>);<br>			<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:<br>			System.out.println(<span class="hljs-string">&quot;three&quot;</span>);	<br>		<span class="hljs-keyword">default</span>:<br>			System.out.println(<span class="hljs-string">&quot;other&quot;</span>);<br>		&#125;<br><br><span class="hljs-comment">//结果：</span><br>two<br>three<br>other<br><br></code></pre></td></tr></table></figure>
-
-<p>说明：</p>
+</li>
+<li><p>面向对象的三大特征</p>
 <ul>
-<li><p>根据switch表达式中的值，依次匹配各个case中的常量。一旦匹配成功，则进入相应case结构中，调用其执行语句</p>
-<p>当调用完执行语句以后，则仍然向下执行其他case结构中的执行语句，<strong>直到遇到break关键字或者此switch-case结构末尾结束为止</strong>。</p>
-</li>
-<li><p>break,可以使用在switch-case结构中，表示一旦执行到此关键字，就跳出switch-case结构。</p>
-</li>
+<li>封装性、继承性、多态性、（抽象性）</li>
 </ul>
+</li>
+<li><p>其他关键字</p>
 <ul>
-<li>switch(number) <ul>
-<li>switch结构中的表达式，只能是如下的6种数据类型之一<ul>
-<li>byte</li>
-<li>short</li>
-<li>char</li>
-<li>int</li>
-<li>枚举类型(JDK5.0新增)</li>
-<li>String类型(JDK7.0新增)</li>
+<li>this\super\static\final\abstract\interface\package\import等</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<p>switch语句应用举例</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">String season = <span class="hljs-string">&quot;summer&quot;</span>;<br>	<br>	<span class="hljs-keyword">switch</span>(season) &#123;<br>	<br>	<span class="hljs-keyword">case</span> <span class="hljs-string">&quot;spring&quot;</span>:<br>		System.out.println(<span class="hljs-string">&quot;春暖花开&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-string">&quot;summer&quot;</span>:<br>		System.out.println(<span class="hljs-string">&quot;夏日炎炎&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-string">&quot;autumn&quot;</span>:<br>		System.out.println(<span class="hljs-string">&quot;秋高气爽&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>		<br>	<span class="hljs-keyword">case</span> <span class="hljs-string">&quot;winter&quot;</span>:<br>		System.out.println(<span class="hljs-string">&quot;冬雪皑皑&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">default</span>:<br>		System.out.println(<span class="hljs-string">&quot;输入有误&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	&#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
-
+<h2 id="7-1、面向过程（POP）和面向对象（OOP）"><a href="#7-1、面向过程（POP）和面向对象（OOP）" class="headerlink" title="7.1、面向过程（POP）和面向对象（OOP）"></a>7.1、面向过程（POP）和面向对象（OOP）</h2><p>二者都是一种思想，面向对象是相对于面向对象而言的。面向过程，强调的是功能行为，以函数为最小单位，考虑怎么做。面向对象，将功能封装进对象，强调具备了功能的对象，以类/对象为最小单位，考虑谁来做。</p>
+<p>面向对象更加强调运用人类在日常思维逻辑中采用的思想方法和原则，如抽象、分类、继承、聚合、多态等。</p>
+<p>面向对象的三大特征：</p>
+<p>封装 （Encapsulation）</p>
+<p>继承 （Inheritance）</p>
+<p>多态  (Polymorphism)</p>
+<p>面向对象：Object Oriented Programming</p>
+<p>面向过程： Procedure Oriented Programming</p>
+<p>二、“人把大象装进冰箱”</p>
+<p>1、面向过程：强调的是功能行为，以函数为最小单位，考虑怎么做</p>
 <ul>
-<li><p>case之后只能声明常量，不能声明范围。</p>
-</li>
-<li><p>break关键字</p>
-<ul>
-<li>可选的</li>
+<li>把冰箱门打开</li>
+<li>抬起大象，塞进冰箱</li>
+<li>把冰箱门关闭</li>
 </ul>
-</li>
-<li><p>default</p>
-<ul>
-<li>相当于if-else结构中的else</li>
-<li>default结构是可选的，而且位置是灵活的。</li>
-</ul>
-</li>
-</ul>
-<h5 id="5-1-2、循环结构"><a href="#5-1-2、循环结构" class="headerlink" title="5.1.2、循环结构"></a>5.1.2、循环结构</h5><p>​    在某些条件满足的情况下，反复执行特定代码的功能</p>
-<p>循环语句分类：</p>
-<ul>
-<li>for循环</li>
-<li>while循环</li>
-<li>do-while循环</li>
-</ul>
-<p>循环语句的四个组成部分</p>
-<ul>
-<li>初始化部分(init_statement)</li>
-<li>循环条件部分(test_exp)</li>
-<li>循环体部分(body_statement)</li>
-<li>迭代部分(alter_statement)</li>
-</ul>
-<p><img src="https://www.picbed.cn/images/2021/05/15/5.png"></p>
-<h6 id="5-1-2-1、for循环"><a href="#5-1-2-1、for循环" class="headerlink" title="5.1.2.1、for循环"></a>5.1.2.1、for循环</h6><p>for循环结构的使用</p>
-<p>一、循环结构的4个要素</p>
-<ul>
-<li>初始化条件</li>
-<li>循环条件 ——-&gt;是boolean类型</li>
-<li>循环体</li>
-<li>迭代条件</li>
-</ul>
-<p>二、for循环的结构</p>
-<p>for(①;②;④){</p>
-<p>​    ③</p>
+<p>2、面向对象：强调具备了功能的对象，以类/对象为最小单位，考虑谁来做。</p>
+<p>人{</p>
+<p>​        打开（冰箱）</p>
+<p>​                冰箱.打开();</p>
+<p>​        抬起（大象）{</p>
+<p>​                大象.进入（冰箱);    </p>
 <p>}</p>
-<p>执行过程:    ①–&gt;②–&gt;③–&gt;④–&gt;②–&gt;③–&gt;④–&gt;…….②</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; <span class="hljs-number">5</span>;i++) &#123;<br>			System.out.println(<span class="hljs-string">&quot;Hello World!&quot;</span>);<br>		&#125;<br></code></pre></td></tr></table></figure>
-
-<p><strong>i在for循环内有效，出了for循环就失效了。</strong></p>
-<p>练习：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span>(System.out.print(<span class="hljs-string">&#x27;a&#x27;</span>);j&lt;<span class="hljs-number">3</span>;j++,System.out.print(<span class="hljs-string">&#x27;c&#x27;</span>)) &#123;<br>        System.out.print(<span class="hljs-string">&#x27;b&#x27;</span>);<br>    &#125;<br><br>结果:<br>abcbc<br></code></pre></td></tr></table></figure>
-
-<p>例题：</p>
-<p>遍历100以内的偶数,并且输出所有偶数的和</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">100</span>;i++) &#123;<br>			<span class="hljs-keyword">if</span>(i%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>) &#123;<br>				System.out.println(i);<br>				sum += i;<br>				count++;<br>			&#125;<br>		&#125;<br>		System.out.println(count);<br>		System.out.println(sum);<br><br>结果:<br><span class="hljs-number">50</span><br><span class="hljs-number">2550</span><br></code></pre></td></tr></table></figure>
-
-<h6 id="5-1-2-2、while循环"><a href="#5-1-2-2、while循环" class="headerlink" title="5.1.2.2、while循环"></a>5.1.2.2、while循环</h6><p>while循环的结构</p>
-<p>①</p>
-<p>while(②){</p>
-<p>​    ③；</p>
-<p>​    ④；</p>
 <p>}</p>
-<p>执行过程：</p>
-<p>①–&gt;②–&gt;③–&gt;④–&gt;②–&gt;③–&gt;④–&gt;……–&gt;②</p>
-<p>说明：</p>
-<p>1、写while循环千万不要丢了迭代条件，一旦丢了，就可能导致死循环！</p>
-<p>2、我们写程序，要避免出现死循环。</p>
-<p>3、for循环和while循环是可以相互转换的！</p>
-<p>算法：有限性。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//遍历100以内的所有偶数</span><br><span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">while</span>(i&lt;=<span class="hljs-number">100</span>) &#123;<br>    <span class="hljs-keyword">if</span>(i%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>) &#123;<br>        System.out.println(i);<br>    &#125;<br>    i++;<br>&#125;<br>除了<span class="hljs-keyword">while</span>循环以后，仍可以调用。<br></code></pre></td></tr></table></figure>
-
-<p>区别：</p>
-<p>for循环和while循环的初始化条件部分的作用范围不同。</p>
-<h6 id="5-1-2-3、do-while循环"><a href="#5-1-2-3、do-while循环" class="headerlink" title="5.1.2.3、do-while循环"></a>5.1.2.3、do-while循环</h6><p>一、循环结构的4个要素</p>
+<p>冰箱 {</p>
+<p>​        冰箱.打开();</p>
+<p>​        冰箱.闭合（）；</p>
+<p>}</p>
+<p>大象 {</p>
+<p>​        进入（冰箱）{</p>
+<p>​    }</p>
+<p>}</p>
+<p>面向对象的思想概述</p>
+<p>程序员从面向过程的执行者转化成了面向对象的指挥者</p>
+<p>面向对象分析方法分析问题的思路和步骤：</p>
 <ul>
-<li>初始化条件</li>
-<li>循环条件 ——-&gt;是boolean类型</li>
-<li>循环体</li>
-<li>迭代条件</li>
+<li> 根据问题需要，选择问题所针对的现实世界中的实体。</li>
+<li>从实体中寻找解决问题相关的属性和功能，这些属性和功能就形成了概念世界中的类。</li>
+<li>把抽象的实体用计算机语言进行描述，形成计算机世界中类的定义。即借助某种程序语言，把类构造成计算机能够识别和处理的数据结构。</li>
+<li>把类实例化成计算机世界中的对象，对象是计算机世界中解决问题的最终工具。</li>
 </ul>
-<p>二、do-while循环结构</p>
-<p>①</p>
-<p>do{</p>
-<p>​    ③；</p>
-<p>​    ④；</p>
-<p>}while(②);</p>
-<p>执行过程：①–&gt;③–&gt;④–&gt;②–&gt;….—&gt;②</p>
-<p>说明：</p>
-<p>1、do-while循环至少会执行一次循环体！</p>
-<p>2、开发中，使用for和while更多一些。较少使用do-while.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//遍历100以内的所有偶数</span><br>		<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">do</span>&#123;<br>			<span class="hljs-keyword">if</span>(i%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>) &#123;<br>				System.out.println(i);<br>			&#125;<br>			i++;<br>		&#125;<span class="hljs-keyword">while</span>(i&lt;=<span class="hljs-number">100</span>);<br></code></pre></td></tr></table></figure>
-
-<h5 id="5-1-3、循环语句综合例题"><a href="#5-1-3、循环语句综合例题" class="headerlink" title="5.1.3、循环语句综合例题"></a>5.1.3、循环语句综合例题</h5><p>最简单”无限“循环格式：while(true),for(;;),无限循环存在的原因是并不知道循环多少次，需要根据循环体内部某些条件，来控制循环的结束。</p>
-<p>题目：</p>
-<p>​    从键盘读入个数不确定的整数，并判断读入的正数和负数的个数，输入为0时结束程序。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.in);<br>		<span class="hljs-keyword">int</span> positiveNumber = <span class="hljs-number">0</span>;<span class="hljs-comment">//记录正数的个数</span><br>		<span class="hljs-keyword">int</span> negativeNumber = <span class="hljs-number">0</span>;<span class="hljs-comment">//记录负数的个数</span><br>	<br>		<span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>) &#123;<br>      <span class="hljs-comment">//for(;;)&#123;</span><br>      <span class="hljs-comment">//效果一样</span><br>			<span class="hljs-keyword">int</span> num = sc.nextInt();<br>			<br>			<span class="hljs-comment">//判断number的正负情况</span><br>			<span class="hljs-keyword">if</span>(num&gt;<span class="hljs-number">0</span>) &#123;<br>				positiveNumber++;<br>			&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(num&lt;<span class="hljs-number">0</span>) &#123;<br>				negativeNumber++;<br>			&#125;<span class="hljs-keyword">else</span> &#123;<br>				<span class="hljs-comment">//一旦(输入0)执行break,跳出循环。</span><br>				<span class="hljs-keyword">break</span>;<br>			&#125;<br>		&#125;<br>		System.out.println(positiveNumber);<br>		System.out.println(negativeNumber);<br></code></pre></td></tr></table></figure>
-
-
-
-<p>说明：</p>
+<h2 id="7-2、类和对象"><a href="#7-2、类和对象" class="headerlink" title="7.2、类和对象"></a>7.2、类和对象</h2><p>面向对象的思想概述：</p>
+<p>类（Class）和 对象（Object）是面向对象的核心概念。</p>
 <ul>
-<li>不在循环条件部分限制次数的结构：<ul>
-<li>for(;;)或while(true)</li>
+<li>类是对一类事物的描述，是抽象的、概念上的定义</li>
+<li>对象是实际存在的该类事物的每个个体，因而也被称为实例（instance）</li>
 </ul>
-</li>
-<li>结束循环有几种方式？<ul>
-<li>方式一：循环条件部分返回false</li>
-<li>方式二：在循环体中，执行break</li>
-</ul>
-</li>
-</ul>
-<h5 id="5-1-4、嵌套循环-多重循环"><a href="#5-1-4、嵌套循环-多重循环" class="headerlink" title="5.1.4、嵌套循环(多重循环)"></a>5.1.4、嵌套循环(多重循环)</h5><p>一般不超过三层</p>
-<p>1、嵌套循环：</p>
-<p>将一个循环结构A声明在另一个循环结构B的循环体中，就构成了嵌套循环。</p>
-<p>2、</p>
-<p>外层查询</p>
-<p>内层循环</p>
-<p>说明：</p>
-<ul>
-<li>内层循环结构遍历一遍，只相当于外层循环体执行了一次</li>
-<li>假设外层循环需要执行m次，内层循环需要执行n次。此时内层循环的循环体一共执行了m*n次</li>
-</ul>
-<p>4、技巧</p>
-<p>​    外层循环控制行数，内层循环控制列数</p>
-<p>一百以内的所有质数的输出</p>
-<p>质数：</p>
-<ul>
-<li>素数，只能被1和它本身整除的自然数。<ul>
-<li>从2开始，到这个数-1结束为止，都不能被整除</li>
-</ul>
-</li>
-</ul>
-<p>最小的质数是2</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>	<br>	<span class="hljs-keyword">boolean</span> isFlag = <span class="hljs-keyword">true</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>;i &lt;= <span class="hljs-number">100</span>; i++) &#123;<br>		<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">2</span>; j &lt; i;j++) &#123;<br>			<span class="hljs-keyword">if</span>(i % j == <span class="hljs-number">0</span>) &#123;<br>				isFlag = <span class="hljs-keyword">false</span>;<br>			&#125;	<br>		&#125;<br>		<span class="hljs-keyword">if</span>(isFlag == <span class="hljs-keyword">true</span>) &#123;<br>			System.out.println(i);<br>		&#125;<br>		<span class="hljs-comment">//重置isFlag</span><br>		isFlag = <span class="hljs-keyword">true</span>;<br>	&#125;<br>	<br>&#125;<br><br><br></code></pre></td></tr></table></figure>
+<p>“万事万物皆对象”</p>
+<p>可以理解为：<strong>类=抽象概念的人；对象=实实在在的某个人</strong></p>
+<p>面向对象程序设计的重点是<strong>类的设计</strong></p>
+<p>类的设计，<strong>其实就是类的成员的设计</strong></p>
+<h3 id="7-1、类的结构：属性和方法"><a href="#7-1、类的结构：属性和方法" class="headerlink" title="7.1、类的结构：属性和方法"></a>7.1、类的结构：属性和方法</h3><p>属性： 对应类中的成员变量</p>
+<p>行为：对应类中的成员方法</p>
+<blockquote>
+<p>Field = 属性 = 成员变量，    Method = (成员)方法 = 函数</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 设计类，其实就是设计类的成员</span><br><span class="hljs-comment"> * 属性 = 成员变量 = field = 域、字段</span><br><span class="hljs-comment"> * 方法 = 成员方法 = 函数 = method</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> */</span><br></code></pre></td></tr></table></figure>
 
-<p>优化1：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">boolean</span> isFlag = <span class="hljs-keyword">true</span>;<br>		<span class="hljs-comment">//获取当前时间距离1970-01-01 00:00:00的毫秒数</span><br>		<span class="hljs-keyword">long</span> start = System.currentTimeMillis();<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>;i &lt;= <span class="hljs-number">100000</span>; i++) &#123;<br>			<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">2</span>; j &lt; i;j++) &#123;<br>				<span class="hljs-keyword">if</span>(i % j == <span class="hljs-number">0</span>) &#123;<br>					isFlag = <span class="hljs-keyword">false</span>;<br>					<span class="hljs-keyword">break</span>;<span class="hljs-comment">//优化一:只对本身非质数的自然数是有效的</span><br>				&#125;	<br>			&#125;<br>			<span class="hljs-keyword">if</span>(isFlag == <span class="hljs-keyword">true</span>) &#123;<br>				System.out.println(i);<br>			&#125;<br>			<span class="hljs-comment">//重置isFlag</span><br>			isFlag = <span class="hljs-keyword">true</span>;<br>		&#125;<br><br>		<span class="hljs-comment">//获取当前时间距离1970-01-01 00:00:00的毫秒数</span><br>		<span class="hljs-keyword">long</span> end = System.currentTimeMillis();<br>		<br>		System.out.println(end-start);<br>		<span class="hljs-comment">//break优化前24905</span><br>		<span class="hljs-comment">//break优化后2287</span><br>	&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="https://www.picbed.cn/images/2021/05/20/1.png"></p>
+<p>Java类及类的成员</p>
+<p>如何使用Java类？</p>
+<p>Java类的实例化，即创建类的对象</p>
+<p>二、类和对象的使用（面向对象思想落地的实现）：</p>
+<p>1、创建类，设计类的成员</p>
+<p>2、创建类的对象</p>
+<p>3、通过“对象.属性“ 或”对象.方法”调用对象的结构</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> test;<br><br><br><span class="hljs-comment">//创建类的对象 = 类的实例化 = 实例化类</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PersonTest</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<span class="hljs-comment">//创建Person类的对象</span><br>		Person p1 = <span class="hljs-keyword">new</span> Person();<br>		<span class="hljs-comment">//类似Scanner scanner = new Scanner(System.in);</span><br>		<br>		<br>		<span class="hljs-comment">//调用对象的结构： 属性、方法</span><br>		<span class="hljs-comment">//调用属性： “对象.属性”</span><br>	<br>		p1.name = <span class="hljs-string">&quot;Tom&quot;</span>;<br>		p1.isMale = <span class="hljs-keyword">true</span>;<br>		System.out.println(p1.name);<br>		<br>		<span class="hljs-comment">//调用方法：“对象.方法”</span><br>		p1.eat();<br>		p1.sleep();<br>		p1.talk(<span class="hljs-string">&quot;Chinese&quot;</span>);<br>	&#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span></span>&#123;<br>	<br>	<span class="hljs-comment">//属性</span><br>	String name;<br>	<span class="hljs-keyword">int</span> age = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">boolean</span> isMale;<br>	<span class="hljs-comment">//方法</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span> </span>&#123;&#125;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sleep</span><span class="hljs-params">()</span> </span>&#123;&#125;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">talk</span><span class="hljs-params">(String language)</span> </span>&#123;&#125;<br>	<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>优化2：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>	<br>	<span class="hljs-keyword">boolean</span> isFlag = <span class="hljs-keyword">true</span>;<br>	<span class="hljs-comment">//获取当前时间距离1970-01-01 00:00:00的毫秒数</span><br>	<span class="hljs-keyword">long</span> start = System.currentTimeMillis();<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>;i &lt;= <span class="hljs-number">100000</span>; i++) &#123;<br>		<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">2</span>; j &lt;= Math.sqrt(i);j++) &#123;<br>		<span class="hljs-comment">/*</span><br><span class="hljs-comment">		 优化2：</span><br><span class="hljs-comment">		  	j &lt; Math.sqrt(i) 为什么？</span><br><span class="hljs-comment">			对本身是质数的自然数是有效的</span><br><span class="hljs-comment">		*/</span><br>			<span class="hljs-keyword">if</span>(i % j == <span class="hljs-number">0</span>) &#123;<br>				isFlag = <span class="hljs-keyword">false</span>;<br>				<span class="hljs-keyword">break</span>;<span class="hljs-comment">//优化一:只对本身非质数的自然数是有效的</span><br>			&#125;	<br>		&#125;<br>		<span class="hljs-keyword">if</span>(isFlag == <span class="hljs-keyword">true</span>) &#123;<br>			System.out.println(i);<br>		&#125;<br>		<span class="hljs-comment">//重置isFlag</span><br>		isFlag = <span class="hljs-keyword">true</span>;<br>	&#125;<br><br>	<span class="hljs-comment">//获取当前时间距离1970-01-01 00:00:00的毫秒数</span><br>	<span class="hljs-keyword">long</span> end = System.currentTimeMillis();<br>	<br>	System.out.println(end-start);<br>	<span class="hljs-comment">//break优化前:24905</span><br>	<span class="hljs-comment">//break优化后:2287</span><br>	<span class="hljs-comment">//优化2后:92</span><br>&#125;<br><br><br><br><br></code></pre></td></tr></table></figure>
+<p>三、如果创建了一个类的多个对象，则每个对象都独立的拥有一套类的属性。(非static的）</p>
+<p>意味着： 如果我们修改一个对象的属性a,则不影响另外一个对象属性a的值。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> test;<br><br><br><span class="hljs-comment">//创建类的对象 = 类的实例化 = 实例化类</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PersonTest</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<span class="hljs-comment">//创建Person类的对象</span><br>		Person p1 = <span class="hljs-keyword">new</span> Person();<br>		<span class="hljs-comment">//类似Scanner scanner = new Scanner(System.in);</span><br>		<br>		<br>		<span class="hljs-comment">//调用对象的结构： 属性、方法</span><br>		<span class="hljs-comment">//调用属性： “对象.属性”</span><br>	<br>		p1.name = <span class="hljs-string">&quot;Tom&quot;</span>;<br>		p1.isMale = <span class="hljs-keyword">true</span>;<br>		System.out.println(p1.name);<br>		<br>		<span class="hljs-comment">//调用方法：“对象.方法”</span><br>		p1.eat();<br>		p1.sleep();<br>		p1.talk(<span class="hljs-string">&quot;Chinese&quot;</span>);<br>		<br>		<br>		Person p2 = <span class="hljs-keyword">new</span> Person();<br>		System.out.println(p2.name);<span class="hljs-comment">//null</span><br>		System.out.println(p2.isMale);<span class="hljs-comment">//false</span><br>		<br>		<span class="hljs-comment">//将p1变量保存的对象地址值赋给p3,导致p1和p3指向了堆空间中的同一个对象实体。</span><br>		Person p3 = p1;<br>		System.out.println(p3.name);<span class="hljs-comment">//Tom</span><br>		p3.age = <span class="hljs-number">10</span>;<br>		System.out.println(p1.age);<span class="hljs-comment">//10</span><br>	&#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span></span>&#123;<br>	<br>	<span class="hljs-comment">//属性</span><br>	String name;<br>	<span class="hljs-keyword">int</span> age = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">boolean</span> isMale;<br>	<span class="hljs-comment">//方法</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span> </span>&#123;&#125;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sleep</span><span class="hljs-params">()</span> </span>&#123;&#125;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">talk</span><span class="hljs-params">(String language)</span> </span>&#123;&#125;<br>	<br>&#125;<br></code></pre></td></tr></table></figure>
 
+<p>四、对象的内存解析</p>
+<p><img src="https://www.picbed.cn/images/2021/05/20/2.png"></p>
+<p><img src="https://www.picbed.cn/images/2021/05/20/3.png"></p>
+<h3 id="7-2、属性与局部变量对比"><a href="#7-2、属性与局部变量对比" class="headerlink" title="7.2、属性与局部变量对比"></a>7.2、属性与局部变量对比</h3><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 类中属性的使用</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 属性(成员变量) VS 局部变量</span><br><span class="hljs-comment"> * 1、相同点</span><br><span class="hljs-comment"> * 		1.1、定义变量的格式;数据类型 变量名 = 变量值</span><br><span class="hljs-comment"> * 		1.2、先声明，后使用</span><br><span class="hljs-comment"> * 		1.3、变量都有其对应的作用域</span><br><span class="hljs-comment"> * 2、不同点</span><br><span class="hljs-comment"> * 		2.1、在类中声明的位置的不同</span><br><span class="hljs-comment"> * 		属性：直接定义在类的一对&#123;&#125;内</span><br><span class="hljs-comment"> * 		局部变量：</span><br><span class="hljs-comment"> * 			声明在方法内、方法形参、代码块内、构造器形参、构造器内部的变量</span><br><span class="hljs-comment"> *		</span><br><span class="hljs-comment"> *		2.2、关于权限修饰符的不同</span><br><span class="hljs-comment"> *		属性：</span><br><span class="hljs-comment"> *			可以在声明属性时，指明其权限，使用权限修饰符。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *			常用的权限修饰符：</span><br><span class="hljs-comment"> *					private、public、缺省、protected------&gt;封装性</span><br><span class="hljs-comment"> *			目前。大家声明属性时，都使用缺省就可以了。</span><br><span class="hljs-comment"> *		局部变量：</span><br><span class="hljs-comment"> *			不可以使用权限修饰符。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *		2.3、默认初始化值的情况:</span><br><span class="hljs-comment"> *		属性：</span><br><span class="hljs-comment"> *			类的属性，根据其类型，都有默认初始化值。</span><br><span class="hljs-comment"> *			整型(byte、short、int、long): 0</span><br><span class="hljs-comment"> *			浮点型(float、double): 0.0</span><br><span class="hljs-comment"> *			字符型(char): 0 (或者&#x27;\u0000&#x27;)</span><br><span class="hljs-comment"> *			布尔型(boolean): false</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *			引用数据类型(类、数组、接口): null</span><br><span class="hljs-comment"> *			</span><br><span class="hljs-comment"> *		局部变量:</span><br><span class="hljs-comment"> *			没有默认初始化值。</span><br><span class="hljs-comment"> *			意味着，我们在调用局部变量之前，一定要显式赋值。</span><br><span class="hljs-comment"> *			特别地:形参在调用时，我们赋值即可。</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *		2.4、在内存中加载的位置:</span><br><span class="hljs-comment"> *		属性: </span><br><span class="hljs-comment"> *			加载到堆空间中(非static)</span><br><span class="hljs-comment"> *		局部变量:</span><br><span class="hljs-comment"> *			加载到栈空间</span><br><span class="hljs-comment"> */</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserTest</span> </span>&#123;<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<br>	&#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span></span>&#123;<br>	<span class="hljs-comment">//属性(或成员变量)</span><br>	<span class="hljs-keyword">private</span> String name;<br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> age;<br>	<span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> isMale;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">talk</span><span class="hljs-params">(String language)</span> </span>&#123;<span class="hljs-comment">//此处的language：形参,属于局部变量</span><br>		System.out.println(<span class="hljs-string">&quot;我们使用&quot;</span>+language+<span class="hljs-string">&quot;进行交流&quot;</span>);<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span> </span>&#123;<br>		String food = <span class="hljs-string">&quot;烙饼&quot;</span>;<span class="hljs-comment">//声明定义在方法内，是局部变量</span><br>		System.out.println(<span class="hljs-string">&quot;北方人喜欢吃&quot;</span>+food);<br>	&#125;<br>	<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-
-<h5 id="5-1-5、特殊关键字break、continue的使用"><a href="#5-1-5、特殊关键字break、continue的使用" class="headerlink" title="5.1.5、特殊关键字break、continue的使用"></a>5.1.5、特殊关键字break、continue的使用</h5><table>
+<h3 id="7-3、类中的方法-method"><a href="#7-3、类中的方法-method" class="headerlink" title="7.3、类中的方法(method)"></a>7.3、类中的方法(method)</h3><p>方法的分类：按照是否有形参及返回值</p>
+<table>
 <thead>
 <tr>
-<th>关键字</th>
-<th>使用范围</th>
-<th>循环中使用的作用(不同点)</th>
-<th>相同点</th>
+<th></th>
+<th>无返回值</th>
+<th>有返回值</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>break:</td>
-<td>switch-case</td>
-<td>结束当前循环</td>
-<td>关键字后面不能声明执行语句</td>
+<td>无形参</td>
+<td>void 方法名(){}</td>
+<td>返回值的类型 方法名(){}</td>
 </tr>
 <tr>
-<td></td>
-<td>循环结构中</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>continue</td>
-<td>循环结构中</td>
-<td>结束当次循环</td>
-<td>关键字后面不能声明执行语句</td>
+<td>有形参</td>
+<td>void 方法名(形参列表){}</td>
+<td>返回值的类型 方法名(形参列表){}</td>
 </tr>
 </tbody></table>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">10</span>; i++) &#123;<br>			<span class="hljs-keyword">if</span>(i % <span class="hljs-number">4</span> == <span class="hljs-number">0</span>) &#123;<br>				<span class="hljs-keyword">break</span>;<br>			&#125;<br>			System.out.println(i);<br>		&#125;<br><br>结果：<br><span class="hljs-number">1</span><br><span class="hljs-number">2</span><br><span class="hljs-number">3</span><br> <br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 类中方法的声明和使用</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 方法：</span><br><span class="hljs-comment"> * 		描述类应该具有的功能</span><br><span class="hljs-comment"> * 		比如: </span><br><span class="hljs-comment"> * 			Math类:sqrt() \ random() \...</span><br><span class="hljs-comment"> * 			Scanner类: nextXxx()...</span><br><span class="hljs-comment"> * 			Arrays类: sort() \ binarySearch() \ toString() \ equals() \ ....</span><br><span class="hljs-comment"> * 		1.举例：</span><br><span class="hljs-comment"> * 			public void eat()&#123;&#125;</span><br><span class="hljs-comment"> * 			public void sleep(int hour) &#123;&#125;</span><br><span class="hljs-comment"> * 			String getName()&#123;&#125;</span><br><span class="hljs-comment"> * 			public String getNation(String nation)&#123;&#125;</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 			</span><br><span class="hljs-comment"> * 			void的位置表示返回值类型，void表示没有返回值，String表示返回一个String类型的</span><br><span class="hljs-comment"> * 			int hour的位置是形参的位置，可以没有</span><br><span class="hljs-comment"> * 			</span><br><span class="hljs-comment"> * 			Ctrl+shift+T 输入Arrays/Math可以打开这个类</span><br><span class="hljs-comment"> * 			Ctrl+O 输入sort/random,可以查看此方法</span><br><span class="hljs-comment"> * 			</span><br><span class="hljs-comment"> * 		2.方法的声明:权限修饰符 返回值类型 方法名(形参列表)&#123;</span><br><span class="hljs-comment"> * 								方法体</span><br><span class="hljs-comment"> * 					&#125;</span><br><span class="hljs-comment"> * 		注意：static、final、abstract 来修饰的方法，后面再讲。</span><br><span class="hljs-comment"> * 			</span><br><span class="hljs-comment"> * 		3.说明:</span><br><span class="hljs-comment"> * 			3.1 关于权限修饰符:</span><br><span class="hljs-comment"> * 				Java规定的4种权限修饰符:</span><br><span class="hljs-comment"> * 				private、public、缺省、protected----&gt;封装性再细说。</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 			3.2 返回值类型：有返回值 VS 没有返回值</span><br><span class="hljs-comment"> * 				3.2.1 如果方法有返回值，则必须在方法声明时，指定返回值的类型。</span><br><span class="hljs-comment"> * 					同时，方法中，需要使用return关键字来返回指定类型的变量或常量: “return 数据”。</span><br><span class="hljs-comment"> * 					</span><br><span class="hljs-comment"> * 					如果方法没有返回值，则方法声明时，使用void来表示。</span><br><span class="hljs-comment"> * 					通常，没有返回值的方法中，就不需要return了，</span><br><span class="hljs-comment"> * 					但是，如果使用的话，只能“return;”表示结束此方法的意思。	</span><br><span class="hljs-comment"> * 				3.2.1 我们定义方法该不该有返回值？</span><br><span class="hljs-comment"> * 					1、题目要求</span><br><span class="hljs-comment"> * 					2、凭经验: 具体问题具体分析</span><br><span class="hljs-comment"> * 				</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 			3.3 方法名: 属于标识符，遵循标识符的规则和规范，“见名知意”</span><br><span class="hljs-comment"> * 						</span><br><span class="hljs-comment"> * 			3.4 形参列表: 方法可以声明0个，1个，或多个形参。</span><br><span class="hljs-comment"> * 				3.4.1 格式：</span><br><span class="hljs-comment"> * 						数据类型1 形参1,数据类型2 形参2,......</span><br><span class="hljs-comment"> * 				3.4.2 我们定义方法时，该不该定义形参？</span><br><span class="hljs-comment"> * 					1、题目要求</span><br><span class="hljs-comment"> * 					2、凭经验: 具体问题具体分析</span><br><span class="hljs-comment"> * 			3.5 方法体</span><br><span class="hljs-comment"> * 					方法功能的体现。</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 		</span><br><span class="hljs-comment"> * 		4、return关键字的使用：		</span><br><span class="hljs-comment"> * 			1、使用范围：使用在方法体中</span><br><span class="hljs-comment"> * 			2、作用：</span><br><span class="hljs-comment"> * 				① 结束方法 “return;”</span><br><span class="hljs-comment"> * 				② 针对于有返回值类型的方法，使用“return 数据”方法，返回所要的数据。</span><br><span class="hljs-comment"> * 			3、注意点:</span><br><span class="hljs-comment"> * 				return关键字后面不可以声明执行语句。</span><br><span class="hljs-comment"> * 		</span><br><span class="hljs-comment"> * 		5、方法的使用中，可以调用当前类的属性或方法。</span><br><span class="hljs-comment"> * 				特殊的，方法A中又调用了方法A:递归方法。</span><br><span class="hljs-comment"> * 			方法中,不可以定义方法。	</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomerTest</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		Customer cust1 = <span class="hljs-keyword">new</span> Customer();<br>		cust1.eat();<br>	&#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Customer</span></span>&#123;<br>	<span class="hljs-comment">//属性</span><br>	String name;<br>	<span class="hljs-keyword">int</span> age;<br>	<span class="hljs-keyword">boolean</span> isMale;<br>	<br>	<span class="hljs-comment">//方法</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span> </span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;客户吃饭&quot;</span>);<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sleep</span><span class="hljs-params">(<span class="hljs-keyword">int</span> hour)</span> </span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;休息了&quot;</span>+hour+<span class="hljs-string">&quot;个小时&quot;</span>);<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-comment">/*</span><br><span class="hljs-comment">		 * if(age &gt; 18)&#123;</span><br><span class="hljs-comment">		 * 		return name;</span><br><span class="hljs-comment">		 * &#125;不行，必须返回。</span><br><span class="hljs-comment">		 * </span><br><span class="hljs-comment">		 */</span><br>		<span class="hljs-keyword">return</span> name;<br>		<span class="hljs-comment">//return &quot;Tom&quot;;</span><br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getNation</span><span class="hljs-params">(String nation)</span> </span>&#123;<br>		String info = <span class="hljs-string">&quot;我的国籍是:&quot;</span>+nation;<br>		<span class="hljs-keyword">return</span> info;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">10</span>; i++) &#123;<br>			<span class="hljs-keyword">if</span>(i % <span class="hljs-number">4</span> == <span class="hljs-number">0</span>) &#123;<br>				<span class="hljs-keyword">continue</span>;<br>			&#125;<br>			System.out.println(i);<br>		&#125;<br>结果：<br><span class="hljs-number">1</span><br><span class="hljs-number">2</span><br><span class="hljs-number">3</span><br><span class="hljs-number">5</span><br><span class="hljs-number">6</span><br><span class="hljs-number">7</span><br><span class="hljs-number">9</span><br><span class="hljs-number">10</span><br><br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">4</span>;i++) &#123;<br>			<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= <span class="hljs-number">10</span>;j++) &#123;<br>				<span class="hljs-keyword">if</span>(j % <span class="hljs-number">4</span> == <span class="hljs-number">0</span>) &#123;<br>					<span class="hljs-keyword">break</span>;<br>					<span class="hljs-comment">//默认跳出包裹此关键字最近的一层循环。</span><br>				&#125;<br>				System.out.print(j);<br>			&#125;<br>			System.out.println();<br>		&#125;<br><br>	&#125;<br><br><br>结果：<br><span class="hljs-number">123</span><br><span class="hljs-number">123</span><br><span class="hljs-number">123</span><br><span class="hljs-number">123</span><br><br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">4</span>;i++) &#123;<br>			<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= <span class="hljs-number">10</span>;j++) &#123;<br>				<span class="hljs-keyword">if</span>(j % <span class="hljs-number">4</span> == <span class="hljs-number">0</span>) &#123;<br>					<span class="hljs-keyword">continue</span>;<br>					<span class="hljs-comment">//默认跳出包裹此关键字最近的一层循环的当次循环。</span><br>				&#125;<br>				System.out.print(j);<br>			&#125;<br>			System.out.println();<br>		&#125;<br><br>	&#125;<br><br><br>结果：<br><span class="hljs-number">123567910</span><br><span class="hljs-number">123567910</span><br><span class="hljs-number">123567910</span><br><span class="hljs-number">123567910</span><br><br></code></pre></td></tr></table></figure>
 
 
+<h3 id="7-4、理解“万事万物皆对象”"><a href="#7-4、理解“万事万物皆对象”" class="headerlink" title="7.4、理解“万事万物皆对象”"></a>7.4、理解“万事万物皆对象”</h3><p>一、理解“万事万物皆对象”</p>
+<p>1、在Java语言范畴中，我们都将功能、结构等封装到类中，通过类的实例化，来调用具体的功能结构</p>
+<p>​        &gt; Scanner,String等</p>
+<p>​        &gt;文件，File</p>
+<p>​        &gt;网络资源，URL</p>
+<p>2、涉及到Java语言和前端HTML、后端的数据库交互时，前后端的结构在Java层面交互时，都体现为类、对象。</p>
+<h3 id="7-5、对象数组的内存解析"><a href="#7-5、对象数组的内存解析" class="headerlink" title="7.5、对象数组的内存解析"></a>7.5、对象数组的内存解析</h3><p>内存解析说明：</p>
+<p>1、引用类型的变量，只可能存储两类值 null 或  地址值（含变量的类型）</p>
+<p><img src="https://www.picbed.cn/images/2021/05/20/4.png"></p>
+<p>对象数组</p>
+<h3 id="7-6、匿名对象的使用"><a href="#7-6、匿名对象的使用" class="headerlink" title="7.6、匿名对象的使用"></a>7.6、匿名对象的使用</h3><p>理解：</p>
+<p>​        我们创建的对象，没有显式的赋给一个变量名。即为匿名对象</p>
+<p>特征：</p>
+<p>​        匿名对象只能调用一次</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> test;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">InstanceTest</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		Phone p = <span class="hljs-keyword">new</span> Phone();<br><br>		System.out.println(p);<br>		<br>		p.playGame();<br>		p.sendEmail();<br>		<br>		<span class="hljs-comment">//匿名对象</span><br>		<span class="hljs-keyword">new</span> Phone().sendEmail();<br>		<span class="hljs-keyword">new</span> Phone().playGame();<br>		<br>		<br>		<span class="hljs-keyword">new</span> Phone().price=<span class="hljs-number">1999</span>;<br>		<span class="hljs-keyword">new</span> Phone().showPrice();<span class="hljs-comment">//0.0</span><br>		<br>		PhoneMall mall  = <span class="hljs-keyword">new</span> PhoneMall();<br>		<span class="hljs-comment">//mall.show(p);</span><br>		<span class="hljs-comment">//匿名对象的使用。</span><br>		mall.show(<span class="hljs-keyword">new</span> Phone());<br>	&#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Phone</span></span>&#123;<br>	<span class="hljs-keyword">double</span> price;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sendEmail</span><span class="hljs-params">()</span> </span>&#123;&#125;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">playGame</span><span class="hljs-params">()</span> </span>&#123;&#125;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">showPrice</span><span class="hljs-params">()</span></span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;手机价格是:&quot;</span>+price);<br>	&#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PhoneMall</span></span>&#123;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">(Phone phone)</span> </span>&#123;<br>		phone.sendEmail();<br>		phone.playGame();<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		label:<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">4</span>;i++) &#123;<br>			<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= <span class="hljs-number">10</span>;j++) &#123;<br>				<span class="hljs-keyword">if</span>(j % <span class="hljs-number">4</span> == <span class="hljs-number">0</span>) &#123;<br>					<span class="hljs-keyword">break</span> label;<br>					<span class="hljs-comment">//结束指定标识的一层循环结构。</span><br>				&#125;<br>				System.out.print(j);<br>			&#125;<br>			System.out.println();<br>		&#125;<br>	&#125;<br><br>结果：<br><span class="hljs-number">123</span><br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		label:<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">4</span>;i++) &#123;<br>			<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt;= <span class="hljs-number">10</span>;j++) &#123;<br>				<span class="hljs-keyword">if</span>(j % <span class="hljs-number">4</span> == <span class="hljs-number">0</span>) &#123;<br>					<span class="hljs-keyword">continue</span> label;<br>					<span class="hljs-comment">//结束指定标识的一层循环结构当次循环。</span><br>				&#125;<br>				System.out.print(j);<br>			&#125;<br>			System.out.println();<br>		&#125;<br>	&#125;<br><br>结果：<br><span class="hljs-number">123123123123</span><br></code></pre></td></tr></table></figure>
-
-<p>质数方法二：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<br>		<span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">long</span> start = System.currentTimeMillis();<br>		label:<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>;i &lt;= <span class="hljs-number">100000</span>; i++) &#123;<br>			<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">2</span>; j &lt;= Math.sqrt(i);j++) &#123;<br>			<br>				<span class="hljs-keyword">if</span>(i % j == <span class="hljs-number">0</span>) &#123;<br>					<span class="hljs-keyword">continue</span> label;<br>				&#125;	<br>			&#125;<br>			<span class="hljs-comment">//执行到此步骤的都是质数</span><br>			count++;<br>		&#125;<br><br>		<span class="hljs-comment">//获取当前时间距离1970-01-01 00:00:00的毫秒数</span><br>		<span class="hljs-keyword">long</span> end = System.currentTimeMillis();<br>		System.out.println(count);<br>		System.out.println(end-start);<br>		<span class="hljs-comment">//break优化前:24905</span><br>		<span class="hljs-comment">//break优化后:2287</span><br>		<span class="hljs-comment">//优化:92</span><br>        <span class="hljs-comment">//此时:62</span><br>	&#125;<br><br><br></code></pre></td></tr></table></figure>
 
 
+<h3 id="7-7、再谈方法"><a href="#7-7、再谈方法" class="headerlink" title="7.7、再谈方法"></a>7.7、再谈方法</h3><h4 id="7-7-1、-方法的重载"><a href="#7-7-1、-方法的重载" class="headerlink" title="7.7.1、 方法的重载"></a>7.7.1、 方法的重载</h4><p>方法的重载（overload） loading……</p>
+<p>1.定义：</p>
+<p>​            在同一个类中，允许存在一个以上的同名方法，只要它们的参数个数或者参数类型不同即可。</p>
+<ul>
+<li>“两同一不同”:<ul>
+<li>同一个类、相同方法名</li>
+<li>参数列表不同</li>
+</ul>
+</li>
+</ul>
+<p>举例：</p>
+<p>​        Arrays类中重载的sort() / binarySearch()</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OverLoadTest</span> </span>&#123;<br>	<span class="hljs-comment">//如下四个方法构成了重载</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getSum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i ,<span class="hljs-keyword">int</span> j)</span> </span>&#123;<br>		System.out.println(i+j);<br>	&#125;<br>	<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getSum</span><span class="hljs-params">(<span class="hljs-keyword">double</span> d1, <span class="hljs-keyword">double</span> d2)</span> </span>&#123;<br>		System.out.println(d1+d2);<br>	&#125;<br>	<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getSum</span><span class="hljs-params">(String s,<span class="hljs-keyword">int</span> i)</span> </span>&#123;<br>	&#125;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getSum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i,String s)</span> </span>&#123;<br>	&#125;<br>	<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="5-2、项目一"><a href="#5-2、项目一" class="headerlink" title="5.2、项目一"></a>5.2、项目一</h3><p>家庭记账软件</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>	<span class="hljs-keyword">boolean</span> isFlag = <span class="hljs-keyword">true</span>;<br>	<span class="hljs-comment">//用于记录用户收入支出和详情</span><br>	String details=<span class="hljs-string">&quot;收支\t账户金额\t\t收支金额\t\t说  明\n&quot;</span>;<br>	<span class="hljs-keyword">int</span> money;<br>	String info;<br>	<span class="hljs-comment">//初始金额</span><br>	<span class="hljs-keyword">int</span> balance = <span class="hljs-number">10000</span>;<br>	<span class="hljs-keyword">while</span>(isFlag) &#123;<span class="hljs-comment">//也可以写true</span><br>		System.out.println(<span class="hljs-string">&quot;---------------家庭收支记账软件----------------\n&quot;</span>);<br>		System.out.println(<span class="hljs-string">&quot;                 1 收支明细&quot;</span>);<br>		System.out.println(<span class="hljs-string">&quot;                 2 登记收入&quot;</span>);<br>		System.out.println(<span class="hljs-string">&quot;                 3 登记支出&quot;</span>);<br>		System.out.println(<span class="hljs-string">&quot;                 4 退出\n&quot;</span>);<br>		System.out.print(<span class="hljs-string">&quot;                 &lt;请输入1-4&gt;:&quot;</span>);<br><br>		<span class="hljs-keyword">char</span> selection = Utility.readMenuSelection();<br>		<br>		<span class="hljs-keyword">switch</span>(selection) &#123;<br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;1&#x27;</span>:<br>				System.out.println(<span class="hljs-string">&quot;---------------当前收支明细记录----------------&quot;</span>);<br>				System.out.println(details);<br>				System.out.println(<span class="hljs-string">&quot;----------------------------------------------&quot;</span>);<br>				<span class="hljs-keyword">break</span>;<br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;2&#x27;</span>:<br>				System.out.print(<span class="hljs-string">&quot;本次收入金额：&quot;</span>);<br>				money = Utility.readNumber();<br>				System.out.print(<span class="hljs-string">&quot;本次收入说明：&quot;</span>);<br>				info = Utility.readString();<br>				<br>				balance += money;<br>				<span class="hljs-comment">//处理details</span><br>				details += <span class="hljs-string">&quot;收入\t&quot;</span> + balance + <span class="hljs-string">&quot;\t\t&quot;</span> + money + <span class="hljs-string">&quot;\t\t&quot;</span> + info + <span class="hljs-string">&quot;\n&quot;</span>;<br>				<br>				<br>				System.out.println(<span class="hljs-string">&quot;-------------------登记完成--------------------&quot;</span>);<br>				<span class="hljs-keyword">break</span>;<br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;3&#x27;</span>:<br>				System.out.print(<span class="hljs-string">&quot;本次支出金额：&quot;</span>);<br>				money = Utility.readNumber();<br>				System.out.print(<span class="hljs-string">&quot;本次支出说明：&quot;</span>);<br>				info = Utility.readString();<br>				<br>				<br>				<span class="hljs-comment">//处理balance</span><br>				<span class="hljs-keyword">if</span>(balance &gt;= money) &#123;<br>					balance -= money;<br>					<span class="hljs-comment">//处理details</span><br>					details += <span class="hljs-string">&quot;支出\t&quot;</span> + balance + <span class="hljs-string">&quot;\t\t&quot;</span> + money + <span class="hljs-string">&quot;\t\t&quot;</span> + info + <span class="hljs-string">&quot;\n&quot;</span>;<br>				&#125;<span class="hljs-keyword">else</span> &#123;<br>					System.out.println(<span class="hljs-string">&quot;错误！超出账户额度！&quot;</span>);<br>				&#125;<br>				<br>				<br>				System.out.println(<span class="hljs-string">&quot;-------------------登记完成--------------------&quot;</span>);<br>				<span class="hljs-keyword">break</span>;<br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;4&#x27;</span>:<br>				System.out.println(<span class="hljs-string">&quot;确认是否退出(Y/N):&quot;</span>);<br>				<span class="hljs-keyword">char</span> isExit = Utility.readConfirmSelection();<br>				<span class="hljs-keyword">if</span>(isExit == <span class="hljs-string">&#x27;Y&#x27;</span>) &#123;<br>					isFlag = <span class="hljs-keyword">false</span>;<span class="hljs-comment">//也可以break;</span><br>				&#125;<br>				<span class="hljs-keyword">break</span>;<br>		&#125;<br>		<br>		<br>	&#125;<br>	<br><br>&#125;<br><br></code></pre></td></tr></table></figure>
+<p>3、判断是否是重载：</p>
+<p>​        跟方法的权限修饰符、返回值类型、形参变量名、方法体都没有关系。</p>
+<p>​        </p>
+<p>4、在通过对象调用方法时，如何确定某一个指定的方法：</p>
+<p>​            方法名 —&gt;参数列表（可以自动类型提升）</p>
+<h4 id="7-7-2、-可变个数的形参"><a href="#7-7-2、-可变个数的形参" class="headerlink" title="7.7.2、 可变个数的形参"></a>7.7.2、 可变个数的形参</h4><p>JavaSE 5.0中提供了Varargs(variable number of arguments)机制允许直接定义能和多个实参相匹配的形参。从而，可以用一种更简单的方式，来传递个数可变的实参</p>
+<p>//JDK 5.0以前：采用数组形参来定义方法，传入多个同一类型变量</p>
+<p>public static void test(int a,String[] books);</p>
+<p>//JDK 5.0：采用可变个数形参来定义方法，传入多个同一类型变量</p>
+<p>public static void test(int a,String…books);</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.test.dm;<br><br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 可变个数形参的方法</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 1、JDK 5.0新增内容</span><br><span class="hljs-comment"> * 2、具体使用：</span><br><span class="hljs-comment"> * 		2.1 可变个数形参的格式，数据类型...变量名</span><br><span class="hljs-comment"> * 		2.2 当调用可变个数形参的方法时，传入的参数个数可以是: 0个，1个，多个...</span><br><span class="hljs-comment"> * 		2.3 可变个数形参的方法与本类中的方法名相同，形参不同的方法之间构成重载</span><br><span class="hljs-comment"> * 		2.4 可变个数形参的方法与本类中的方法名相同，形参类型也相同的数组之间不构成重载，换句话说，两者不可共存。</span><br><span class="hljs-comment"> * 		2.5 可变个数形参在方法的形参中，必须声明在末尾。The variable argument type String of the method show </span><br><span class="hljs-comment"> * 			must be the last parameter</span><br><span class="hljs-comment"> * 		2.6 可变个数形参在方法的形参中，最多只能声明一个可变形参。</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MethodArgsTest</span> </span>&#123;<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		MethodArgsTest test = <span class="hljs-keyword">new</span> MethodArgsTest();<br>		test.show(<span class="hljs-number">12</span>);<br>		test.show(<span class="hljs-string">&quot;hello&quot;</span>);<br>		test.show();<br>		test.show(<span class="hljs-string">&quot;hello&quot;</span>,<span class="hljs-string">&quot;world&quot;</span>);<br>		<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i)</span> </span>&#123;&#125;<br>	<br>	<span class="hljs-comment">//public void show(String s) &#123;&#125;</span><br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">(String ...strs)</span> </span>&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i &lt; strs.length;i++) &#123;<br>			System.out.println(strs[i]);<br>		&#125;<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i,String ...strs)</span> </span>&#123;&#125;<br>	<br>	<span class="hljs-comment">//public void show(String[] strs) &#123;&#125;与上面冲突Duplicate method show(String[]) in type MethodArgsTest</span><br><br>	<span class="hljs-comment">//如果调用形参为数组：test.show(new String[]&#123;&quot;AA&quot;,&quot;BB&quot;&#125;);也可以用来调用public void show(String ...strs) 一般直接传字符串不用new</span><br><br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-<p>Utility.java</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> test03;<br><br><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-comment">/*Utility工具类：</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">	将不同的功能封装为方法</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Utility</span></span>&#123;<br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Scanner scanner = <span class="hljs-keyword">new</span> Scanner(System.in);<br><br><span class="hljs-comment">/*用于界面的选择。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">	该方法读取键盘，如果用户输入1到4的任意字符，方法返回值为输入的任意字符</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">char</span> <span class="hljs-title">readMenuSelection</span><span class="hljs-params">()</span></span>&#123;<br>		<span class="hljs-keyword">char</span> c;<br><br>		<span class="hljs-keyword">for</span>(;;)&#123;<br>			String str = readKeyBoard(<span class="hljs-number">1</span>);<br>			c = str.charAt(<span class="hljs-number">0</span>);<br>			<span class="hljs-keyword">if</span> (c !=<span class="hljs-string">&#x27;1&#x27;</span> &amp;&amp; c !=<span class="hljs-string">&#x27;2&#x27;</span> &amp;&amp; c != <span class="hljs-string">&#x27;3&#x27;</span> &amp;&amp; c != <span class="hljs-string">&#x27;4&#x27;</span>)&#123;<br>				System.out.print(<span class="hljs-string">&quot;选择错误，请重新输入&quot;</span>);<br>			&#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">break</span>;<br><br>		&#125;<br>		<span class="hljs-keyword">return</span> c;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">用于支出和收入金额的输入，读取一个不超过4位数长度的整数，并将其作为方法的返回值</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">readNumber</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-keyword">int</span> n;<br><br>	<span class="hljs-keyword">for</span>(;;)&#123;<br>		String str = readKeyBoard(<span class="hljs-number">4</span>);<br><br>		<span class="hljs-keyword">try</span>&#123;<br>			n = Integer.parseInt(str);<br>			<span class="hljs-keyword">break</span>;<br>		&#125;<span class="hljs-keyword">catch</span>(NumberFormatException e)&#123;<br>			System.out.print(<span class="hljs-string">&quot;数字输入有误，请重新输入：&quot;</span>);<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> n;<br>&#125;<br><br><span class="hljs-comment">/*用于支出和收入说明的输入。用于读取从键盘输入的不超过8为字符串长度的输入值，</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">并将其作为方法的返回值</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">readString</span><span class="hljs-params">()</span></span>&#123;<br>	String str = readKeyBoard(<span class="hljs-number">8</span>);<br>	<span class="hljs-keyword">return</span> str;<br>&#125;<br><br><span class="hljs-comment">/*用于确认选择的输入，从键盘读取&#x27;y&#x27;或者&#x27;n&#x27;,并将其作为返回值</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">char</span> <span class="hljs-title">readConfirmSelection</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-keyword">char</span> c;<br>	<span class="hljs-keyword">for</span>(;;)&#123;<br>		String str = readKeyBoard(<span class="hljs-number">1</span>).toUpperCase();<br><br>		c = str.charAt(<span class="hljs-number">0</span>);<br><br>		<span class="hljs-keyword">if</span>(c == <span class="hljs-string">&#x27;Y&#x27;</span> || c == <span class="hljs-string">&#x27;N&#x27;</span>)&#123;<br>			<span class="hljs-keyword">break</span>;<br><br>		&#125;<span class="hljs-keyword">else</span>&#123;<br>			System.out.print(<span class="hljs-string">&quot;选择错误，请重新输入：&quot;</span>);<br><br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> c;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">readKeyBoard</span><span class="hljs-params">(<span class="hljs-keyword">int</span> limit)</span></span>&#123;<br>	String line = <span class="hljs-string">&quot;&quot;</span>;<br><br>	<span class="hljs-keyword">while</span> (scanner.hasNext())&#123;<br>		line = scanner.nextLine();<br><br>		<span class="hljs-keyword">if</span> (line.length()&lt;<span class="hljs-number">1</span> || line.length()&gt;limit)&#123;<br>			System.out.print(<span class="hljs-string">&quot;输入长度(不大于&quot;</span> + limit+ <span class="hljs-string">&quot;)错误，请重新输入&quot;</span>);<br>			<span class="hljs-keyword">continue</span>;<br>		&#125;<br>		<span class="hljs-keyword">break</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> line;	<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="5-3、Eclipse"><a href="#5-3、Eclipse" class="headerlink" title="5.3、Eclipse"></a>5.3、Eclipse</h3><p>之前版本是字母顺序版本</p>
-<p>后改为年</p>
-<p><img src="https://www.picbed.cn/images/2021/05/16/1.png"></p>
-<p><img src="https://www.picbed.cn/images/2021/05/16/2.png"></p>
-<p><img src="https://www.picbed.cn/images/2021/05/16/3.png"></p>
-<p><img src="https://www.picbed.cn/images/2021/05/16/4.png"></p>
-<p>当视图乱七八糟时,重新设置</p>
-<p><img src="https://www.picbed.cn/images/2021/05/16/5.png"></p>
-<p><img src="https://www.picbed.cn/images/2021/05/16/6.png"></p>
-<p>勿忘记命名规范</p>
-<p><a href="https://www.cnblogs.com/wkfvawl/p/12172756.html">java命名规范</a></p>
+
+
+
+
+
+
+
+
+
+<h4 id="7-7-3、方法参数的值传递机制"><a href="#7-7-3、方法参数的值传递机制" class="headerlink" title="7.7.3、方法参数的值传递机制"></a>7.7.3、方法参数的值传递机制</h4><p>方法，必须由其所在类或对象调用才有意义。若方法含有参数：</p>
+<ul>
+<li>形参：方法声明时的参数</li>
+<li>实参：方法调用时，实际传给形参的参数值</li>
+</ul>
+<p><strong>Java的实参值如何传入方法呢？</strong></p>
+<p>Java里方法的参数传递方式只有一种：<strong>值传递</strong>。</p>
+<p>即将实际参数值的副本（复制品）传入方法内，而参数本身不受影响。</p>
+<ul>
+<li>形参是基本数据类型: 将实参基本数据类型变量的“数据值”传递给形参</li>
+<li>形参是引用数据类型: 将实参引用数据类型变量的“地址值”传递给形参</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.test.dm;<br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 关于变量的赋值</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ValueTransferTest</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<span class="hljs-keyword">int</span> m = <span class="hljs-number">10</span>;<br>		<span class="hljs-keyword">int</span> n = m;<br>		<br>		System.out.println(<span class="hljs-string">&quot;m=&quot;</span>+m+<span class="hljs-string">&quot;,n=&quot;</span>+n);<br>		<br>		n=<span class="hljs-number">20</span>;<br>		System.out.println(<span class="hljs-string">&quot;m=&quot;</span>+m+<span class="hljs-string">&quot;,n=&quot;</span>+n);<br>		<br>		<span class="hljs-comment">//引用数据类型</span><br>		<br>		Order o1 = <span class="hljs-keyword">new</span> Order();<br>		<br>		o1.orderId = <span class="hljs-number">1001</span>;<br>		<br>		Order o2 = o1;<br>		<br>		System.out.println(<span class="hljs-string">&quot;o1.orderId=&quot;</span>+o1.orderId+<span class="hljs-string">&quot;,o2.orderId=&quot;</span>+o2.orderId);<br>		<br>		o2.orderId = <span class="hljs-number">1002</span>;<br>		<br>		System.out.println(<span class="hljs-string">&quot;o1.orderId=&quot;</span>+o1.orderId+<span class="hljs-string">&quot;,o2.orderId=&quot;</span>+o2.orderId);<br>	&#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Order</span></span>&#123;<br>	<span class="hljs-keyword">int</span> orderId;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="7-7-4、递归方法"><a href="#7-7-4、递归方法" class="headerlink" title="7.7.4、递归方法"></a>7.7.4、递归方法</h4><p>递归（recursion）方法</p>
+<p>递归方法：</p>
+<ul>
+<li>一个方法体内调用它自身。</li>
+</ul>
+<p>方法递归包含了一种隐式的循环，它会重复执行某段代码，但这种重复执行无须循环控制。</p>
+<p>递归一定要向己知方向递归，否则这种递归就变成了无穷递归，类似于死循环。</p>
+<p>//计算1-100之间所有自然数的和</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num)</span> </span>&#123;<br>		<span class="hljs-keyword">if</span>(num == <span class="hljs-number">1</span>) &#123;<br>			<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>		&#125;<span class="hljs-keyword">else</span> &#123;<br>			<span class="hljs-keyword">return</span> num+sum(num-<span class="hljs-number">1</span>);<br>		&#125;<br>	&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.test.dm;<br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 递归方法的使用(了解)</span><br><span class="hljs-comment"> * 1、递归方法：一个方法体内调用它自身。</span><br><span class="hljs-comment"> * 2、方法递归包含了一种隐式的循环，它会重复执行某段代码，但这种重复执行无须循环控制。</span><br><span class="hljs-comment"> *    递归一定要向己知方向递归，否则这种递归就变成了无穷递归，类似于死循环</span><br><span class="hljs-comment"> * 	</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RecursionTest</span> </span>&#123;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<span class="hljs-comment">//方式一</span><br>		<span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">100</span>;i++) &#123;<br>			sum += i;<br>		&#125;<br>		<span class="hljs-comment">//方式二</span><br>		RecursionTest test = <span class="hljs-keyword">new</span> RecursionTest();<br>		System.out.println(test.sum(<span class="hljs-number">100</span>));<br>		System.out.println(test.sum1(<span class="hljs-number">10</span>));<br>	&#125;<br>	<br>	<span class="hljs-comment">//计算1-100之间所有自然数的和</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num)</span> </span>&#123;<br>		<span class="hljs-keyword">if</span>(num == <span class="hljs-number">1</span>) &#123;<br>			<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>		&#125;<span class="hljs-keyword">else</span> &#123;<br>			<span class="hljs-keyword">return</span> num+sum(num-<span class="hljs-number">1</span>);<br>		&#125;<br>	&#125;<br>	<span class="hljs-comment">//计算1-10之间所有自然数的乘积: n!</span><br>		<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">sum1</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num1)</span> </span>&#123;<br>			<span class="hljs-keyword">if</span>(num1 == <span class="hljs-number">1</span>) &#123;<br>				<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>			&#125;<span class="hljs-keyword">else</span> &#123;<br>				<span class="hljs-keyword">return</span> num1*sum1(num1-<span class="hljs-number">1</span>);<br>			&#125;<br>		&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="7-3、面向对象特征之一：封装与隐藏"><a href="#7-3、面向对象特征之一：封装与隐藏" class="headerlink" title="7.3、面向对象特征之一：封装与隐藏"></a>7.3、面向对象特征之一：封装与隐藏</h2><p>我们程序设计追求“高内聚，低耦合”</p>
+<ul>
+<li>高内聚：类的内部数据操作细节自己完成，不允许外部干涉</li>
+<li>低耦合：仅对外暴露少量的方法用于使用。</li>
+</ul>
+<p>隐藏对象内部复杂性，只对外公开简单的接口。便于外界调用，从而提高系统的可扩展性、可维护性。通俗的说，<strong>把该隐藏的隐藏起来，该暴露的暴露出来。这就是封装性的设计思想。</strong></p>
+<p>使用者对类内部定义的属性（对象的成员变量）的直接操作会导致数据的错误、混乱或安全性问题。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.test.dm01;<br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 面向对象的特征之一：封装与隐藏</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 一、问题的引入：</span><br><span class="hljs-comment"> * 		当我们创建一个类的对象以后，</span><br><span class="hljs-comment"> * 		我们可以通过“对象.属性”的方式，对对象的属性进行赋值。</span><br><span class="hljs-comment"> * 		这里，赋值操作要受到属性的数据类型和存储范围的制约。</span><br><span class="hljs-comment"> * 		除此之外，没有其他制约条件。</span><br><span class="hljs-comment"> * 		但是，在实际问题中，我们往往需要给属性赋值加入额外的限制条件。</span><br><span class="hljs-comment"> * 		这个条件就不能在属性声明时体现，我们只能通过方法进行限制条件的添加。</span><br><span class="hljs-comment"> * 		(比如：setLegs())</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 		同时，我们需要避免用户再使用“对象.属性”的方式对属性进行赋值。则需要将属性声明为私有的(private)</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 		-----&gt;此时，针对于属性就体现了封装性。</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 二、封装性的体现：</span><br><span class="hljs-comment"> * 		我们将类的属性xxx私有化(private),同时，提供公共的(public)方法来获取(getXxx)和设置此属性的值。		</span><br><span class="hljs-comment"> * 		(只是封装性本身之一，不等同于封装性)</span><br><span class="hljs-comment"> * 		拓展:</span><br><span class="hljs-comment"> * 			封装性的体现：</span><br><span class="hljs-comment"> * 			1、如上</span><br><span class="hljs-comment"> * 			2、不对外暴露的私有的方法</span><br><span class="hljs-comment"> * 			3、单例模式</span><br><span class="hljs-comment"> * 			... ...</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 三、封装性的体现，需要权限修饰符来配合。</span><br><span class="hljs-comment"> * 		1、Java规定的4种权限：(从小到大排列)</span><br><span class="hljs-comment"> * 		private</span><br><span class="hljs-comment"> * 		缺省(default)[什么都没写！！！]</span><br><span class="hljs-comment"> * 		protected</span><br><span class="hljs-comment"> * 		public</span><br><span class="hljs-comment"> * 			</span><br><span class="hljs-comment"> * 		2、4种权限可以用来修饰类及类的内部结构：</span><br><span class="hljs-comment"> * 			属性</span><br><span class="hljs-comment"> * 			方法</span><br><span class="hljs-comment"> * 			构造器</span><br><span class="hljs-comment"> * 			内部类</span><br><span class="hljs-comment"> * 		3、具体的，4种权限都可以用来修饰类及类的内部结构：属性、方法、构造器、内部类</span><br><span class="hljs-comment"> * 			修饰类的话，只能使用：</span><br><span class="hljs-comment"> * 					缺省、public</span><br><span class="hljs-comment"> * 		</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AnimalTest</span> </span>&#123;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		Animal a = <span class="hljs-keyword">new</span> Animal();<br>		a.name = <span class="hljs-string">&quot;大黄&quot;</span>;<br>		<span class="hljs-comment">//a.age = 1;</span><br>		a.setLegs(<span class="hljs-number">6</span>);<br>		<span class="hljs-comment">//a.legs = 3;</span><br>		<span class="hljs-comment">//The field Animal.legs is not visible不可见</span><br>		<span class="hljs-comment">//对这个属性，封装(隐藏)了</span><br>		System.out.println(a.name);<br>		<br>	&#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span></span>&#123;<br>	String name;<br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age;<br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> legs;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setLegs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> l)</span> </span>&#123;<br>		<span class="hljs-keyword">if</span>(l &gt;= <span class="hljs-number">0</span> &amp;&amp; l%<span class="hljs-number">2</span> == <span class="hljs-number">0</span>) &#123;<br>			legs = l;<br>		&#125;<span class="hljs-keyword">else</span> &#123;<br>			legs = <span class="hljs-number">0</span>;<br>			<span class="hljs-comment">//抛出一个异常（暂时没讲）</span><br>		&#125;<br>	&#125;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getLegs</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-keyword">return</span> legs;<br>	&#125;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span> </span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;进食&quot;</span>);<br>	&#125;<br>	<span class="hljs-comment">//提供关于属性age的get和set方法</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getAge</span><span class="hljs-params">()</span></span>&#123;<br>		<span class="hljs-keyword">return</span> age;<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setAge</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a)</span> </span>&#123;<br>		age = a;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="四种访问权限修饰符"><a href="#四种访问权限修饰符" class="headerlink" title="四种访问权限修饰符"></a>四种访问权限修饰符</h3><p>Java权限修饰符public、protected、private置于类的成员定义前，用来限定对象对该类成员的访问权限</p>
+<table>
+<thead>
+<tr>
+<th>修饰符</th>
+<th>类内部</th>
+<th>同一个包</th>
+<th>不同包的子类</th>
+<th>同一个工程</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>private</td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>(缺省)</td>
+<td>yes</td>
+<td>yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>protected</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>public</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+</tbody></table>
+<p>对于class的权限修饰只可以用public和default(缺省)</p>
+<ul>
+<li>public类可以在任意地方被访问</li>
+<li>default类只可以被同一个包内部的类访问。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*   </span><br><span class="hljs-comment"> *	三、封装性的体现，需要权限修饰符来配合。</span><br><span class="hljs-comment"> * 		1、Java规定的4种权限：(从小到大排列)</span><br><span class="hljs-comment"> * 		private</span><br><span class="hljs-comment"> * 		缺省(default)[什么都没写！！！]</span><br><span class="hljs-comment"> * 		protected</span><br><span class="hljs-comment"> * 		public</span><br><span class="hljs-comment"> * 			</span><br><span class="hljs-comment"> * 		2、4种权限可以用来修饰类及类的内部结构：</span><br><span class="hljs-comment"> * 			属性</span><br><span class="hljs-comment"> * 			方法</span><br><span class="hljs-comment"> * 			构造器</span><br><span class="hljs-comment"> * 			内部类</span><br><span class="hljs-comment"> * 		3、具体的，4种权限都可以用来修饰类及类的内部结构：属性、方法、构造器、内部类</span><br><span class="hljs-comment"> * 			修饰类的话，只能使用：</span><br><span class="hljs-comment"> * 					缺省、public</span><br><span class="hljs-comment"> * 		</span><br><span class="hljs-comment"> */</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="7-4、类的成员之三：构造器（或构造方法）"><a href="#7-4、类的成员之三：构造器（或构造方法）" class="headerlink" title="7.4、类的成员之三：构造器（或构造方法）"></a>7.4、类的成员之三：构造器（或构造方法）</h2><p>构造器的特征：</p>
+<ul>
+<li>它具有与类相同的名称</li>
+<li>它不声明返回值类型。（与声明为void不同）</li>
+<li>不能被static、final、synchronized、abstract、native修饰，不能有return语句返回值</li>
+</ul>
+<p>构造器的作用：</p>
+<ul>
+<li>如：<ul>
+<li>Order o = new Order(); Person p = new Person(“Peter”,15);</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.test.dm01;<br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 类的结构之三:构造器(或构造方法、constructor)的使用</span><br><span class="hljs-comment"> * construct:</span><br><span class="hljs-comment"> * 		建设、建造</span><br><span class="hljs-comment"> * constructor:</span><br><span class="hljs-comment"> * 		建设者</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 一、构造器的作用:</span><br><span class="hljs-comment"> * 		1、创建对象</span><br><span class="hljs-comment"> * 		2、初始化对象的信息(给对象进行初始化)</span><br><span class="hljs-comment"> * 二、说明：</span><br><span class="hljs-comment"> * 		1、如果没有显式的定义类的构造器的话，则系统默认提供一个空参的构造器</span><br><span class="hljs-comment"> * 		2、定义构造器的格式：</span><br><span class="hljs-comment"> * 				权限修饰符	类名(形参列表)&#123;&#125;</span><br><span class="hljs-comment"> * 		3、一个类中定义的多个构造器，彼此构成重载</span><br><span class="hljs-comment"> * 		4、一旦我们显式的定义了类的构造器之后，系统就不提供默认的空参构造器！</span><br><span class="hljs-comment"> * 		5、一个类中，至少会有一个构造器。</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PersonTest</span> </span>&#123;<br>	<span class="hljs-comment">//创建类的对象: new + 构造器</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<br>		Person p = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">&quot;Tom&quot;</span>);<br>		<br>		System.out.println(p.name);<br>		p.eat();<br>	&#125;<br>	<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>&#123;<br>	<span class="hljs-comment">//属性</span><br>	String name;<br>	<span class="hljs-keyword">int</span> age;<br>	<br>	<span class="hljs-comment">//构造器</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Person</span><span class="hljs-params">()</span> </span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;Person()...&quot;</span>);<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Person</span><span class="hljs-params">(String n)</span> </span>&#123;<br>		name = n;<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Person</span><span class="hljs-params">(String n,<span class="hljs-keyword">int</span> a)</span> </span>&#123;<br>		name = n;<br>		age = a;<br>	&#125;<br>	<span class="hljs-comment">//方法</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span> </span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;人吃饭&quot;</span>);<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">study</span><span class="hljs-params">()</span> </span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;人可以学习&quot;</span>);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>Java基础</category>
