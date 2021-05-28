@@ -1666,7 +1666,7 @@
 
 
 
-<h2 id="8-9、-运算符的回顾"><a href="#8-9、-运算符的回顾" class="headerlink" title="8.9、==运算符的回顾"></a>8.9、==运算符的回顾</h2><p>面试题：</p>
+<h2 id="8-9、-运算符的回顾-和-equals-的区别"><a href="#8-9、-运算符的回顾-和-equals-的区别" class="headerlink" title="8.9、==运算符的回顾 ,== 和 equals 的区别"></a>8.9、==运算符的回顾 ,== 和 equals 的区别</h2><p>面试题：</p>
 <p>== 和 equals 的区别</p>
 <p>1、== 既可以比较基本类型也可以比较引用类型。对于基本类型就是比较值，对于引用类型就是比较内存地址</p>
 <p>2、equals的话，它是属于java.lang.Object类里面的方法，如果该方法没有被重写过默认也是==；我们可以看到String等类的equals方法是被重写过的，而且String类在日常开发中用的比较多，久而久之，形成了equals是比较值的错误观点。</p>
@@ -1688,6 +1688,37 @@
 <p>EqualsTest.java</p>
 <figure class="highlight pgsql"><table><tr><td class="code"><pre><code class="hljs pgsql">package com.test.java;<br><br><span class="hljs-keyword">import</span> java.util.Date;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 面试题: == 和 equals() 区别</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 一、 回顾 == 的使用</span><br><span class="hljs-comment"> * == ： 运算符，</span><br><span class="hljs-comment"> * 1、可以使用在基本数据类型变量和引用数据类型变量中</span><br><span class="hljs-comment"> * 2、如果比较的是基本数据类型变量:比较两个变量保存的数据是否相等。(不一定类型要相同)</span><br><span class="hljs-comment"> * 	  如果比较的是引用数据类型变量:比较两个对象的 地址值是否相同</span><br><span class="hljs-comment"> *  </span><br><span class="hljs-comment"> *    即，两个引用是否指向同一个对象实体</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 二、equals()方法的使用:</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 		1、是一个方法，而非运算符</span><br><span class="hljs-comment"> * 		2、只能适用于引用数据类型</span><br><span class="hljs-comment"> * 		3、Object类中equals()的定义:</span><br><span class="hljs-comment"> * 			    public boolean equals(Object obj) &#123;</span><br><span class="hljs-comment"> *       			return (this == obj);</span><br><span class="hljs-comment"> *  			&#125;</span><br><span class="hljs-comment"> * 		</span><br><span class="hljs-comment"> * 			说明： Object类中定义的equals()和 == 的作用是相同的：</span><br><span class="hljs-comment"> * 				比较两个对象的 地址值是否相同.即，两个引用是否指向同一个对象实体</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 		4、	像String、Date、File、包装类等都重写了Object类中的equals()方法。</span><br><span class="hljs-comment"> * 		重写以后，比较的不是两个引用的地址是否相同、而是比较两个对象的&quot;实体内容&quot;是否相同。</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 		5、通常情况下，我们自定义的类如果使用equals()的话，也通常是比较两个对象的&quot;实体内容&quot;是否相同。那么，</span><br><span class="hljs-comment"> * 		我们就需要对Object类中的equals()进行重写。</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 		</span><br><span class="hljs-comment"> * 		//重写的原则: 比较两个对象的实体内容是否相同。	</span><br><span class="hljs-comment"> */</span><br><span class="hljs-built_in">public</span> <span class="hljs-keyword">class</span> EqualsTest &#123;<br>	<span class="hljs-built_in">public</span> static <span class="hljs-type">void</span> main(String[] args) &#123;<br>		<br>		<span class="hljs-type">int</span> i = <span class="hljs-number">10</span>; <br>		<span class="hljs-type">int</span> j = <span class="hljs-number">10</span>;<br>		<span class="hljs-type">double</span> d = <span class="hljs-number">10.0</span>;<br>		<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(i == j);//<span class="hljs-keyword">true</span><br>		<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(i == d);//<span class="hljs-keyword">true</span><br>		<br>		<span class="hljs-type">boolean</span> b = <span class="hljs-keyword">true</span>;<br>//		<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(i == b);<br>		<br>		<span class="hljs-type">char</span> c = <span class="hljs-number">10</span>;<br>		<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(i == c);<br>		<br>		<span class="hljs-type">char</span> c1 = <span class="hljs-string">&#x27;A&#x27;</span>;<br>		<span class="hljs-type">char</span> c2 = <span class="hljs-number">65</span>;<br>		<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(c1 == c2);<br>		<br>		Customer cust1 = <span class="hljs-built_in">new</span> Customer(&quot;Tom&quot;,<span class="hljs-number">21</span>);<br>		Customer cust2 = <span class="hljs-built_in">new</span> Customer(&quot;Tom&quot;,<span class="hljs-number">21</span>);<br>		<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(cust1 == cust2);//<span class="hljs-keyword">false</span><br>		<br>		String str1 = <span class="hljs-built_in">new</span> String(&quot;aaa&quot;);<br>		String str2 = <span class="hljs-built_in">new</span> String(&quot;aaa&quot;);<br>		<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(str1 == str2);//<span class="hljs-keyword">false</span><br>		<br>		<br>		<br>		<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(&quot;***************&quot;);<br>		<br>		<br>		<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(cust1.equals(cust2));//<span class="hljs-keyword">false</span> <span class="hljs-comment">--&gt; true(重写equals()方法后)</span><br>		//<span class="hljs-type">boolean</span> java.lang.<span class="hljs-keyword">Object</span>.equals(<span class="hljs-keyword">Object</span> obj)<br>		<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(str1.equals(str2));//<span class="hljs-keyword">true</span><br>		//<span class="hljs-type">boolean</span> java.lang.String.equals(<span class="hljs-keyword">Object</span> anObject)<br>		<br>		<span class="hljs-type">Date</span> date1 = <span class="hljs-built_in">new</span> <span class="hljs-type">Date</span>(<span class="hljs-number">32432525324</span>L);<br>		<span class="hljs-type">Date</span> date2 = <span class="hljs-built_in">new</span> <span class="hljs-type">Date</span>(<span class="hljs-number">32432525324</span>L);<br>		<br>		<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(date1 == date2);<br>		<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(date1.equals(date2));//<span class="hljs-keyword">true</span><br>	&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
+<h3 id="重写equals-方法的原则"><a href="#重写equals-方法的原则" class="headerlink" title="重写equals()方法的原则"></a>重写equals()方法的原则</h3><ul>
+<li><p>对称性:</p>
+<ul>
+<li>如果x.equals(y)返回的是”true”,那么y.equals(x)也应该返回的是”true”</li>
+</ul>
+</li>
+<li><p>自反性:</p>
+<ul>
+<li>x.equals(x)必须返回是”true“</li>
+</ul>
+</li>
+<li><p>传递性:</p>
+<ul>
+<li>如果x.equals(y)返回是”true”,而且y.equals(z)返回是”true”,</li>
+</ul>
+<p>那么z.equals(x)也应该返回是”true”</p>
+</li>
+<li><p>一致性:</p>
+<ul>
+<li>如果x.equals(y)返回是”true”,只要x和y内容不变，不管你重复x.equals(y)</li>
+</ul>
+<p>多少次，返回都是”true”</p>
+</li>
+<li><p>任何情况下，x.equals(null),永远返回是”false”;</p>
+</li>
+</ul>
+<p>x.equals(和x不同类型的对象)永远返回是”false”</p>
+<p>null.equals(x）空指针异常。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><br>* 一、 回顾 == 的使用<br>* == ： 运算符，<br>* <span class="hljs-number">1</span>、可以使用在基本数据类型变量和引用数据类型变量中<br>* <span class="hljs-number">2</span>、如果比较的是基本数据类型变量:比较两个变量保存的数据是否相等。(不一定类型要相同)<br>* 	  如果比较的是引用数据类型变量:比较两个对象的 地址值是否相同<br>*  <br>*    即，两个引用是否指向同一个对象实体<br>* 补充:<br>* 		== 符号使用时，必须保证符号左右两边的变量类型一致。<br>* <br></code></pre></td></tr></table></figure>
+
+<h2 id="8-11、toString-方法的使用"><a href="#8-11、toString-方法的使用" class="headerlink" title="8.11、toString()方法的使用"></a>8.11、toString()方法的使用</h2><p>toString()方法在Object类中定义，其返回值类型是String类型，返回类名和它的引用地址。</p>
 ]]></content>
       <categories>
         <category>Java基础</category>
