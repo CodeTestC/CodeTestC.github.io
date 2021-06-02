@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>异常处理 - 我的小时光</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="10、异常10.1、异常概述异常概述与异常体系结构
+在...">
+  <meta name="author" content="chen">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  
+  
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_r673sha78lq.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '[object Object]'
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://www.picbed.cn/images/2021/04/30/1a97c92362332d74f.png',
+        wechat: 'https://www.picbed.cn/images/2021/04/30/1cea1223e43f59565.png'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://www.picbed.cn/images/2021/04/30/mmqrcode1619760412850.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: 'search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">异常处理</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="https://www.picbed.cn/images/2021/04/30/160-1606471_logo-java.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">异常处理</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>June 02, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>14693</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h1 id="10、异常"><a href="#10、异常" class="headerlink" title="10、异常"></a>10、异常</h1><h2 id="10-1、异常概述"><a href="#10-1、异常概述" class="headerlink" title="10.1、异常概述"></a>10.1、异常概述</h2><p>异常概述与异常体系结构</p>
+<p>在使用计算机语言进行项目开发的过程中，即使程序员把代码写得尽善尽美，在系统的运行过程中仍然会遇到一些问题，因为很多问题不是靠代码能够避免的，比如: 客户输入数据的格式，读取文件是否存在，网络是否始终保持通畅等等。</p>
+<p>异常: 在Java语言中，将程序执行中发生的不正常情况称为”异常”。</p>
+<p>(开发过程中语法错误和逻辑错误不是异常)</p>
+<p>Java程序在执行过程中所发生的异常事件可分为两类:</p>
+<ul>
+<li>Error : Java虚拟机无法解决的严重问题。如: JVM系统内部错误、资源耗尽等严重情况。比如: StackOverflowError和OOM。一般不编写针对性的代码进行处理</li>
+<li>Exception: 其它因编程错误或偶然的外在因素导致的一般性问题，可以使用针对性的代码进行处理。例如:<ul>
+<li>空指针访问</li>
+<li>试图读取不存在的文件</li>
+<li>网络连接中断</li>
+<li>数组角标越界</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>对于这些错误，一般有两种解决方法：一是遇到错误就终止程序 的运行。另一种方法是由程序员在编写程序时，就考虑到错误的 检测、错误消息的提示，以及错误的处理。 </li>
+</ul>
+<ul>
+<li>捕获错误最理想的是在编译期间，但有的错误只有在运行时才会发生。 比如：除数为0，数组下标越界等<ul>
+<li>分类：编译时异常和运行时异常</li>
+</ul>
+</li>
+</ul>
+<p><img   class="lazyload" data-original="https://www.picbed.cn/images/2021/06/01/7.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" ></p>
+<p>: 非受检(unchecked)异常</p>
+<p>:受检(checked)异常</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.test.java01;<br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * Error: </span><br><span class="hljs-comment"> * Java虚拟机无法解决的严重问题，如: JVM系统内部错误、资源耗尽等严重情况。比如比如: StackOverflowError和OOM。</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 一般不编写针对性的代码进行处理</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ErrorTest</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<br>		<span class="hljs-comment">//1、栈溢出: Exception in thread &quot;main&quot; java.lang.StackOverflowError</span><br>		<span class="hljs-comment">//main(args);</span><br>		<br>		<span class="hljs-comment">//2、堆溢出: java.lang.OutOfMemoryError: Java heap space</span><br>		Integer[] arr = <span class="hljs-keyword">new</span> Integer[<span class="hljs-number">1024</span>*<span class="hljs-number">1024</span>*<span class="hljs-number">1024</span>];<br>		<br>		<br>		<br>		<br>	&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="10-2、-异常体系结构"><a href="#10-2、-异常体系结构" class="headerlink" title="10.2、 异常体系结构"></a>10.2、 异常体系结构</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.test.java01;<br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 一、异常体系结构</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * java.lang.Throwable</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> *    |------java.lang.Error: 一般不编写针对性的代码进行处理</span><br><span class="hljs-comment"> *    |------java.lang.Exception: 可以进行异常的处理</span><br><span class="hljs-comment"> *    	  |------编译时异常(checked)</span><br><span class="hljs-comment"> *    			|------IOException</span><br><span class="hljs-comment"> *    				|------FileNotFoundException</span><br><span class="hljs-comment"> *    			|------ClassNotFoundException</span><br><span class="hljs-comment"> *    	  |------运行时异常(unchecked)</span><br><span class="hljs-comment"> *    			|------NullPointerException</span><br><span class="hljs-comment"> *    			|------ArraysIndexOutOfBoundsException</span><br><span class="hljs-comment"> *    			|------ClassCastException</span><br><span class="hljs-comment"> *    			|------NumberFormatException</span><br><span class="hljs-comment"> *    			|------InputMismatchException</span><br><span class="hljs-comment"> *    			|------ArithmeticException</span><br><span class="hljs-comment"> *   </span><br><span class="hljs-comment"> *    面试题:</span><br><span class="hljs-comment"> *    	常见的异常有哪些？举例说明</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExceptionTest</span> </span>&#123;<br><br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="10-3、-常见异常的举例"><a href="#10-3、-常见异常的举例" class="headerlink" title="10.3、 常见异常的举例"></a>10.3、 常见异常的举例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.test.java01;<br><br><span class="hljs-keyword">import</span> java.io.File;<br><span class="hljs-keyword">import</span> java.io.FileInputStream;<br><span class="hljs-keyword">import</span> java.util.Date;<br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">import</span> org.junit.Test;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 一、异常体系结构</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * java.lang.Throwable</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> *    |------java.lang.Error: 一般不编写针对性的代码进行处理</span><br><span class="hljs-comment"> *    |------java.lang.Exception: 可以进行异常的处理</span><br><span class="hljs-comment"> *    	  |------编译时异常(checked)</span><br><span class="hljs-comment"> *    			|------IOException</span><br><span class="hljs-comment"> *    				|------FileNotFoundException</span><br><span class="hljs-comment"> *    			|------ClassNotFoundException</span><br><span class="hljs-comment"> *    	  |------运行时异常(unchecked)</span><br><span class="hljs-comment"> *    			|------NullPointerException</span><br><span class="hljs-comment"> *    			|------ArraysIndexOutOfBoundsException</span><br><span class="hljs-comment"> *    			|------ClassCastException</span><br><span class="hljs-comment"> *    			|------NumberFormatException</span><br><span class="hljs-comment"> *    			|------InputMismatchException</span><br><span class="hljs-comment"> *    			|------ArithmeticException</span><br><span class="hljs-comment"> *   </span><br><span class="hljs-comment"> *    面试题:</span><br><span class="hljs-comment"> *    	常见的异常有哪些？举例说明</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExceptionTest</span> </span>&#123;<br>	<br>	<span class="hljs-comment">//*************************以下是编译时异常***********************</span><br><span class="hljs-comment">//	@Test</span><br><span class="hljs-comment">//	public void test7() &#123;</span><br><span class="hljs-comment">//		File file = new File(&quot;hello.txt&quot;);</span><br><span class="hljs-comment">//		</span><br><span class="hljs-comment">//		FileInputStream fis = new FileInputStream(file);</span><br><span class="hljs-comment">//		</span><br><span class="hljs-comment">//		int data = fis.read();</span><br><span class="hljs-comment">//		while(data != -1) &#123;</span><br><span class="hljs-comment">//			System.out.println((char)data);</span><br><span class="hljs-comment">//			data = fis.read();</span><br><span class="hljs-comment">//		&#125;</span><br><span class="hljs-comment">//		</span><br><span class="hljs-comment">//		fis.close();</span><br><span class="hljs-comment">//	&#125;</span><br><span class="hljs-comment">//	</span><br>	<br>	<br>	<br>	<br>	<span class="hljs-comment">//**************************以下是运行时异常**************************8</span><br>	<span class="hljs-comment">//ArithmeticException算数异常</span><br>	<span class="hljs-meta">@Test</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test6</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-keyword">int</span> a = <span class="hljs-number">10</span>;<br>		<span class="hljs-keyword">int</span> b = <span class="hljs-number">0</span>;<br>		System.out.println(a/b);<br>		<br>	&#125;<br>	<br>	<br>	<span class="hljs-comment">//InputMismatchException输入类型不匹配</span><br>	<span class="hljs-meta">@Test</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test5</span><span class="hljs-params">()</span> </span>&#123;<br>		Scanner scanner = <span class="hljs-keyword">new</span> Scanner(System.in);<br>		<span class="hljs-keyword">int</span> score = scanner.nextInt();<br>		System.out.println(score);<br>		<br>		scanner.close();<br>	&#125;<br>	<br>	<br>	<span class="hljs-comment">//NumberFormatException</span><br>	<span class="hljs-meta">@Test</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test4</span><span class="hljs-params">()</span> </span>&#123;<br>		String str = <span class="hljs-string">&quot;123&quot;</span>;<br>		str = <span class="hljs-string">&quot;abc&quot;</span>;<br>		<span class="hljs-keyword">int</span> num = Integer.parseInt(str);<br>	&#125;<br>	<br>	<span class="hljs-comment">//ClassCastException</span><br>	<span class="hljs-meta">@Test</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test3</span><span class="hljs-params">()</span> </span>&#123;<br>		Object obj = <span class="hljs-keyword">new</span> Date();<br>		String str = (String)obj;<br>	&#125;<br>	<br>	<br>	<span class="hljs-comment">//IndexOutOfBoundsException</span><br>	<span class="hljs-meta">@Test</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-comment">//ArraysIndexOutOfBoundsException</span><br><span class="hljs-comment">//		int[] arr = new int[10];</span><br><span class="hljs-comment">//		System.out.println(arr[10]);</span><br>		<br>		<br>		<span class="hljs-comment">//java.lang.StringIndexOutOfBoundsException: String index out of range: 3</span><br>		String str = <span class="hljs-string">&quot;abc&quot;</span>;<br>		System.out.println(str.charAt(<span class="hljs-number">3</span>));<br>		<br>	&#125;<br>	<br>	<br>	<span class="hljs-comment">//NullPointerException</span><br>	<span class="hljs-meta">@Test</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test1</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-keyword">int</span>[] arr = <span class="hljs-keyword">null</span>;<br>		System.out.println(arr[<span class="hljs-number">3</span>]);<br>		<br>		String str = <span class="hljs-string">&quot;abc&quot;</span>;<br>		str = <span class="hljs-keyword">null</span>;<br>		System.out.println(str.charAt(<span class="hljs-number">0</span>));<br>	&#125;<br>	<br>	<br>	<br>&#125;<br><br><br></code></pre></td></tr></table></figure>
+
+<h2 id="10-4、异常处理机制一-try-catch-finally"><a href="#10-4、异常处理机制一-try-catch-finally" class="headerlink" title="10.4、异常处理机制一: try-catch-finally"></a>10.4、异常处理机制一: try-catch-finally</h2><p>在编写程序时，经常要在可能出现错误的地方加上检测的代码， 如进行x/y运算时，要检测分母为0，数据为空，输入的不是数据 而是字符等。过多的if-else分支会导致程序的代码加长、臃肿， 可读性差。因此采用异常处理机制。</p>
+<p><strong>Java异常处理</strong></p>
+<p>Java采用的异常处理机制，是将异常处理的程序代码集中在一起， 与正常的程序代码分开，使得程序简洁、优雅，并易于维护</p>
+<ul>
+<li><p>Java提供的是异常处理的抓抛模型。</p>
+</li>
+<li><p>Java程序的执行过程中如出现异常，会生成一个异常类对象， 该异常对象将被提交给Java运行时系统，这个过程称为抛出 (throw)异常。</p>
+</li>
+<li><p>异常对象的生成</p>
+<ul>
+<li>由虚拟机自动生成：程序运行过程中，虚拟机检测到程序发生了问题，如果在当 前代码中没有找到相应的处理程序，就会在后台自动创建一个对应异常类的实例 对象并抛出——自动抛出</li>
+<li>由开发人员手动创建：Exception exception = new ClassCastException();——创 建好的异常对象不抛出对程序没有任何影响，和创建一个普通对象一样</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.test.java01;<br><br><span class="hljs-keyword">import</span> java.io.File;<br><span class="hljs-keyword">import</span> java.io.FileInputStream;<br><span class="hljs-keyword">import</span> java.io.FileNotFoundException;<br><span class="hljs-keyword">import</span> java.io.IOException;<br><br><span class="hljs-keyword">import</span> org.junit.Test;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 一、异常的处理:  抓抛模型</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 过程一: &quot;抛&quot;</span><br><span class="hljs-comment"> * 		程序在正常执行过程中，一旦出现异常，就会在异常代码处，就会在异常代码处生成一个对应异常类的对象。</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 		并将此对象抛出。</span><br><span class="hljs-comment"> * 		</span><br><span class="hljs-comment"> * 		一旦抛出对象以后，其后的代码就不再执行。</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> </span><br><span class="hljs-comment"> </span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> *       关于异常对象的产生:</span><br><span class="hljs-comment"> *       		① 系统自动生成的异常对象</span><br><span class="hljs-comment"> *       		</span><br><span class="hljs-comment"> *       		② 手动的生成一个异常对象，并抛出（throw）</span><br><span class="hljs-comment"> </span><br><span class="hljs-comment"> </span><br><span class="hljs-comment"> * 过程二: &quot;抓&quot;</span><br><span class="hljs-comment"> * 			</span><br><span class="hljs-comment"> *		可以理解为异常的处理方式:</span><br><span class="hljs-comment"> *		</span><br><span class="hljs-comment"> *		①  try - catch - finally </span><br><span class="hljs-comment"> *		</span><br><span class="hljs-comment"> *		②  throws</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *二、 try - catch - finally 的使用</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *try&#123;</span><br><span class="hljs-comment"> *   //可能出现异常的代码</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *&#125;catch(异常类型1 变量名1)&#123;</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *      //处理异常的方式1</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> *&#125;catch(异常类型2 变量名2)&#123;</span><br><span class="hljs-comment"> *		//处理异常的方式2</span><br><span class="hljs-comment"> * &#125;catch(异常类型3 变量名3)&#123;</span><br><span class="hljs-comment"> * 		//处理异常的方式3</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * ......</span><br><span class="hljs-comment"> * finally&#123;</span><br><span class="hljs-comment"> * 			//一定会执行的代码</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 说明: </span><br><span class="hljs-comment"> * 1、finally是可选的。</span><br><span class="hljs-comment"> * 2、使用try将可能出现异常代码包装起来，在执行过程中，一旦出现异常，就会生成一个对应异常类的对象，根据此对象</span><br><span class="hljs-comment"> * 	的类型，去catch中进行匹配</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 3、一旦try中的异常对象匹配到某一个catch时，就进入catch中进行异常的处理。一旦处理完成，</span><br><span class="hljs-comment"> * 就跳出当前的try-catch结构(在没有写finally的情况)，继续执行其后的代码</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 4、catch中的异常类型如果没有子父类关系，则谁声明在上，谁声明在下无所谓</span><br><span class="hljs-comment"> * 	catch中的异常类型如果满足子父类关系，	则要求子类一定声明在父类的上面。否则报错</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 5、常用的异常对象处理的方式:</span><br><span class="hljs-comment"> * ①  String getMessage()</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * ②  printStackTrace()</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 6、在try结构中声明的变量，再出了try结构以后，就不能再被调用</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 7、try - catch - finally  结构可以嵌套 </span><br><span class="hljs-comment"> </span><br><span class="hljs-comment"> </span><br><span class="hljs-comment"> * 体会：使用 try - catch - finally 处理编译时异常，使得程序在编译时就不再报错</span><br><span class="hljs-comment"> * 但是运行时仍可能报错</span><br><span class="hljs-comment"> * 相当于我们使用 try - catch - finally将一个编译时可能出现的异常，延迟到运行时出现。</span><br><span class="hljs-comment"> * 	</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExceptionTest1</span> </span>&#123;<br>	<br>	<br>	<br>	<br>	<span class="hljs-meta">@Test</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-keyword">try</span> &#123;<br>			File file = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;hello.txt&quot;</span>);<br>			<br>			FileInputStream fis = <span class="hljs-keyword">new</span> FileInputStream(file);<br>			<br>			<span class="hljs-keyword">int</span> data = fis.read();<br>			<span class="hljs-keyword">while</span>(data != -<span class="hljs-number">1</span>) &#123;<br>				System.out.print((<span class="hljs-keyword">char</span>)data);<br>				data = fis.read();<br>			&#125;<br>			<br>			fis.close();<br>		&#125;<span class="hljs-keyword">catch</span>(FileNotFoundException e) &#123;<br>			e.printStackTrace();<br>		&#125;<span class="hljs-keyword">catch</span>(IOException e) &#123;<br>			e.printStackTrace();<br>		&#125;<br>	&#125;<br>	<br>	<span class="hljs-meta">@Test</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test1</span><span class="hljs-params">()</span> </span>&#123;<br>		<br>		<br>		String str = <span class="hljs-string">&quot;123&quot;</span>;<br>		str = <span class="hljs-string">&quot;abc&quot;</span>;<br>		<span class="hljs-keyword">int</span> num = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">try</span> &#123;<br>			num = Integer.parseInt(str);<br>			<span class="hljs-comment">//int num = Integer.parseInt(str);</span><br>			<br>			System.out.println(<span class="hljs-string">&quot;hello------1&quot;</span>);<br>		&#125;<span class="hljs-keyword">catch</span>(NumberFormatException e) &#123;<br>			<span class="hljs-comment">//System.out.println(&quot;出现数值转换异常了，不要着急......&quot;);</span><br>			<span class="hljs-comment">//String getMessage();</span><br>			System.out.println(e.getMessage());<br>			<span class="hljs-comment">//printStackTrace();</span><br>			e.printStackTrace();<br>		&#125;<span class="hljs-keyword">catch</span>(NullPointerException e) &#123;<br>			System.out.println(<span class="hljs-string">&quot;出现空指针异常了，不要着急......&quot;</span>);<br>		&#125;<span class="hljs-keyword">catch</span>(Exception e) &#123;<br>			System.out.println(<span class="hljs-string">&quot;出现异常了，不要着急......&quot;</span>);<br>		&#125;<br>		<br>		<span class="hljs-comment">//System.out.println(num);	</span><br>		<br>		System.out.println(<span class="hljs-string">&quot;hello------2&quot;</span>);<br>	&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="10-5、finally-的使用"><a href="#10-5、finally-的使用" class="headerlink" title="10.5、finally 的使用"></a>10.5、finally 的使用</h2><p><img   class="lazyload" data-original="https://www.picbed.cn/images/2021/06/01/8beb80ad9b428056b.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" ></p>
+<p>右键自动生成try – catch</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.test.java01;<br><br><span class="hljs-keyword">import</span> java.io.File;<br><span class="hljs-keyword">import</span> java.io.FileInputStream;<br><span class="hljs-keyword">import</span> java.io.FileNotFoundException;<br><span class="hljs-keyword">import</span> java.io.IOException;<br><br><span class="hljs-keyword">import</span> org.junit.Test;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> *  try - catch - finally 中finally的使用:</span><br><span class="hljs-comment"> *  </span><br><span class="hljs-comment"> *  </span><br><span class="hljs-comment"> * 1、finally是可选的</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 2、finally中声明的是一定会被执行的代码。即使catch又出现异常了，try中有return语句，catch中有</span><br><span class="hljs-comment"> * return语句等情况。</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 3、像数据库连接、输入输出流、网络编程Socket等资源，JVM是不能自动的回收的，我们需要自己手动的进行资源的</span><br><span class="hljs-comment"> * 释放。此时的资源释放，就需要声明在finally中。</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FinallyTest</span> </span>&#123;<br>	<br>	<span class="hljs-meta">@Test</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test3</span><span class="hljs-params">()</span></span>&#123;<br>		FileInputStream fis = <span class="hljs-keyword">null</span>;<br>		<span class="hljs-keyword">try</span> &#123;<br>			File file = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;hello1.txt&quot;</span>);<br>			<br>			fis = <span class="hljs-keyword">new</span> FileInputStream(file);<br>			<br>			<span class="hljs-keyword">int</span> data = fis.read();<br>			<span class="hljs-keyword">while</span>(data != -<span class="hljs-number">1</span>) &#123;<br>				System.out.print((<span class="hljs-keyword">char</span>)data);<br>				data = fis.read();<br>			&#125;<br>			<br>			<br>		&#125; <span class="hljs-keyword">catch</span> (FileNotFoundException e) &#123;<br>			<span class="hljs-comment">// TODO Auto-generated catch block</span><br>			e.printStackTrace();<br>		&#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>			<span class="hljs-comment">// TODO Auto-generated catch block</span><br>			e.printStackTrace();<br>		&#125;<span class="hljs-keyword">finally</span> &#123;<br>			<span class="hljs-keyword">try</span> &#123;<br>				<span class="hljs-keyword">if</span>(fis != <span class="hljs-keyword">null</span>) <span class="hljs-comment">//避免空指针异常</span><br>					fis.close();<br>				<br>				<br>			&#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>				<span class="hljs-comment">// TODO Auto-generated catch block</span><br>				e.printStackTrace();<br>			&#125;<br>		&#125;<br>	&#125;<br>	<br>	<br>	<span class="hljs-meta">@Test</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testMethod</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-keyword">int</span> num = method();<br>		System.out.println(num);<br>	&#125;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">method</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-keyword">try</span> &#123;<br>			<span class="hljs-keyword">int</span>[] arr = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">10</span>];<br><span class="hljs-comment">//			System.out.println(arr[10]);</span><br>			<br>			<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>			<br>		&#125;<span class="hljs-keyword">catch</span>(ArrayIndexOutOfBoundsException e) &#123;<br>			e.printStackTrace();<br>			<span class="hljs-keyword">return</span> <span class="hljs-number">2</span>;<br>		&#125;<span class="hljs-keyword">finally</span> &#123;<br>			System.out.println(<span class="hljs-string">&quot;会被执行&quot;</span>);<br>			<span class="hljs-keyword">return</span> <span class="hljs-number">3</span>;<br>		&#125;<br>	&#125;<br>	<br>	<span class="hljs-meta">@Test</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test1</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-keyword">try</span> &#123;<br>			<span class="hljs-keyword">int</span> a = <span class="hljs-number">10</span>;<br>			<span class="hljs-keyword">int</span> b = <span class="hljs-number">0</span>;<br>			System.out.println(a / b);<br>		&#125;<span class="hljs-keyword">catch</span>(ArithmeticException e) &#123;<br>			<span class="hljs-comment">//e.printStackTrace();</span><br>			<span class="hljs-keyword">int</span>[] arr = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">10</span>];<br>			System.out.println(arr[<span class="hljs-number">10</span>]);<br>			<br>		&#125;<span class="hljs-keyword">catch</span>(Exception e) &#123;<br>			e.printStackTrace();<br>			<br>			<br>			<br>		&#125;<br>		<span class="hljs-comment">//System.out.println(&quot;我好帅&quot;);</span><br>		<span class="hljs-keyword">finally</span> &#123;<br>			System.out.println(<span class="hljs-string">&quot;我好帅&quot;</span>);<br>		&#125;<br>	&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="10-6、编译时异常和运行时异常的不同处理"><a href="#10-6、编译时异常和运行时异常的不同处理" class="headerlink" title="10.6、编译时异常和运行时异常的不同处理"></a>10.6、编译时异常和运行时异常的不同处理</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">* 体会<span class="hljs-number">2</span>: 开发中，由于运行时异常比较常见，所以哦我们通常就不针对运行时异常编写 <span class="hljs-keyword">try</span> - <span class="hljs-keyword">catch</span> - <span class="hljs-keyword">finally</span>了。<br>* 针对于编译时异常，我们说一定要考虑异常的处理。<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="10-7、处理异常-throws-方式"><a href="#10-7、处理异常-throws-方式" class="headerlink" title="10.7、处理异常: throws 方式"></a>10.7、处理异常: throws 方式</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.test.java01;<br><br><span class="hljs-keyword">import</span> java.io.File;<br><span class="hljs-keyword">import</span> java.io.FileInputStream;<br><span class="hljs-keyword">import</span> java.io.FileNotFoundException;<br><span class="hljs-keyword">import</span> java.io.IOException;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 异常处理的方式二: throws + 异常类型</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 1、&quot;throws + 异常类型&quot;写在方法的声明处。指明此方法执行时，可能会抛出的异常类型。</span><br><span class="hljs-comment"> *    一旦当方法体执行时，出现异常，仍会在异常代码处，生成一个异常类的对象，此对象满足throws后异常类型时，就会被抛出。</span><br><span class="hljs-comment"> * 	  异常代码后续的代码，就不再执行！！！</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 2、体会: try - catch - finally : 真正的将异常给处理掉了。</span><br><span class="hljs-comment"> * 			throws的方式只是将异常抛给了方法的调用者。并没有真正将异常处理掉。</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExceptionTest2</span> </span>&#123;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>		<br>		<span class="hljs-keyword">try</span> &#123;<br>			method2();<br>		&#125;<span class="hljs-keyword">catch</span>(FileNotFoundException e) &#123;<br>			e.printStackTrace();<br>		&#125;<span class="hljs-keyword">catch</span>(IOException e) &#123;<br>			e.printStackTrace();<br>		&#125;<br>		<br><span class="hljs-comment">//		method3();</span><br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method3</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-keyword">try</span> &#123;<br>			method2();<br>		&#125;<span class="hljs-keyword">catch</span>(IOException e) &#123;<br>			e.printStackTrace();<br>		&#125;<br>	&#125;<br>	<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method2</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br>		method1();<br>	&#125;<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method1</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> FileNotFoundException,IOException</span>&#123;<br>		File file = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;hello.txt&quot;</span>);<br>		<br>		FileInputStream fis = <span class="hljs-keyword">new</span> FileInputStream(file);<br>		<br>		<span class="hljs-keyword">int</span> data = fis.read();<br>		<span class="hljs-keyword">while</span>(data != -<span class="hljs-number">1</span>) &#123;<br>			System.out.print((<span class="hljs-keyword">char</span>)data);<br>			data = fis.read();<br>		&#125;<br>		<br>		fis.close();<br>		<br>		System.out.println(<span class="hljs-string">&quot;执行了************&quot;</span>);<br>	&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="10-8、重写方法异常抛出的规则"><a href="#10-8、重写方法异常抛出的规则" class="headerlink" title="10.8、重写方法异常抛出的规则"></a>10.8、重写方法异常抛出的规则</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.test.java02;<br><br><span class="hljs-keyword">import</span> java.io.FileNotFoundException;<br><span class="hljs-keyword">import</span> java.io.IOException;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 方法重写的规则之一:</span><br><span class="hljs-comment"> * 		子类重写的方法抛出的异常类型不大于父类被重写的方法抛出的异常类型</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Overridetest</span> </span>&#123;<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		Overridetest test = <span class="hljs-keyword">new</span> Overridetest();<br>		test.display(<span class="hljs-keyword">new</span> SubClass());<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">display</span><span class="hljs-params">(SuperClass s)</span> </span>&#123;<br>		<span class="hljs-keyword">try</span> &#123;<br>			s.method();<br>		&#125;<span class="hljs-keyword">catch</span>(IOException e) &#123;<br>			e.printStackTrace();<br>		&#125;<br>	&#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SuperClass</span></span>&#123;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException</span>&#123;<br>		<br>	&#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SubClass</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">SuperClass</span></span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> FileNotFoundException</span>&#123;<br>			<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="10-9、开发中如何选择哪种方式处理异常？"><a href="#10-9、开发中如何选择哪种方式处理异常？" class="headerlink" title="10.9、开发中如何选择哪种方式处理异常？"></a>10.9、开发中如何选择哪种方式处理异常？</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.test.java02;<br><br><span class="hljs-keyword">import</span> java.io.File;<br><span class="hljs-keyword">import</span> java.io.FileInputStream;<br><span class="hljs-keyword">import</span> java.io.FileNotFoundException;<br><span class="hljs-keyword">import</span> java.io.IOException;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * 异常处理的方式二: throws + 异常类型</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 1、&quot;throws + 异常类型&quot;写在方法的声明处。指明此方法执行时，可能会抛出的异常类型。</span><br><span class="hljs-comment"> *    一旦当方法体执行时，出现异常，仍会在异常代码处，生成一个异常类的对象，此对象满足throws后异常类型时，就会被抛出。</span><br><span class="hljs-comment"> * 	  异常代码后续的代码，就不再执行！！！</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 2、体会: try - catch - finally : 真正的将异常给处理掉了。</span><br><span class="hljs-comment"> * 			throws的方式只是将异常抛给了方法的调用者。并没有真正将异常处理掉。</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 3、开发中如何选择使用 try - catch - finally  还是使用throws?</span><br><span class="hljs-comment"> * 		3.1、如果父类中被重写的方法没有throws方式处理异常，则子类重写的方法也不能使用throws,</span><br><span class="hljs-comment"> * 			意味着子类重写的方法中有异常，必须使用 try - catch - finally方式处理。</span><br><span class="hljs-comment"> * </span><br><span class="hljs-comment"> * 		3.2、执行的方法中，先后又调用了另外的几个方法，这几个方法是递进关系执行的。我们建议这几个方法使用throws的方式进行处理。</span><br><span class="hljs-comment"> * 			而执行的方法A，可以考虑使用 try - catch - finally方式进行处理。</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExceptionTest2</span> </span>&#123;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>		<br>		<span class="hljs-keyword">try</span> &#123;<br>			method2();<br>		&#125;<span class="hljs-keyword">catch</span>(FileNotFoundException e) &#123;<br>			e.printStackTrace();<br>		&#125;<span class="hljs-keyword">catch</span>(IOException e) &#123;<br>			e.printStackTrace();<br>		&#125;<br>		<br><span class="hljs-comment">//		method3();</span><br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method3</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-keyword">try</span> &#123;<br>			method2();<br>		&#125;<span class="hljs-keyword">catch</span>(IOException e) &#123;<br>			e.printStackTrace();<br>		&#125;<br>	&#125;<br>	<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method2</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br>		method1();<br>	&#125;<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method1</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> FileNotFoundException,IOException</span>&#123;<br>		File file = <span class="hljs-keyword">new</span> File(<span class="hljs-string">&quot;hello.txt&quot;</span>);<br>		<br>		FileInputStream fis = <span class="hljs-keyword">new</span> FileInputStream(file);<br>		<br>		<span class="hljs-keyword">int</span> data = fis.read();<br>		<span class="hljs-keyword">while</span>(data != -<span class="hljs-number">1</span>) &#123;<br>			System.out.print((<span class="hljs-keyword">char</span>)data);<br>			data = fis.read();<br>		&#125;<br>		<br>		fis.close();<br>		<br>		System.out.println(<span class="hljs-string">&quot;执行了************&quot;</span>);<br>	&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="10-10、手动抛出异常"><a href="#10-10、手动抛出异常" class="headerlink" title="10.10、手动抛出异常"></a>10.10、手动抛出异常</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.test.java03;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StudentTest</span> </span>&#123;<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		<br>		<span class="hljs-keyword">try</span> &#123;<br>			Student s = <span class="hljs-keyword">new</span> Student();<br>			s.regist(-<span class="hljs-number">1001</span>);<br>			System.out.println(s);<br>		&#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>			<span class="hljs-comment">// TODO Auto-generated catch block</span><br>			<span class="hljs-comment">//e.printStackTrace();</span><br>			System.out.println(e.getMessage());<br>		&#125;<br>	&#125;<br>&#125;<br><br><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span></span>&#123;<br>	<br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> id;<br>	<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">regist</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>		<span class="hljs-keyword">if</span>(id &gt; <span class="hljs-number">0</span>) &#123;<br>			<span class="hljs-keyword">this</span>.id = id;<br>		&#125;<span class="hljs-keyword">else</span> &#123;<br><span class="hljs-comment">//			System.out.println(&quot;id非法&quot;);</span><br>			<br>		<span class="hljs-comment">//手动抛出异常对象</span><br>			<span class="hljs-comment">//RuntimeException</span><br>			<span class="hljs-comment">//throw new RuntimeException(&quot;id非法&quot;);</span><br>			<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Exception(<span class="hljs-string">&quot;id非法&quot;</span>);		<br>		&#125;<br>	&#125;<br><br>	<span class="hljs-meta">@Override</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Student [id=&quot;</span> + id + <span class="hljs-string">&quot;]&quot;</span>;<br>	&#125;<br>	<br>	<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="10-11、用户自定义异常类"><a href="#10-11、用户自定义异常类" class="headerlink" title="10.11、用户自定义异常类"></a>10.11、用户自定义异常类</h2>
+      </section>
+      <section class="extra">
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://www.picbed.cn/images/2021/04/30/1a97c92362332d74f.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a></a>
+    <a href="/2021/05/29/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaScript学习笔记<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#10%E3%80%81%E5%BC%82%E5%B8%B8"><span class="toc-text">10、异常</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#10-1%E3%80%81%E5%BC%82%E5%B8%B8%E6%A6%82%E8%BF%B0"><span class="toc-text">10.1、异常概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-2%E3%80%81-%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-text">10.2、 异常体系结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-3%E3%80%81-%E5%B8%B8%E8%A7%81%E5%BC%82%E5%B8%B8%E7%9A%84%E4%B8%BE%E4%BE%8B"><span class="toc-text">10.3、 常见异常的举例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-4%E3%80%81%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6%E4%B8%80-try-catch-finally"><span class="toc-text">10.4、异常处理机制一: try-catch-finally</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-5%E3%80%81finally-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">10.5、finally 的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-6%E3%80%81%E7%BC%96%E8%AF%91%E6%97%B6%E5%BC%82%E5%B8%B8%E5%92%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E5%BC%82%E5%B8%B8%E7%9A%84%E4%B8%8D%E5%90%8C%E5%A4%84%E7%90%86"><span class="toc-text">10.6、编译时异常和运行时异常的不同处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-7%E3%80%81%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8-throws-%E6%96%B9%E5%BC%8F"><span class="toc-text">10.7、处理异常: throws 方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-8%E3%80%81%E9%87%8D%E5%86%99%E6%96%B9%E6%B3%95%E5%BC%82%E5%B8%B8%E6%8A%9B%E5%87%BA%E7%9A%84%E8%A7%84%E5%88%99"><span class="toc-text">10.8、重写方法异常抛出的规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-9%E3%80%81%E5%BC%80%E5%8F%91%E4%B8%AD%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%93%AA%E7%A7%8D%E6%96%B9%E5%BC%8F%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8%EF%BC%9F"><span class="toc-text">10.9、开发中如何选择哪种方式处理异常？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-10%E3%80%81%E6%89%8B%E5%8A%A8%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8"><span class="toc-text">10.10、手动抛出异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-11%E3%80%81%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8%E7%B1%BB"><span class="toc-text">10.11、用户自定义异常类</span></a></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=858144715 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="https://github.com/CodeTestC "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:858144715@qq.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
