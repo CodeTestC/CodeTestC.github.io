@@ -1,0 +1,458 @@
+
+
+<!DOCTYPE html>
+<html lang="en" color-mode=light>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Java高级之多线程 - 我的小时光</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  <meta name="description" content="多线程1、基本概念:程序、进程、线程
+程序(progr...">
+  <meta name="author" content="chen">
+  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
+  
+  
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1445822_r673sha78lq.css">
+
+  
+
+  
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  
+
+  
+    
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+
+      
+        
+        
+<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+
+      
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {};
+    var ZHAOO = window.ZHAOO || {};
+    CONFIG = {
+      isHome: false,
+      fancybox: true,
+      pjax: false,
+      lazyload: {
+        enable: true,
+        only_post: 'false',
+        loading: '[object Object]'
+      },
+      donate: {
+        enable: true,
+        alipay: 'https://www.picbed.cn/images/2021/04/30/1a97c92362332d74f.png',
+        wechat: 'https://www.picbed.cn/images/2021/04/30/1cea1223e43f59565.png'
+      },
+      galleries: {
+        enable: true
+      },
+      fab: {
+        enable: true,
+        always_show: false
+      },
+      carrier: {
+        enable: true
+      },
+      daovoice: {
+        enable: false
+      },
+      preview: {
+        background: {
+          default: '',
+          api: ''
+        },
+        motto: {
+          default: '我在开了灯的床头下，想问问自己的心啊。',
+          typing: true,
+          api: 'https://v2.jinrishici.com/one.json',
+          data_contents: '["data","content"]'
+        },
+      },
+      qrcode: {
+        enable: true,
+        type: 'url',
+        image: 'https://www.picbed.cn/images/2021/04/30/mmqrcode1619760412850.jpg',
+      },
+      toc: {
+        enable: true
+      },
+      scrollbar: {
+        type: 'default'
+      },
+      notification: {
+        enable: false,
+        delay: 4500,
+        list: '',
+        page_white_list: '',
+        page_black_list: ''
+      },
+      search: {
+        enable: false,
+        path: 'search.xml'
+      }
+    }
+  </script>
+
+  
+
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="lock-screen">
+  <div class="loading"></div>
+  
+    
+
+
+  <nav class="navbar">
+    <div class="left">
+      
+        <i class="iconfont iconhome j-navbar-back-home"></i>
+      
+      
+        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
+      
+      
+        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
+      
+      
+    </div>
+    <div class="center">Java高级之多线程</div>
+    <div class="right">
+      <i class="iconfont iconmenu j-navbar-menu"></i>
+    </div>
+    
+      <div id="qrcode-navbar"></div>
+    
+  </nav>
+
+  
+  
+
+<nav class="menu">
+  <div class="menu-container">
+    <div class="menu-close">
+      <i class="iconfont iconbaseline-close-px"></i>
+    </div>
+    <ul class="menu-content"><li class="menu-item">
+        <a href="/ " class="underline "> 首页</a>
+      </li><li class="menu-item">
+        <a href="/galleries/ " class="underline "> 摄影</a>
+      </li><li class="menu-item">
+        <a href="/archives/ " class="underline "> 归档</a>
+      </li><li class="menu-item">
+        <a href="/tags/ " class="underline "> 标签</a>
+      </li><li class="menu-item">
+        <a href="/categories/ " class="underline "> 分类</a>
+      </li><li class="menu-item">
+        <a href="/about/ " class="underline "> 关于</a>
+      </li></ul>
+    
+      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+    
+  </div>
+</nav>
+  <main id="main">
+  <div class="article-wrap">
+    <div class="row container">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6"><article class="article">
+  <div class="wrap">
+    <section class="head">
+  <img   class="lazyload" data-original="https://www.picbed.cn/images/2021/04/30/160-1606471_logo-java.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">Java高级之多线程</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>June 02, 2021</span>
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>8956</span>
+    </div>
+  </div>
+</section>
+    <section class="main">
+      <section class="content">
+        <h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h2 id="1、基本概念-程序、进程、线程"><a href="#1、基本概念-程序、进程、线程" class="headerlink" title="1、基本概念:程序、进程、线程"></a>1、基本概念:程序、进程、线程</h2><ul>
+<li><p>程序(program)是为完成特定任务、用某种语言编写的一组指令的集合。即指一 段静态的代码，静态对象。 </p>
+</li>
+<li><p>进程(process)是程序的一次执行过程，或是正在运行的一个程序。是一个动态 的过程：有它自身的产生、存在和消亡的过程。——生命周期 </p>
+<ul>
+<li>如：运行中的QQ，运行中的MP3播放器</li>
+<li>程序是静态的，进程是动态的 </li>
+<li>进程作为资源分配的单位，系统在运行时会为每个进程分配不同的内存区域 </li>
+</ul>
+</li>
+<li><p>线程(thread)，进程可进一步细化为线程，是一个程序内部的一条执行路径。 </p>
+<ul>
+<li>若一个进程同一时间并行执行多个线程，就是支持多线程的 </li>
+<li>线程作为调度和执行的单位，每个线程拥有独立的运行栈和程序计数器(pc)，线程切换的开 销小 </li>
+<li>一个进程中的多个线程共享相同的内存单元/内存地址空间它们从同一堆中分配对象，可以 访问相同的变量和对象。这就使得线程间通信更简便、高效。但多个线程操作共享的系统资 源可能就会带来安全的隐患。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>单核CPU和多核CPU的理解<ul>
+<li>单核CPU，其实是一种假的多线程，因为在一个时间单元内，也只能执行一个线程 的任务。例如：虽然有多车道，但是收费站只有一个工作人员在收费，只有收了费 才能通过，那么CPU就好比收费人员。如果有某个人不想交钱，那么收费人员可以 把他“挂起”（晾着他，等他想通了，准备好了钱，再去收费）。但是因为CPU时 间单元特别短，因此感觉不出来。</li>
+<li>如果是多核的话，才能更好的发挥多线程的效率。（现在的服务器都是多核的）</li>
+<li> 一个Java应用程序java.exe，其实至少有三个线程：main()主线程，gc() 垃圾回收线程，异常处理线程。当然如果发生异常，会影响主线程。</li>
+</ul>
+</li>
+<li>并行与并发<ul>
+<li>并行：多个CPU同时执行多个任务。比如：多个人同时做不同的事。</li>
+<li>并发：一个CPU(采用时间片)同时执行多个任务。比如：秒杀、多个人做同一件事。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2、多线程的优点等"><a href="#2、多线程的优点等" class="headerlink" title="2、多线程的优点等"></a>2、多线程的优点等</h2><p>以单核CPU为例，只使用单个线程先后完成多个任务（调用多个方 法），肯定比用多个线程来完成用的时间更短，为何仍需多线程呢？</p>
+<p>多线程的优点：</p>
+<ul>
+<li>提高应用程序的响应。对图形化界面更有意义，可增强用户体验</li>
+<li>提高计算机系统CPU的利用率</li>
+<li>改善程序结构。将即长又复杂的进程分为多个线程，独立运行，利于理解和修改</li>
+</ul>
+<p>什么时候需要多线程？</p>
+<ul>
+<li>程序需要同时执行两个或多个任务</li>
+<li>程序需要实现一些需要等待的任务时，如用户输入、文件读写操作、网络操作、搜索等</li>
+<li>需要一些后台运行的程序时</li>
+</ul>
+<h2 id="3、多线程的创建，方式一-继承于Thread类"><a href="#3、多线程的创建，方式一-继承于Thread类" class="headerlink" title="3、多线程的创建，方式一: 继承于Thread类"></a>3、多线程的创建，方式一: 继承于Thread类</h2><ul>
+<li><p>Java语言的JVM允许程序运行多个线程，它通过java.lang.Thread类来体现。</p>
+</li>
+<li><p>Thread类的特性</p>
+<ul>
+<li>每个线程都是通过某个特定的Thread对象的run()方法来完成操作的，经常把run()方法的主体称为线程体</li>
+<li>通过该Thread对象的start()方法来启动这个线程，而非直接调用run()</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.test.java;<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">       多线程的创建，方式一: 继承于Thread类</span><br><span class="hljs-comment">       1、创建一个继承于Thread类的子类</span><br><span class="hljs-comment">       2、重写Thread类的run() --&gt; 将此线程执行的操作声明在run()中</span><br><span class="hljs-comment">       3、创建Thread类的子类的对象</span><br><span class="hljs-comment">       4、通过此对象调用start()</span><br><span class="hljs-comment"></span><br><span class="hljs-comment"></span><br><span class="hljs-comment">       例子:</span><br><span class="hljs-comment">            遍历100以内的所有的偶数</span><br><span class="hljs-comment"></span><br><span class="hljs-comment"></span><br><span class="hljs-comment"> */</span><br><br><span class="hljs-comment">//1、创建一个继承于Thread类的子类</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>&#123;<br>    <span class="hljs-comment">// 2、重写Thread类的run()</span><br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;<br>            <span class="hljs-keyword">if</span>(i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)&#123;<br>                System.out.println(i);<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadTest</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>       <span class="hljs-comment">// 3、创建Thread类的子类的对象</span><br><br>        MyThread t1 = <span class="hljs-keyword">new</span> MyThread();<br>        <span class="hljs-comment">// 4、通过此对象调用start()</span><br>        t1.start();<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;<br>            <span class="hljs-keyword">if</span>(i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)&#123;<br>                System.out.println(i+<span class="hljs-string">&quot;*****main()*********&quot;</span>);<br><br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="4、创建过程中两个问题的说明"><a href="#4、创建过程中两个问题的说明" class="headerlink" title="4、创建过程中两个问题的说明"></a>4、创建过程中两个问题的说明</h2><blockquote>
+<p>4、通过此对象调用start(): ①启动当前进程 ②调用当前线程的run()</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//如下操作仍然是在main线程中执行的。</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;<br>            <span class="hljs-keyword">if</span>(i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)&#123;<br>                System.out.println(i+<span class="hljs-string">&quot;*****main()*********&quot;</span>);<br><br>            &#125;<br>        &#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.test.java;<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">       多线程的创建，方式一: 继承于Thread类</span><br><span class="hljs-comment">       1、创建一个继承于Thread类的子类</span><br><span class="hljs-comment">       2、重写Thread类的run() --&gt; 将此线程执行的操作声明在run()中</span><br><span class="hljs-comment">       3、创建Thread类的子类的对象</span><br><span class="hljs-comment">       4、通过此对象调用start()</span><br><span class="hljs-comment"></span><br><span class="hljs-comment"></span><br><span class="hljs-comment">       例子:</span><br><span class="hljs-comment">            遍历100以内的所有的偶数</span><br><span class="hljs-comment"></span><br><span class="hljs-comment"></span><br><span class="hljs-comment"> */</span><br><br><span class="hljs-comment">//1、创建一个继承于Thread类的子类</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>&#123;<br>    <span class="hljs-comment">// 2、重写Thread类的run()</span><br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;<br>            <span class="hljs-keyword">if</span>(i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)&#123;<br>                System.out.println(Thread.currentThread().getName()+<span class="hljs-string">&quot;:&quot;</span>+i);<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadTest</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>       <span class="hljs-comment">// 3、创建Thread类的子类的对象</span><br><br>        MyThread t1 = <span class="hljs-keyword">new</span> MyThread();<br>        <span class="hljs-comment">// 4、通过此对象调用start(): ①启动当前进程 ②调用当前线程的run()</span><br><br>        t1.start();<br><span class="hljs-comment">//问题一:  我们不能通过直接调用run()的方式启动线程</span><br>        <span class="hljs-comment">//t1.run();</span><br><br><span class="hljs-comment">//问题二: 再启动一个线程，遍历100以内的偶数.不可以还让已经start()的线程去执行。会报非法的线程状态</span><br>        <span class="hljs-comment">//t1.start();//IllegalThreadStateException非法的线程状态</span><br><br>        <span class="hljs-comment">//我们需要重新创建一个线程的对象</span><br>        MyThread t2 = <span class="hljs-keyword">new</span> MyThread();<br>        t2.start();<br>        <span class="hljs-comment">//如下操作仍然是在main线程中执行的。</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;<br>            <span class="hljs-keyword">if</span>(i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)&#123;<br>                System.out.println(i+<span class="hljs-string">&quot;*****main()*********&quot;</span>);<br><br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="5、线程的常用方法"><a href="#5、线程的常用方法" class="headerlink" title="5、线程的常用方法"></a>5、线程的常用方法</h2><ul>
+<li>void start() : 启动线程，并执行对象的run()方法</li>
+<li>run(): 线程在被调度时执行的操作</li>
+<li>String getName(): 返回线程的名称</li>
+<li>void setName(String name):设置该线程名称</li>
+<li>static Thread currentThread(): 返回当前线程。在Thread子类中就是this,通常用于主线程和Runnable实现类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.test.exer;<br><span class="hljs-comment">/*</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">测试Thread中的常用方法</span><br><span class="hljs-comment">1、start(): 启动当前线程；调用当前线程的run()</span><br><span class="hljs-comment">2、run(): 通常需要重写Thread类中的此方法，将创建的线程要执行的操作声明在此方法中</span><br><span class="hljs-comment">3、currentThread(): 静态方法。返回执行当前代码的线程</span><br><span class="hljs-comment">4、getName(): 获取当前线程的名字</span><br><span class="hljs-comment">5、setName(): 设置当前线程的名字</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">6、yield(): 释放当前cpu的执行权</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">7、join(): 在线程A中调用线程B的join(),此时线程A就进入阻塞状态，直到线程B完全执行完以后，线程A才结束阻塞状态。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">8、stop(): 已过时。当执行此方法时，强制结束当前线程。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">9、sleep(long Millittime):  让当前线程&quot;睡眠&quot;指定的Millittime毫秒。在指定的Millittime毫秒时间内，当前</span><br><span class="hljs-comment">                           线程时阻塞状态。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">10、isAlive(): 判断当前线程是否存活</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span></span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">HelloThread</span><span class="hljs-params">(String name)</span></span>&#123;<br>        <span class="hljs-keyword">super</span>(name);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;<br>            <span class="hljs-keyword">if</span>(i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)&#123;<br><br>                <span class="hljs-keyword">try</span> &#123;<br>                    sleep(<span class="hljs-number">10</span>);<br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>                System.out.println(Thread.currentThread().getName()+<span class="hljs-string">&quot;:&quot;</span>+i);<br><br><br>            &#125;<br><br><span class="hljs-comment">//            if(i % 20 == 0)&#123;</span><br><span class="hljs-comment">//                yield();//释放执行权</span><br><span class="hljs-comment">//            &#125;</span><br>        &#125;<br><br>    &#125;<br>&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadMethodTest</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        HelloThread h1 = <span class="hljs-keyword">new</span> HelloThread(<span class="hljs-string">&quot;Thread:1&quot;</span>);<br>       <span class="hljs-comment">// h1.setName(&quot;线程1&quot;);</span><br>        h1.start();<br><br>        <span class="hljs-comment">//给主线程命名</span><br>        Thread.currentThread().setName(<span class="hljs-string">&quot;主线程&quot;</span>);<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;<br>            <span class="hljs-keyword">if</span>(i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)&#123;<br>                System.out.println(Thread.currentThread().getName()+<span class="hljs-string">&quot;:&quot;</span>+i);<br><br>            &#125;<br>            <span class="hljs-keyword">if</span>(i == <span class="hljs-number">20</span>)&#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    h1.join();<br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>            &#125;<br>        &#125;<br><br>        System.out.println(h1.isAlive());<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="6、线程优先级的设置"><a href="#6、线程优先级的设置" class="headerlink" title="6、线程优先级的设置"></a>6、线程优先级的设置</h2><p>线程的调度</p>
+<p>调度策略：</p>
+<ul>
+<li>时间片</li>
+<li>抢占式: 高优先级的线程抢占CPU</li>
+</ul>
+<p>Java的调度方法</p>
+<ul>
+<li>同优先级线程组成先进先出队列(先到先服务)，使用时间片策略</li>
+<li>对高优先级，使用优先调度的抢占式策略</li>
+</ul>
+<p>线程的优先级等级</p>
+<ul>
+<li>MAX_PRIORITY: 10</li>
+<li>MIN_PRIORITY: 1</li>
+<li>NORM_PRIORITY : 5</li>
+</ul>
+<p>涉及的方法：</p>
+<ul>
+<li>getPriority() : 返回线程优先值</li>
+<li>setPriority(int newPriority):改变线程的优先级</li>
+</ul>
+<p>说明:</p>
+<ul>
+<li>线程创建时继承父线程的优先级</li>
+<li>低优先级只是获得调度的概率低，并非一定是在高优先级线程之后才被调用</li>
+</ul>
+<p>idea 查看 类 所有方法的快捷键</p>
+<p>Idea:ctrl+F12</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.test.exer;<br><span class="hljs-comment">/*</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">测试Thread中的常用方法</span><br><span class="hljs-comment">1、start(): 启动当前线程；调用当前线程的run()</span><br><span class="hljs-comment">2、run(): 通常需要重写Thread类中的此方法，将创建的线程要执行的操作声明在此方法中</span><br><span class="hljs-comment">3、currentThread(): 静态方法。返回执行当前代码的线程</span><br><span class="hljs-comment">4、getName(): 获取当前线程的名字</span><br><span class="hljs-comment">5、setName(): 设置当前线程的名字</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">6、yield(): 释放当前cpu的执行权</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">7、join(): 在线程A中调用线程B的join(),此时线程A就进入阻塞状态，直到线程B完全执行完以后，线程A才结束阻塞状态。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">8、stop(): 已过时。当执行此方法时，强制结束当前线程。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">9、sleep(long Millittime):  让当前线程&quot;睡眠&quot;指定的Millittime毫秒。在指定的Millittime毫秒时间内，当前</span><br><span class="hljs-comment">                           线程时阻塞状态。</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">10、isAlive(): 判断当前线程是否存活</span><br><span class="hljs-comment"></span><br><span class="hljs-comment"></span><br><span class="hljs-comment">线程的优先级:</span><br><span class="hljs-comment">1、- MAX_PRIORITY: 10</span><br><span class="hljs-comment">- MIN_PRIORITY: 1</span><br><span class="hljs-comment">- NORM_PRIORITY : 5 ----&gt;默认优先级</span><br><span class="hljs-comment">2、如何获取和设置当前线程的优先级:</span><br><span class="hljs-comment">    - getPriority() : 返回线程优先值</span><br><span class="hljs-comment">    - setPriority(int newPriority):改变线程的优先级</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">    说明： 高优先级的线程要抢占低优先级线程cpu的执行权。</span><br><span class="hljs-comment">    但是只是从概率上讲，高优先级的线程高概率的情况下被执行。并不意味着只有当高优先级的线程执行完以后，低优先级的线程才执行。</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span></span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">HelloThread</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">super</span>();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">HelloThread</span><span class="hljs-params">(String name)</span></span>&#123;<br>        <span class="hljs-keyword">super</span>(name);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;<br>            <span class="hljs-keyword">if</span>(i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)&#123;<br><br><span class="hljs-comment">//                try &#123;</span><br><span class="hljs-comment">//                    sleep(10);</span><br><span class="hljs-comment">//                &#125; catch (InterruptedException e) &#123;</span><br><span class="hljs-comment">//                    e.printStackTrace();</span><br><span class="hljs-comment">//                &#125;</span><br>                System.out.println(Thread.currentThread().getName()+<span class="hljs-string">&quot;:&quot;</span>+Thread.currentThread().getPriority()+<span class="hljs-string">&quot;:&quot;</span>+i);<br><br><br>            &#125;<br><br><span class="hljs-comment">//            if(i % 20 == 0)&#123;</span><br><span class="hljs-comment">//                yield();//释放执行权</span><br><span class="hljs-comment">//            &#125;</span><br>        &#125;<br><br>    &#125;<br>&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadMethodTest</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        HelloThread h1 = <span class="hljs-keyword">new</span> HelloThread(<span class="hljs-string">&quot;Thread:1&quot;</span>);<br>       <span class="hljs-comment">// h1.setName(&quot;线程1&quot;);</span><br><br>        <span class="hljs-comment">//设置分线程的优先级</span><br>        h1.setPriority(Thread.MAX_PRIORITY);<br><br>        h1.start();<br><br>        <span class="hljs-comment">//给主线程命名</span><br>        Thread.currentThread().setName(<span class="hljs-string">&quot;主线程&quot;</span>);<br>        Thread.currentThread().setPriority(Thread.MIN_PRIORITY);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;<br>            <span class="hljs-keyword">if</span>(i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)&#123;<br>                System.out.println(Thread.currentThread().getName()+<span class="hljs-string">&quot;:&quot;</span>+Thread.currentThread().getPriority()+<span class="hljs-string">&quot;:&quot;</span>+i);<br><br>            &#125;<br><span class="hljs-comment">//            if(i == 20)&#123;</span><br><span class="hljs-comment">//                try &#123;</span><br><span class="hljs-comment">//                    h1.join();</span><br><span class="hljs-comment">//                &#125; catch (InterruptedException e) &#123;</span><br><span class="hljs-comment">//                    e.printStackTrace();</span><br><span class="hljs-comment">//                &#125;</span><br><span class="hljs-comment">//            &#125;</span><br>        &#125;<br><br><span class="hljs-comment">//        System.out.println(h1.isAlive());</span><br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="7、多线程的创建，方式二-实现Runnable"><a href="#7、多线程的创建，方式二-实现Runnable" class="headerlink" title="7、多线程的创建，方式二: 实现Runnable"></a>7、多线程的创建，方式二: 实现Runnable</h2>
+      </section>
+      <section class="extra">
+        
+        
+          <section class="donate">
+  <div id="qrcode-donate">
+    <img   class="lazyload" data-original="https://www.picbed.cn/images/2021/04/30/1a97c92362332d74f.png" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" >
+  </div>
+  <div class="icon">
+    <a href="javascript:;" id="alipay"><i class="iconfont iconalipay"></i></a>
+    <a href="javascript:;" id="wechat"><i class="iconfont iconwechat-fill"></i></a>
+  </div>
+</section>
+        
+        
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul> 
+
+        
+  <nav class="nav">
+    <a href="/2021/06/02/IDEA/"><i class="iconfont iconleft"></i>IDEA</a>
+    <a href="/2021/06/02/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%BC%82%E5%B8%B8/">异常处理<i class="iconfont iconright"></i></a>
+  </nav>
+
+      </section>
+      
+    </section>
+  </div>
+</article></div>
+      <div class="col-xl-3">
+        
+          
+  <aside class="toc-wrap">
+    <h3 class="toc-title">文章目录：</h3>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-text">多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-%E7%A8%8B%E5%BA%8F%E3%80%81%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B"><span class="toc-text">1、基本概念:程序、进程、线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BC%98%E7%82%B9%E7%AD%89"><span class="toc-text">2、多线程的优点等</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA%EF%BC%8C%E6%96%B9%E5%BC%8F%E4%B8%80-%E7%BB%A7%E6%89%BF%E4%BA%8EThread%E7%B1%BB"><span class="toc-text">3、多线程的创建，方式一: 继承于Thread类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%B8%AD%E4%B8%A4%E4%B8%AA%E9%97%AE%E9%A2%98%E7%9A%84%E8%AF%B4%E6%98%8E"><span class="toc-text">4、创建过程中两个问题的说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">5、线程的常用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E3%80%81%E7%BA%BF%E7%A8%8B%E4%BC%98%E5%85%88%E7%BA%A7%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="toc-text">6、线程优先级的设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7%E3%80%81%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA%EF%BC%8C%E6%96%B9%E5%BC%8F%E4%BA%8C-%E5%AE%9E%E7%8E%B0Runnable"><span class="toc-text">7、多线程的创建，方式二: 实现Runnable</span></a></li></ol></li></ol>
+  </aside>
+
+        
+      </div>
+    </div>
+  </div>
+</main>
+  
+
+<footer class="footer">
+  <div class="footer-social"><a 
+        href="tencent://message/?Menu=yes&uin=858144715 "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#12B7F5'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconQQ "></i>
+      </a><a 
+        href="https://github.com/CodeTestC "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color= '#9f7be1'" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  icongithub-fill "></i>
+      </a><a 
+        href="mailto:858144715@qq.com "
+        target="_blank"
+        class="footer-social-item"
+        onMouseOver="this.style.color=#FF3B00" 
+        onMouseOut="this.style.color='#33333D'">
+          <i class="iconfont  iconmail"></i>
+      </a></div>
+  
+    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
+  
+</footer>
+  
+      <div class="fab fab-plus">
+    <i class="iconfont iconplus"></i>
+  </div>
+  
+  
+  <div class="fab fab-up">
+    <i class="iconfont iconcaret-up"></i>
+  </div>
+  
+  
+  
+    
+<script src="/js/color-mode.js"></script>
+
+  
+  
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+  
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+
+
+
+
+<script src="/js/utils.js"></script>
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+  <script>
+    (function () {
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
